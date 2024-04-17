@@ -39,7 +39,7 @@ The JSON object represents a dialog structure with annotations. The primary key 
 
 ### Root Level
 
-- `<dialog_id>` (`dict`): Contains the details of each turn in the conversation and serves as the root level of the structure.
+- `<dialog_id>` (`dict`): Contains the details of each dialog in the dataset and serves as the root level of the structure.
 
 ### <dialog_id> Fields
 
