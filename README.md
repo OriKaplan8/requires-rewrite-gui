@@ -1,3 +1,8 @@
+## Note for Users
+
+This GitHub repository is intended for use by administrators. Annotators can only receive the executable (`exe`) file and do not require access to the source code or any other files hosted here. 
+
+
 ## Getting Started
 
 This section guides you through setting up and starting the Require-rewrite-context-gui program, designed for annotating 'requires rewrite' and 'enough context' fields.
