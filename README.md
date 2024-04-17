@@ -69,25 +69,27 @@ Here's a sample JSON snippet for quick reference:
 
 ```json
 {
-  "dialog": [
-    {
-      "turn_num": 0,
-      "sample_id": "QReCC-Train_1102_1",
-      "original_question": "Why did Gavin leave Titãs?",
-      "answer": "Gavin stated that he was physically and mentally exhausted because of the Titas tours and album releases."
+    "QReCC-Train_1102": {
+        "number_of_turns": 2,
+        "annotator_id": null,
+        "dialog": [
+            {
+                "turn_num": 0,
+                "sample_id": "QReCC-Train_1102_1",
+                "original_question": "Why did Gavin leave Tit\u00e3s?",
+                "answer": "Gavin stated that he was physically and mentally exhausted because of the Titas tours and album releases."
+            },
+            {
+                "turn_num": 1,
+                "sample_id": "QReCC-Train_1102_2",
+                "original_question": "Did they replace him with anyone?",
+                "answer": "Yes, Drummer Mario Fabre, who has remained with the Titas since then as a session member."
+            }
+        ],
+        "1": {
+            "sample_id": "QReCC-Train_1102_2",
+            "requires_rewrite": null,
+            "enough_context": null
+        }
     },
-    {
-      "turn_num": 1,
-      "sample_id": "QReCC-Train_1102_2",
-      "original_question": "Did they replace him with anyone?",
-      "answer": "Yes, Drummer Mario Fabre, who has remained with the Titas since then as a session member."
-    }
-  ],
-  "number_of_turns": 2,
-  "annotator_id": null,
-  "1": {
-    "sample_id": "QReCC-Train_1102_2",
-    "requires_rewrite": null,
-    "enough_context": null
-  }
-}
+    "QReCC-Train_7296": {
