@@ -18,3 +18,11 @@ To view your annotations or those made by other annotators:
 - Use the `mongo_data_manager.ipynb` notebook. This notebook contains a function called `retrieve_annotation_by_user_and_file_id`, which you can run with the desired filename and username to retrieve the relevant annotations.
 
 Further details and functions are explained within the notebook itself.
+
+## Repository Files
+
+### `annotation_sources_asi`
+This folder contains the original `.xlsx` file provided by ASI, along with a `.json` file that was created from the Excel data. 
+
+### `annotation_requires_rewrite_gui.ipynb`
+This Jupyter Notebook contains the source code for the Require-rewrite-context-gui software. It includes detailed explanations of each function used within the software.
