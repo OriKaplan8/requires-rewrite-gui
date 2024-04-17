@@ -31,3 +31,61 @@ This folder contains the original `.xlsx` file provided by ASI, along with a `.j
 
 ### `annotation_requires_rewrite_gui.ipynb`
 This Jupyter Notebook contains the source code for the Require-rewrite-context-gui software. It includes detailed explanations of each function used within the software.
+
+
+## JSON Structure Description
+
+The JSON object represents a dialog structure with annotations. Below is the structure and description of each field within the JSON:
+
+### Root Object Fields
+
+- `number_of_turns` (`integer`): Indicates the total number of turns.
+- `annotator_id` (`string` or `null`): Identifier for the annotator. If `null`, it indicates that the field has not been filled in yet.
+- `dialog` (`list` of `dict`): Contains the details of each turn in the dialog. Detailed structure is explained below.
+- `<turn_num>` (`dict`): Key-value pairs representing specific turns that can be annotated. These fields are indexed by numbers. Structure and field types are detailed below.
+
+### Dialog Fields
+
+Each object in the `dialog` array includes the following fields:
+
+- `turn_num` (`integer`): The sequential number of the turn within the dialog.
+- `sample_id` (`string`): A unique identifier for the dialog turn.
+- `original_question` (`string`): The original question asked in the turn.
+- `answer` (`string`): The answer provided in the turn.
+
+### <turn_num> Annotatable Turns
+
+This section includes additional fields that provide specific annotations for certain turns:
+
+- `sample_id` (`string`):  A unique identifier for the dialog turn.
+- `requires_rewrite` (`boolean` or `null`): Indicates whether the dialog or turn requires rewriting. If `null`, it indicates that the field has not been filled in yet.
+- `enough_context` (`boolean` or `null`): Determines whether the turn has enough context for understanding. If `null`, it indicates that the field has not been filled in yet.
+
+Here's a sample JSON snippet for quick reference:
+
+```json
+{
+  "QReCC-Train_1102": {
+    "number_of_turns": 2,
+    "annotator_id": null,
+    "dialog": [
+      {
+        "turn_num": 0,
+        "sample_id": "QReCC-Train_1102_1",
+        "original_question": "Why did Gavin leave Titãs?",
+        "answer": "Gavin stated that he was physically and mentally exhausted because of the Titas tours and album releases."
+      },
+      {
+        "turn_num": 1,
+        "sample_id": "QReCC-Train_1102_2",
+        "original_question": "Did they replace him with anyone?",
+        "answer": "Yes, Drummer Mario Fabre, who has remained with the Titas since then as a session member."
+      }
+    ],
+    "1": {
+      "sample_id": "QReCC-Train_1102_2",
+      "requires_rewrite": null,
+      "enough_context": null
+    }
+  }
+}
