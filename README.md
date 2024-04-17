@@ -14,7 +14,7 @@ Download the executable file (`.exe`) to your computer. Once downloaded, simply 
 ### Using the Program
 
 To annotate the `asi` dataset:
-1. Enter the filename `asi-14-4` in the filename prompt.
+1. Enter the filename `asi-14_4` in the filename prompt.
 2. Provide a username. This username will be associated with your annotations, allowing for personalized data tracking.
 
 ### Reviewing Annotations
