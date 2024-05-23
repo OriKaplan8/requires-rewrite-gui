@@ -1,5 +1,6 @@
 import datetime
 import tkinter as tk
+from tkinter import font
 from tkinter import ttk, font, simpledialog, messagebox
 import random
 from pymongo import MongoClient
@@ -288,6 +289,7 @@ class FontSizeChanger:
     def __init__(self, position, root, font_size=12):
         self.root = root
         self.font_size = font_size
+        self.exlude_widgets = []
 
         # "+" button to increase font size
         increase_font_button = tk.Button(
@@ -300,6 +302,9 @@ class FontSizeChanger:
             position, text="-", command=self.decrease_font_size
         )
         decrease_font_button.pack(side=tk.LEFT, padx=(0, 10), pady=10)
+
+    def add_exclude_widget(self, widget):
+        self.exlude_widgets.append(widget)
 
     def increase_font_size(self):
         """Increases the font size by 1 if it's less than 30.
@@ -332,7 +337,8 @@ class FontSizeChanger:
         new_font = font.Font(size=self.font_size)
 
         try:
-            widget.configure(font=new_font)
+            if widget not in self.exlude_widgets:
+                widget.configure(font=new_font)
         except:
             pass
 
@@ -368,19 +374,46 @@ class FontSizeChanger:
 
 
 class ProgressIndicator:
-    def __init__(self, position):
+    def __init__(self, position, dialog_change_function=None):
         """
         Initializes a ProgressIndicator object.
 
         Args:
             position (tkinter.Tk): The position where the labels will be placed.
         """
-        # Current dialog and turn labels
-        self.current_dialog_label = tk.Label(position, text="")
-        self.current_dialog_label.pack(side=tk.LEFT, padx=10, pady=10)
+        self.dialog_change_function = dialog_change_function
+        
+        # Dialog label
+        self.dialog_label = tk.Label(position, text="Dialog:")
+        self.dialog_label.pack(side=tk.LEFT, padx=10, pady=10)
 
+        # Current dialog number entry and total dialogs label
+        self.entry = tk.Entry(position, font=('Arial', 12), width=5)
+        self.entry.pack(side=tk.LEFT, padx=5, pady=10)
+        self.entry.bind('<FocusOut>', self.update_label)
+        
+        self.total_dialogs_label = tk.Label(position, text="/ 0")
+        self.total_dialogs_label.pack(side=tk.LEFT, padx=5, pady=10)
+
+        # Current turn label
         self.current_turn_label = tk.Label(position, text="")
         self.current_turn_label.pack(side=tk.LEFT, padx=10, pady=10)
+
+        self.current_dialog_num = -1
+
+    def update_label(self, event):
+        # Get the value from the entry widget and update the label
+        new_value = self.entry.get()
+        if new_value.isdigit():  # Ensure the input is a number
+            self.dialog_change_function(int(new_value))
+        else:
+            # Display an error message
+            messagebox.showerror("Error", "Please enter a number")
+
+        return "break"
+    
+    def get_widget(self):
+        return self.entry
 
     def update_current_turn_dialog_labels(
         self, json_data, dialog_num, dialog_id, turn_num, count_turns
@@ -393,6 +426,7 @@ class ProgressIndicator:
             json_data (string): The json data.
             count_turns (int): The number of turns in the dialog.
         """
+        self.current_dialog_num = dialog_num
         completed_turns_counter = 0
 
         for key in json_data[dialog_id].keys():
@@ -402,9 +436,13 @@ class ProgressIndicator:
                 else:
                     break
 
-        # Updates the dialog progress label
-        self.current_dialog_label.config(
-            text=f"Dialog: {dialog_num + 1}/{len(json_data)}"
+        # Updates the entry widget with the current dialog number
+        self.entry.delete(0, tk.END)
+        self.entry.insert(0, str(dialog_num + 1))
+
+        # Updates the total dialogs label
+        self.total_dialogs_label.config(
+            text=f"/ {len(json_data)}"
         )
 
         # Updates the turn progress label
@@ -433,7 +471,7 @@ class MongoData:
         def apply(self):
             self.result = (self.field1.get(), self.field2.get())
 
-    def __init__(self, root, connection_string):
+    def __init__(self, root, connection_string, dev_mode=False):
         """
         Initializes an instance of the MongoData class.
 
@@ -448,46 +486,42 @@ class MongoData:
         self.username = None
         self.filename = None
         self.saving_in_progress = False
-
+        self.dev_mode = dev_mode
+        
     def get_saving_status(self):
         return self.saving_in_progress
 
     def choose_file(self, test=False):
+        username, filename = None, None
 
-        self.root.withdraw()
-        dialog = self.FileDialog(self.root)
-        username, filename = dialog.result
-        print(f"filename: {filename}, username: {username}")
-        self.root.deiconify()
-
-        collection = self.db.json_annotations
-        query = {"file_id": filename, "username": username}
-        result = collection.find_one(query)
-        data = None
-
-        if result != None:
-            if test == False:
-                print(f"batch_{filename} with username {username} loaded successfully")
-            data = result["json_data"]
-
+        if self.dev_mode:
+            username = "test-user"
+            filename = "agent_conv_1"
+  
         else:
-            query = {"file_id": filename}
-            collection = self.db.json_batches
-            result = collection.find_one(query)
-            if result == None:
-                print("File does not exist")
-                self.show_error_file_not_found()
-                return "done"
-            else:
-                data = result["json_data"]
-                print(f"batch_{filename} loaded successfully (firsttime)")
+            self.root.withdraw()
+            dialog = self.FileDialog(self.root)
+            username, filename = dialog.result
+            print(f"filename: {filename}, username: {username}")
+            self.root.deiconify()
+
+        query = {"file_id": filename}
+        collection = self.db.json_batches
+        result = collection.find_one(query)
+        if result == None:
+            print("File does not exist")
+            self.show_error_file_not_found()
+            return "done"
+        else:
+            data = result["json_data"]
+            print(f"batch_{filename} loaded successfully. (username: {username})")
 
         self.filename = filename
         self.username = username
 
-        return data
+        return self.fill_dialogs(data)
 
-    def save_json(self, json_data, draft=False):
+    def save_json(self, json_data, dialog_id):
         """
         Opens a thread and sends the user's progress to the MongoDB.
         """
@@ -499,63 +533,67 @@ class MongoData:
             target=self.save_to_mongo,
             args=(
                 json_data,
-                draft,
+                dialog_id,
             ),
         )
         thread.start()
         # Optionally, you can join the thread if you need to wait for it to finish
         # thread.join()
 
-    def save_to_mongo(self, json_data, draft=False):
-        """
-        Sends the json_file (that is saved in the program memory as a string) back to MongoDB to be saved.
-        """
-
-        for dialog_id, dialog_data in json_data.items():
-            dialog_data["annotator_id"] = self.username
-
-        collection = self.db.json_annotations
-        query = {"username": self.username, "file_id": self.filename}
-        my_values = {
-            "$set": {
-                "username": self.username,
-                "file_id": self.filename,
-                "json_data": json_data,
-            }
-        }
-
-        if draft:
-            collection = self.db.json_annotations_draft
-            query["timestamp"] = datetime.datetime.now()
-            my_values["$set"]["timestamp"] = datetime.datetime.now()
-
-        update_result = collection.update_one(query, my_values, upsert=True)
-
-        counter = 0
-        self.saving_in_progress = False
-
-        if update_result.matched_count > 0:
-            print(counter)
-            counter += 1
-            print(
-                f"Document with username: {self.username} and filename: {self.filename} updated."
-            )
-        elif update_result.upserted_id is not None:
-            if draft == False:
-                print(
-                    f"user {self.username} saved the file {self.filename} for the first time."
-                )
-        else:
-            return False
-
-    def save_annotation_draft(self, json_data):
-        self.save_json(json_data, draft=True)
-
     def show_error_file_not_found(self):
         # Show error message
         tk.messagebox.showerror("Error", "File not found")
         # Attempt to close the program
         self.root.destroy()
+
+    def get_username(self):
+        return self.username
+    
+    def get_filename(self):
+        return self.filename
+
+    def save_to_mongo(self, json_data, dialog_id):
+        """
+        Sends the json_file (that is saved in the program memory as a string) back to MongoDB to be saved.
+        """
+
+
+        json_data[dialog_id]["annotator_id"] = self.username
+
+        collection = self.db.json_annotations_dialogs
+        query = {"username": self.username, "file_id": self.filename, "dialog_id": dialog_id}
+        my_values = {
+            "$set": {
+                "username": self.username,
+                "file_id": self.filename,
+                "dialog_id": dialog_id,
+                "dialog_data": json_data[dialog_id],
+            }
+        }
+
+        update_result = collection.update_one(query, my_values, upsert=True)
+
+        self.saving_in_progress = False #changes this to let the program now request is over
+
+        if update_result.matched_count > 0:
+            print(f"Dialog with username: {self.username} | filename: {self.filename} | dialog: {dialog_id} updated.")
+            return True
+        else:
+            return False
+
+    def fill_dialogs(self, json_data):
+        """
+        Fills the dialogs in the empty json data with all the annotations the annotator already made.
+        """
+        collection = self.db.json_annotations_dialogs
+        query = {"username": self.username, "file_id": self.filename}
+        results = collection.find(query)
+
+        for result in results:
+            json_data[result["dialog_id"]] = result["dialog_data"]
+
+        return json_data
+
 
 
 class LoadingScreen:
@@ -838,12 +876,27 @@ class DialogFrame:
         turn_num_real = turn_num
 
         for dialog in json_data[dialog_id]["dialog"]:
+
             if dialog["turn_num"] <= turn_num_real:
+                
+                if int(dialog['turn_num']) == 0 and len(dialog['answer']) == 0 or dialog['answer'] == None:
+                    turn_text = f"Turn {dialog['turn_num']}:\n"
+                    turn_text += f"Intro: {dialog['original_question']}:\n"
+                    turn_text += "-" * 40 + "\n"  # Separator line
+                    dialog_text_content += turn_text
+                    continue
+
+
+                
                 # Format each turn
                 turn_text = f"Turn {dialog['turn_num']}:\n"
                 turn_text += f"Q: {dialog['original_question']}\n"
+
                 if dialog["turn_num"] != turn_num_real:
                     turn_text += f"A: {dialog['answer']}\n"
+
+
+
                 turn_text += "-" * 40 + "\n"  # Separator line
 
                 # Append this turn's text to the dialog text content

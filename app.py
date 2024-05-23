@@ -9,6 +9,7 @@ from utils import (
     MongoData,
 )
 import tkinter as tk
+from tkinter import font
 from db import MongoClient
 
 
@@ -28,6 +29,8 @@ class AnnotationApp:
         self.root.update()
         self.fields_check = True
         self.disable_copy = True
+        self.save_before_exit = False
+        self.dev_mode = False
 
         # Create a Top Panel Frame for options
         top_panel_frame = tk.Frame(root)
@@ -57,6 +60,8 @@ class AnnotationApp:
         )
         next_dialog_button.pack(side=tk.LEFT)
 
+        self.root.bind('<KeyPress>', self.quick_annotation)
+
         # Disable Copy Paste
         if self.disable_copy == True:
             root.event_delete("<<Paste>>", "<Control-v>")
@@ -67,6 +72,16 @@ class AnnotationApp:
             top_panel_frame, text="Save", command=self.save_json
         )
         self.save_button.pack(side=tk.RIGHT, pady=10, padx=(0, 10))
+
+        # Create status bar frame with a darker background color
+        self.status_bar = tk.Frame(self.root, bd=1, relief=tk.SUNKEN, height=25, bg="#ebebeb")
+        self.status_bar.pack(side=tk.BOTTOM, fill=tk.X)
+        
+        # Create a label for the status bar
+   
+        self.dialog_label = tk.Label(self.status_bar, text="", bg="#ebebeb")
+        self.dialog_label.pack(side=tk.LEFT, padx=10)
+        
 
         # Next Button at the bottom
         self.bottom_next_button = tk.Button(
@@ -80,12 +95,13 @@ class AnnotationApp:
 
         # Load JSON data
         connection_string = "mongodb+srv://ori:CqxF0bLlZoX2OQoD@cluster0.agjlk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-        self.mongo = MongoData(self.root, connection_string)
+        self.mongo = MongoData(self.root, connection_string, self.dev_mode)
         self.json_data = self.mongo.choose_file()
 
-        self.progress = ProgressIndicator(top_panel_frame)
+        self.progress = ProgressIndicator(top_panel_frame, dialog_change_function=self.change_dialog)
         self.dialog_frame = DialogFrame(main_pane, root)
         self.font = FontSizeChanger(top_panel_frame, root)
+        self.font.add_exclude_widget(self.dialog_label)
         self.require_rewrite = RequireRewriteCheckBox(
             main_pane, root, self.update_enough_focus_state
         )
@@ -97,14 +113,78 @@ class AnnotationApp:
 
         # Load JSON and display data
         self.save_counter = 15
+        self.max_dialog_num = 0
         self.current_dialog_num = 0
         self.current_turn_num = 0
         self.find_next_empty_turn()
 
         self.init_turn()
 
+    def change_dialog(self, dialog_num):
+        dialog_num -= 1
+        if int(dialog_num) > len(self.json_data):
+            tk.messagebox.showerror(
+                "Error",
+                f"Dialog {dialog_num} does not exist in the file. Please enter a valid dialog number.",
+            )
+            self.update_progress_bar()
+            return False
+        
+        elif dialog_num > self.max_dialog_num:
+            tk.messagebox.showerror(
+                "Error",
+                f"Dialog {dialog_num} is not available yet. Please annotate the previous dialogs first.",
+            )
+            self.update_progress_bar()
+            return False
+
+        self.current_dialog_num = dialog_num
+        self.current_turn_num = self.get_first_turn_index()
+        self.init_turn()
+
+    def update_status_bar(self, dialog_id):
+        # Update the dialog label with the provided dialog_id
+        myfont = font.Font(family="Helvetica", size=10, weight="bold")
+        self.dialog_label.config(
+            text=f"Dialog: {dialog_id} | Dialog Index: {self.current_dialog_num} | Turn Index: {self.current_turn_num} | Total Turns: {self.count_turns_in_dialog()} | Total Dialogs: {self.count_dialogs_in_batch()} | Next Unfilled Dialog Index: {self.max_dialog_num} | username: {self.mongo.get_username()} | file: {self.mongo.get_filename()}",
+            font=myfont, 
+        )
+ 
+    def update_progress_bar(self):
+        self.progress.update_current_turn_dialog_labels(
+            self.json_data,
+            self.current_dialog_num,
+            self.get_dialog_id(),
+            self.current_turn_num,
+            JsonFunctions.count_turns_in_dialog(self.json_data, self.get_dialog_id()),
+        )
+
+    def quick_annotation(self, event):
+        print(event.keycode)
+        if (event.keycode > 90 or event.keycode < 67):
+            return
+        
+        else:
+
+            if event.keycode == 90:  # Keycode for 'z' on many keyboards
+                self.require_rewrite.choice_var.set(1)
+                self.enough_context.choice_var.set(1)
+
+            elif event.keycode == 88:  # Keycode for 'x' on many keyboards
+                self.require_rewrite.choice_var.set(0)
+                self.enough_context.choice_var.set(1)
+
+            elif event.keycode == 67:  # Keycode for 'c' on many keyboards
+                self.require_rewrite.choice_var.set(1)
+                self.enough_context.choice_var.set(0)
+
+            self.next_turn()
+      
     def on_closing(self):
         """This function is called when the user tries to close the program. It checks if the user has saved the file, and if not, it asks the user if they want to save it."""
+        if self.save_before_exit == False:
+            return self.root.destroy()
+        
         if self.mongo.get_saving_status() == True:
             if self.LoadingScreen.is_active() == False:
                 self.LoadingScreen.show_loading_screen(
@@ -129,12 +209,14 @@ class AnnotationApp:
                         or JsonFunctions.get_context(self.json_data, dialog_id, key)
                         == None
                     ):
-                        self.current_dialog_num = dialog_index
+                        self.current_dialog_num = dialog_index 
+                        self.max_dialog_num = dialog_index 
                         self.current_turn_num = int(key)
                         return
 
         self.current_dialog_num = self.count_dialogs_in_batch() - 1
         self.current_turn_num = self.count_turns_in_dialog() - 1
+        self.max_dialog_num = self.count_dialogs_in_batch() - 1
 
     def are_all_fields_filled(self):
         """check if the turn the annotator is currently on is saved comletly, used before moving to the next turn
@@ -165,16 +247,13 @@ class AnnotationApp:
         self.LoadingScreen.show_loading_screen(message="Saving your progress...")
         self.update_json()
         finished = False
-        if self.mongo.save_to_mongo(self.json_data) == False:
+        if self.mongo.save_to_mongo(self.json_data, self.get_dialog_id()) == False:
             tk.messagebox.showerror(
                 "Error",
                 "An error occurred while saving the file. Do not close the app, and contact Ori.",
             )
         else:
             finished = True
-
-        if self.save_counter % 20 == 0:
-            self.mongo.save_annotation_draft(self.json_data)
 
         self.LoadingScreen.close_loading_screen()
         if finished == True:
@@ -240,8 +319,14 @@ class AnnotationApp:
         self.enough_context.update_entry_text(
             self.get_dialog_id(), self.current_turn_num, self.json_data
         )
+
         self.font.update_font_size_wrapper()
         self.require_rewrite.focus_on()
+
+        if self.current_dialog_num > self.max_dialog_num:
+            self.max_dialog_num = self.current_dialog_num
+
+        self.update_status_bar(self.get_dialog_id())
 
     def get_first_turn_index(self):
 
@@ -305,6 +390,12 @@ class AnnotationApp:
         Returns:
             boolean: Return True if opertion was successful, False if not
         """
+        focused_widget = self.root.focus_get()
+        
+        if focused_widget == self.progress.get_widget():
+            self.root.focus_set()
+            return True
+            
 
         if not self.are_all_fields_filled():
             return False
@@ -312,7 +403,7 @@ class AnnotationApp:
         elif not self.update_json():
             return False
 
-        self.mongo.save_json(json_data=self.json_data)
+        self.mongo.save_json(json_data=self.json_data, dialog_id=self.get_dialog_id())
 
         if self.current_turn_num < JsonFunctions.last_turn(
             self.json_data, self.get_dialog_id()
