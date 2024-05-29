@@ -25,17 +25,17 @@ class AnnotationApp:
         self.root.title("OneAI ReWrite Annotation Software - Only Requires Rewrite")
 
         # Set the minimum size of the window
-        root.minsize(1000, 800)
+        root.minsize(1200, 800)
         self.root.update()
         self.fields_check = True
-        self.disable_copy = True
+
         self.save_before_exit = False
         self.dev_mode = True
 
         # Create a Top Panel Frame for options
         top_panel_frame = tk.Frame(root)
-        top_panel_frame.pack(side=tk.TOP, fill=tk.X)
-        version_label = tk.Label(top_panel_frame, text="Version 2.0")
+        top_panel_frame.pack(side=tk.TOP, fill=tk.X) 
+        version_label = tk.Label(top_panel_frame, text="Version 3.0")
         version_label.pack(side=tk.RIGHT, padx=10, pady=10)
 
         # Create Main PanedWindow
@@ -62,11 +62,6 @@ class AnnotationApp:
 
         self.root.bind('<KeyPress>', self.quick_annotation)
 
-        # Disable Copy Paste
-        if self.disable_copy == True:
-            root.event_delete("<<Paste>>", "<Control-v>")
-            root.event_delete("<<Copy>>", "<Control-c>")
-
         # Save Button at the top
         self.save_button = tk.Button(
             top_panel_frame, text="Save", command=self.save_json
@@ -76,6 +71,10 @@ class AnnotationApp:
         # Create status bar frame with a darker background color
         self.status_bar = tk.Frame(self.root, bd=1, relief=tk.SUNKEN, height=25, bg="#ebebeb")
         self.status_bar.pack(side=tk.BOTTOM, fill=tk.X)
+        
+        self.dialog_text = tk.Text(self.status_bar, wrap=tk.WORD, height=1, bg="#ebebeb", bd=0)
+        self.dialog_text.pack(side=tk.LEFT, fill=tk.X, expand=True)
+        self.dialog_text.config(state=tk.DISABLED)
         
         # Create a label for the status bar
    
@@ -144,11 +143,30 @@ class AnnotationApp:
 
     def update_status_bar(self, dialog_id):
         # Update the dialog label with the provided dialog_id
-        myfont = font.Font(family="Helvetica", size=10, weight="bold")
-        self.dialog_label.config(
-            text=f"Dialog: {dialog_id} | Dialog Index: {self.current_dialog_num} | Turn Index: {self.current_turn_num} | Total Turns: {self.count_turns_in_dialog()} | Total Dialogs: {self.count_dialogs_in_batch()} | Next Unfilled Dialog Index: {self.max_dialog_num} | username: {self.mongo.get_username()} | file: {self.mongo.get_filename()}",
-            font=myfont, 
+        myfont = font.Font(family="Helvetica", size=9, weight="bold")
+        
+        # Enable the text widget to update its content
+        self.dialog_text.config(state=tk.NORMAL)
+        
+        # Clear the previous content
+        self.dialog_text.delete(1.0, tk.END)
+        
+        # Insert the new content
+        status_text = (
+            f"Dialog: {dialog_id} | Dialog Index: {self.current_dialog_num} | Turn Index: {self.current_turn_num} | "
+            f"Total Turns: {self.count_turns_in_dialog()} | Total Dialogs: {self.count_dialogs_in_batch()} | "
+            f"Next Unfilled Dialog Index: {self.max_dialog_num} | username: {self.mongo.get_username()} | "
+            f"file: {self.mongo.get_filename()}"
         )
+        self.dialog_text.insert(tk.END, status_text)
+        
+        # Apply the font
+        self.dialog_text.tag_configure("font", font=myfont)
+        self.dialog_text.tag_add("font", 1.0, tk.END)
+        
+        # Disable the text widget to make it read-only
+        self.dialog_text.config(state=tk.DISABLED)
+
  
     def update_progress_bar(self):
         self.progress.update_current_turn_dialog_labels(
@@ -161,25 +179,25 @@ class AnnotationApp:
 
     def quick_annotation(self, event):
 
-            if event.keycode == 90:  # Keycode for 'z' on many keyboards
+            if event.keycode == 65:  # Keycode for 'z' on many keyboards
                 self.require_rewrite.choice_var.set(1)
                 self.enough_context.choice_var.set(1)
                 self.next_turn()
 
-            elif event.keycode == 88:  # Keycode for 'x' on many keyboards
+            elif event.keycode == 83:  # Keycode for 'x' on many keyboards
                 self.require_rewrite.choice_var.set(0)
                 self.enough_context.choice_var.set(1)
                 self.next_turn()
 
-            elif event.keycode == 67:  # Keycode for 'c' on many keyboards
+            elif event.keycode == 68:  # Keycode for 'c' on many keyboards
                 self.require_rewrite.choice_var.set(1)
                 self.enough_context.choice_var.set(0)
                 self.next_turn()
             
-            elif event.keycode == 65:
+            elif event.keycode == 37:
                 self.prev_turn()
             
-            elif event.keycode == 83:
+            elif event.keycode == 39:
                 self.next_turn()
 
       

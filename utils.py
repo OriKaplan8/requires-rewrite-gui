@@ -294,6 +294,7 @@ class FontSizeChanger:
         try:
             if widget not in self.exlude_widgets:
                 widget.configure(font=new_font)
+                
         except:
             pass
 
