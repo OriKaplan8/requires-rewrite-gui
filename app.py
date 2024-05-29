@@ -30,7 +30,7 @@ class AnnotationApp:
         self.fields_check = True
         self.disable_copy = True
         self.save_before_exit = False
-        self.dev_mode = False
+        self.dev_mode = True
 
         # Create a Top Panel Frame for options
         top_panel_frame = tk.Frame(root)
@@ -160,25 +160,28 @@ class AnnotationApp:
         )
 
     def quick_annotation(self, event):
-        print(event.keycode)
-        if (event.keycode > 90 or event.keycode < 67):
-            return
-        
-        else:
 
             if event.keycode == 90:  # Keycode for 'z' on many keyboards
                 self.require_rewrite.choice_var.set(1)
                 self.enough_context.choice_var.set(1)
+                self.next_turn()
 
             elif event.keycode == 88:  # Keycode for 'x' on many keyboards
                 self.require_rewrite.choice_var.set(0)
                 self.enough_context.choice_var.set(1)
+                self.next_turn()
 
             elif event.keycode == 67:  # Keycode for 'c' on many keyboards
                 self.require_rewrite.choice_var.set(1)
                 self.enough_context.choice_var.set(0)
+                self.next_turn()
+            
+            elif event.keycode == 65:
+                self.prev_turn()
+            
+            elif event.keycode == 83:
+                self.next_turn()
 
-            self.next_turn()
       
     def on_closing(self):
         """This function is called when the user tries to close the program. It checks if the user has saved the file, and if not, it asks the user if they want to save it."""
@@ -199,7 +202,9 @@ class AnnotationApp:
         """goes through the json_file and finds the next turn which is not filled already, then sets the program to show the turn"""
         for dialog_index, dialog_id in enumerate(self.json_data):
             dialog_data = self.json_data[dialog_id]
-            for key in dialog_data.keys():
+            turns = JsonFunctions.get_turns(self.json_data, dialog_id)
+
+            for key in turns.keys():
                 if key.isdigit():
                     if (
                         JsonFunctions.get_require_rewrite(
@@ -283,7 +288,7 @@ class AnnotationApp:
         Returns:
             string: the dialog_id
         """
-        return list(self.json_data.keys())[self.current_dialog_num]
+        return JsonFunctions.get_dialog_id(self.json_data, self.current_dialog_num)
 
     def init_turn(self):
         """This is an important function which initializes and updates the GUI for each turn.
@@ -357,7 +362,7 @@ class AnnotationApp:
         Returns:
             int: number of dialogs in batch
         """
-        return len(self.json_data)
+        return JsonFunctions.count_dialogs_in_batch(self.json_data)
 
     def prev_turn(self):
         """goes to the previous turn in the dialog

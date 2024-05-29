@@ -48,6 +48,13 @@ def compare_norm_texts(text1, text2):
 
 class JsonFunctions:
 
+    def get_turn(json_data, dialog_id, turn_num):
+        return json_data[dialog_id]['dialog'][str(turn_num)]
+    
+    def set_turn(json_data, dialog_id, turn_num, new_turn_data):
+        json_data[dialog_id]['dialog'][str(turn_num)] = new_turn_data
+        return json_data
+    
     def get_require_rewrite(json_data, dialog_id, turn_num):
         """
         Retrieves the value of the 'requires_rewrite' field from the JSON data.
@@ -60,17 +67,19 @@ class JsonFunctions:
         Returns:
         - The value of the 'requires_rewrite' field.
         """
+        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+
         field = ""
-        if "requires_rewrite" in json_data[dialog_id][str(turn_num)].keys():
+        if "requires_rewrite" in turn_data.keys():
             field = "requires_rewrite"
-        elif "requires rewrite" in json_data[dialog_id][str(turn_num)].keys():
+        elif "requires rewrite" in turn_data.keys():
             field = "requires rewrite"
         else:
             raise Exception(
-                f"requires_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num} | keys_found = {json_data[dialog_id][str(turn_num)].keys()}"
+                f"requires_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num} | keys_found = {turn_data.keys()}"
             )
 
-        return json_data[dialog_id][str(turn_num)][field]
+        return turn_data[field]
 
     def get_annotator_rewrite(json_data, dialog_id, turn_num):
         """
@@ -84,22 +93,24 @@ class JsonFunctions:
         Returns:
         - The value of the 'annotator_rewrite' field.
         """
+        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+
         field = ""
-        if "annotator_rewrite" in json_data[dialog_id][str(turn_num)].keys():
+        if "annotator_rewrite" in turn_data.keys():
             field = "annotator_rewrite"
-        if "annotator rewrite" in json_data[dialog_id][str(turn_num)].keys():
+        if "annotator rewrite" in turn_data.keys():
             field = "annotator rewrite"
         else:
             raise Exception(
-                f"annotator_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num}"
+                f"annotator_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num} | keys_found = {turn_data.keys()}"
             )
 
-        return json_data[dialog_id][str(turn_num)][field]
+        return turn_data[field]
 
-    def get_turns(json_data, dialog_id):
+    def get_turns(json_data, dialog_id, only_annotatable=True):
         turns = {}
-        for key, value in json_data[dialog_id].items():
-            if key.isdigit():
+        for key, value in json_data[dialog_id]['dialog'].items():
+            if (not only_annotatable) or (key.isdigit() and int(key) > 0):
                 turns[key] = value
         return turns
 
@@ -128,30 +139,8 @@ class JsonFunctions:
         Returns:
         - The original question.
         """
-        for dialog_turn_data in json_data[dialog_id]["dialog"]:
-            if dialog_turn_data["turn_num"] == turn_num:
-                return dialog_turn_data["original_question"]
-
-    def change_rewrite_field(
-        json_data, dialog_id, turn_num, rewrite_key, field, new_value
-    ):
-        """
-        Changes the value of a field in the rewrites dictionary.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-        - turn_num: The turn number.
-        - rewrite_key: The key of the rewrite.
-        - field: The field to change.
-        - new_value: The new value to set.
-
-        Returns:
-        - The updated JSON data.
-        """
-        json_data[dialog_id][str(turn_num)][rewrite_key][field] = new_value
-        return json_data
-
+        return JsonFunctions.get_turn(json_data, dialog_id, turn_num)["original_question"]
+       
     def change_requires_rewrite(json_data, dialog_id, turn_num, new_value):
         """
         Changes the value of the 'requires_rewrite' field in the JSON data.
@@ -165,68 +154,24 @@ class JsonFunctions:
         Returns:
         - The updated JSON data.
         """
+        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+
         field = ""
-        if "requires_rewrite" in json_data[dialog_id][str(turn_num)].keys():
+        if "requires_rewrite" in turn_data.keys():
             field = "requires_rewrite"
-        elif "requires rewrite" in json_data[dialog_id][str(turn_num)].keys():
+        elif "requires rewrite" in turn_data.keys():
             field = "requires rewrite"
         else:
             raise Exception(
-                f"requires_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num} | keys found: {json_data[dialog_id][str(turn_num)].keys()}"
+                f"requires_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num} | keys found: {turn_data.keys()}"
             )
 
         if new_value == -1:
             new_value = None
 
-        json_data[dialog_id][str(turn_num)][field] = new_value
-        return json_data
+        turn_data[field] = new_value
 
-    def change_annotator_rewrite(json_data, dialog_id, turn_num, new_value):
-        """
-        Changes the value of the 'annotator_rewrite' field in the JSON data.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-        - turn_num: The turn number.
-        - new_value: The new value to set.
-
-        Returns:
-        - The updated JSON data.
-        """
-        field = ""
-        if "annotator_rewrite" in json_data[dialog_id][str(turn_num)].keys():
-            field = "annotator_rewrite"
-        if "annotator rewrite" in json_data[dialog_id][str(turn_num)].keys():
-            field = "annotator rewrite"
-        else:
-            raise Exception(
-                f"annotator_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num}"
-            )
-
-        json_data[dialog_id][str(turn_num)][field] = new_value
-        return json_data
-
-    def get_rewrites(json_data, dialog_id, turn_num):
-        """
-        Retrieves the rewrites from the JSON data.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-        - turn_num: The turn number.
-
-        Returns:
-        - The rewrites from the JSON data.
-        """
-        turn_data = json_data[dialog_id][str(turn_num)]
-        rewrites = {}
-
-        for key, value in turn_data.items():
-            if isinstance(value, dict):
-                rewrites[key] = value
-
-        return dict(random.sample(list(rewrites.items()), len(rewrites)))
+        return JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn_data)
 
     def first_turn(json_data, dialog_id):
         """
@@ -255,16 +200,26 @@ class JsonFunctions:
         return int(list(JsonFunctions.get_turns(json_data, dialog_id))[-1])
 
     def get_context(json_data, dialog_id, turn_num):
-        return json_data[dialog_id][str(turn_num)]["enough_context"]
+        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+
+        return turn_data["enough_context"]
 
     def change_context(json_data, dialog_id, turn_num, new_value):
+        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+
         if new_value == -1:
             new_value = None
 
-        json_data[dialog_id][str(turn_num)]["enough_context"] = new_value
-        return json_data
+        turn_data["enough_context"] = new_value
 
+        return JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn_data)
 
+    def get_dialog_id(json_data, dialog_num):
+        return list(json_data.keys())[dialog_num]
+
+    def count_dialogs_in_batch(json_data):
+        return len(json_data)
+    
 class LabelSeparator(tk.Frame):
     def __init__(self, parent, text="", *args, **kwargs):
         super().__init__(parent, *args, **kwargs)
@@ -429,7 +384,7 @@ class ProgressIndicator:
         self.current_dialog_num = dialog_num
         completed_turns_counter = 0
 
-        for key in json_data[dialog_id].keys():
+        for key in JsonFunctions.get_turns(json_data, dialog_id):
             if key.isdigit():
                 if int(key) < turn_num:
                     completed_turns_counter += 1
@@ -495,7 +450,7 @@ class MongoData:
         username, filename = None, None
 
         if self.dev_mode:
-            username = "test-user"
+            username = "test1"
             filename = "agent_conv_1"
   
         else:
@@ -872,35 +827,38 @@ class DialogFrame:
             json_data (string): The JSON data to use.
         """
         dialog_text_content = ""
+        turns = JsonFunctions.get_turns(json_data, dialog_id, only_annotatable=False)
 
-        turn_num_real = turn_num
+        
+        
+        
+        for i in range(0, turn_num + 1):
 
-        for dialog in json_data[dialog_id]["dialog"]:
-
-            if dialog["turn_num"] <= turn_num_real:
+            turn_data = JsonFunctions.get_turn(json_data, dialog_id, i)
                 
-                if int(dialog['turn_num']) == 0 and len(dialog['answer']) == 0 or dialog['answer'] == None:
-                    turn_text = f"Turn {dialog['turn_num']}:\n"
-                    turn_text += f"Intro: {dialog['original_question']}:\n"
+            if i == 0:
+                if len(turn_data['answer']) == 0 or turn_data['answer'] == None:
+                    turn_text = f"Turn {turn_data['turn_num']}:\n"
+                    turn_text += f"Intro: {turn_data['original_question']}:\n"
                     turn_text += "-" * 40 + "\n"  # Separator line
                     dialog_text_content += turn_text
                     continue
 
 
-                
-                # Format each turn
-                turn_text = f"Turn {dialog['turn_num']}:\n"
-                turn_text += f"Q: {dialog['original_question']}\n"
+            
+            # Format each turn
+            turn_text = f"Turn {turn_data['turn_num']}:\n"
+            turn_text += f"Q: {turn_data['original_question']}\n"
 
-                if dialog["turn_num"] != turn_num_real:
-                    turn_text += f"A: {dialog['answer']}\n"
+            if i < turn_num:
+                turn_text += f"A: {turn_data['answer']}\n"
 
 
 
-                turn_text += "-" * 40 + "\n"  # Separator line
+            turn_text += "-" * 40 + "\n"  # Separator line
 
-                # Append this turn's text to the dialog text content
-                dialog_text_content += turn_text
+            # Append this turn's text to the dialog text content
+            dialog_text_content += turn_text
 
         # Update the dialog text widget using the new method
         self.update_dialog_text(dialog_text_content)
