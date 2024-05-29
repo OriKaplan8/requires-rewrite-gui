@@ -792,11 +792,22 @@ class DialogFrame:
             fill=tk.X, side=tk.TOP
         )
 
+        # Frame to hold the Text widget and Scrollbar
+        self.text_frame = tk.Frame(self.dialog_frame_base)
+        self.text_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+        # Scrollbar for dialog text
+        self.scrollbar = tk.Scrollbar(self.text_frame)
+        self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
         # tk.Text for dialog
         self.dialog_text = tk.Text(
-            self.dialog_frame_base, wrap=tk.WORD, state="disabled"
+            self.text_frame, wrap=tk.WORD, state="disabled", yscrollcommand=self.scrollbar.set
         )
-        self.dialog_text.pack(fill=tk.BOTH, padx=10, pady=10)
+        self.dialog_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        # Configure the scrollbar to work with the text widget
+        self.scrollbar.config(command=self.dialog_text.yview)
 
     def update_dialog_text(self, new_text):
         """
@@ -830,9 +841,6 @@ class DialogFrame:
         dialog_text_content = ""
         turns = JsonFunctions.get_turns(json_data, dialog_id, only_annotatable=False)
 
-        
-        
-        
         for i in range(0, turn_num + 1):
 
             turn_data = JsonFunctions.get_turn(json_data, dialog_id, i)
@@ -845,16 +853,12 @@ class DialogFrame:
                     dialog_text_content += turn_text
                     continue
 
-
-            
             # Format each turn
             turn_text = f"Turn {turn_data['turn_num']}:\n"
             turn_text += f"Q: {turn_data['original_question']}\n"
 
             if i < turn_num:
                 turn_text += f"A: {turn_data['answer']}\n"
-
-
 
             turn_text += "-" * 40 + "\n"  # Separator line
 
