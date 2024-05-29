@@ -30,7 +30,7 @@ class AnnotationApp:
         self.fields_check = True
 
         self.save_before_exit = False
-        self.dev_mode = True
+        self.dev_mode = False
 
         # Create a Top Panel Frame for options
         top_panel_frame = tk.Frame(root)
@@ -124,7 +124,7 @@ class AnnotationApp:
         if int(dialog_num) > len(self.json_data):
             tk.messagebox.showerror(
                 "Error",
-                f"Dialog {dialog_num} does not exist in the file. Please enter a valid dialog number.",
+                f"Dialog {dialog_num + 1} does not exist in the file. Please enter a valid dialog number.",
             )
             self.update_progress_bar()
             return False
@@ -132,7 +132,15 @@ class AnnotationApp:
         elif dialog_num > self.max_dialog_num:
             tk.messagebox.showerror(
                 "Error",
-                f"Dialog {dialog_num} is not available yet. Please annotate the previous dialogs first.",
+                f"Dialog {dialog_num + 1} is not available yet. Please annotate the previous dialogs first.",
+            )
+            self.update_progress_bar()
+            return False
+        
+        elif dialog_num < 0:
+            tk.messagebox.showerror(
+                "Error",
+                f"Dialog {dialog_num + 1} does not exist in the file. Please enter a valid dialog number.",
             )
             self.update_progress_bar()
             return False
