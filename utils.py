@@ -773,6 +773,7 @@ class EnoughContext:
         pass
 
 
+
 class DialogFrame:
     def __init__(self, position, root):
         """

@@ -49,6 +49,7 @@ class AnnotationApp:
         next_button = tk.Button(top_panel_frame, text=">", command=self.next_turn)
         next_button.pack(side=tk.LEFT)
 
+
         # "<<" (Previous Dialog) and ">>" (Next Dialog) buttons
         prev_dialog_button = tk.Button(
             top_panel_frame, text="<<", command=self.prev_dialog

@@ -8,6 +8,7 @@ client = MongoClient(connection_string)
 db = client.require_rewrite_b  # the name of the database
 
 
+
 def add_or_update_json_template_in_db(
     project_name, file_id, json_data, overwrite=False
 ):
