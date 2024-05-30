@@ -6,7 +6,7 @@ import random
 from pymongo import MongoClient
 import threading
 import re
-
+from jsonFunctions import *
 
 def compare_norm_texts(text1, text2):
     """
@@ -46,180 +46,7 @@ def compare_norm_texts(text1, text2):
         return False
 
 
-class JsonFunctions:
 
-    def get_turn(json_data, dialog_id, turn_num):
-        return json_data[dialog_id]['dialog'][str(turn_num)]
-    
-    def set_turn(json_data, dialog_id, turn_num, new_turn_data):
-        json_data[dialog_id]['dialog'][str(turn_num)] = new_turn_data
-        return json_data
-    
-    def get_require_rewrite(json_data, dialog_id, turn_num):
-        """
-        Retrieves the value of the 'requires_rewrite' field from the JSON data.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-        - turn_num: The turn number.
-
-        Returns:
-        - The value of the 'requires_rewrite' field.
-        """
-        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
-
-        field = ""
-        if "requires_rewrite" in turn_data.keys():
-            field = "requires_rewrite"
-        elif "requires rewrite" in turn_data.keys():
-            field = "requires rewrite"
-        else:
-            raise Exception(
-                f"requires_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num} | keys_found = {turn_data.keys()}"
-            )
-
-        return turn_data[field]
-
-    def get_annotator_rewrite(json_data, dialog_id, turn_num):
-        """
-        Retrieves the value of the 'annotator_rewrite' field from the JSON data.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-        - turn_num: The turn number.
-
-        Returns:
-        - The value of the 'annotator_rewrite' field.
-        """
-        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
-
-        field = ""
-        if "annotator_rewrite" in turn_data.keys():
-            field = "annotator_rewrite"
-        if "annotator rewrite" in turn_data.keys():
-            field = "annotator rewrite"
-        else:
-            raise Exception(
-                f"annotator_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num} | keys_found = {turn_data.keys()}"
-            )
-
-        return turn_data[field]
-
-    def get_turns(json_data, dialog_id, only_annotatable=True):
-        turns = {}
-        for key, value in json_data[dialog_id]['dialog'].items():
-            if (not only_annotatable) or (key.isdigit() and int(key) > 0):
-                turns[key] = value
-        return turns
-
-    def count_turns_in_dialog(json_data, dialog_id):
-        """
-        Counts the number of turns in a dialog.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-
-        Returns:
-        - The number of turns in the dialog.
-        """
-        return len(JsonFunctions.get_turns(json_data, dialog_id))
-
-    def get_original_question(json_data, dialog_id, turn_num):
-        """
-        Retrieves the original question from the JSON data.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-        - turn_num: The turn number.
-
-        Returns:
-        - The original question.
-        """
-        return JsonFunctions.get_turn(json_data, dialog_id, turn_num)["original_question"]
-       
-    def change_requires_rewrite(json_data, dialog_id, turn_num, new_value):
-        """
-        Changes the value of the 'requires_rewrite' field in the JSON data.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-        - turn_num: The turn number.
-        - new_value: The new value to set.
-
-        Returns:
-        - The updated JSON data.
-        """
-        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
-
-        field = ""
-        if "requires_rewrite" in turn_data.keys():
-            field = "requires_rewrite"
-        elif "requires rewrite" in turn_data.keys():
-            field = "requires rewrite"
-        else:
-            raise Exception(
-                f"requires_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num} | keys found: {turn_data.keys()}"
-            )
-
-        if new_value == -1:
-            new_value = None
-
-        turn_data[field] = new_value
-
-        return JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn_data)
-
-    def first_turn(json_data, dialog_id):
-        """
-        Retrieves the first turn in the dialog.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-
-        Returns:
-        - The first turn in the dialog.
-        """
-        return int(next(iter(JsonFunctions.get_turns(json_data, dialog_id))))
-
-    def last_turn(json_data, dialog_id):
-        """
-        Retrieves the last turn in the dialog.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-
-        Returns:
-        - The last turn in the dialog.
-        """
-        return int(list(JsonFunctions.get_turns(json_data, dialog_id))[-1])
-
-    def get_context(json_data, dialog_id, turn_num):
-        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
-
-        return turn_data["enough_context"]
-
-    def change_context(json_data, dialog_id, turn_num, new_value):
-        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
-
-        if new_value == -1:
-            new_value = None
-
-        turn_data["enough_context"] = new_value
-
-        return JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn_data)
-
-    def get_dialog_id(json_data, dialog_num):
-        return list(json_data.keys())[dialog_num]
-
-    def count_dialogs_in_batch(json_data):
-        return len(json_data)
-    
 class LabelSeparator(tk.Frame):
     def __init__(self, parent, text="", *args, **kwargs):
         super().__init__(parent, *args, **kwargs)
@@ -446,13 +273,13 @@ class MongoData:
         
     def get_saving_status(self):
         return self.saving_in_progress
-
+    
     def choose_file(self, test=False):
-        username, filename = None, None
+        username, filename, data = None, None, None
 
         if self.dev_mode:
-            username = "test1"
-            filename = "agent_conv_1"
+            username = "ori"
+            filename = "asi-23_4"
   
         else:
             self.root.withdraw()
@@ -461,20 +288,50 @@ class MongoData:
             print(f"filename: {filename}, username: {username}")
             self.root.deiconify()
 
-        query = {"file_id": filename}
-        collection = self.db.json_batches
-        result = collection.find_one(query)
-        if result == None:
-            print("File does not exist")
-            self.show_error_file_not_found()
-            return "done"
-        else:
-            data = result["json_data"]
-            print(f"batch_{filename} loaded successfully. (username: {username})")
+
+        if "asi" in re.split(r'[ _\-]', filename):
+            collection = self.db.json_annotations
+            query = { "file_id": filename, "username": username}
+            result = collection.find_one(query)
+            if result != None:
+                data = result['json_data']
+
+        if data == None:
+            query = {"file_id": filename}
+            collection = self.db.json_batches
+            result = collection.find_one(query)
+            if result == None:
+                print("File does not exist")
+                self.show_error_file_not_found()
+                return "done"
+            else:
+                data = result["json_data"]
+                print(f"batch_{filename} loaded successfully. (username: {username})")
+
+        if "asi" in re.split(r'[ _\-]', filename):
+            new_data = {}
+            for dialog_key, dialog_data in data.items():
+
+                new_dialog = {"number_of_turns": 0,
+                            "annotator_id": username,
+                            "dialog": {}}
+                
+                for index, value in enumerate(dialog_data["dialog"]):
+                    new_dialog["dialog"][str(index)] = value
+                    new_dialog["number_of_turns"] += 1
+
+                    if index > 0:
+                        new_dialog["dialog"][str(index)]["requires_rewrite"] = dialog_data[str(index)]["requires_rewrite"]
+                        new_dialog["dialog"][str(index)]["enough_context"] = dialog_data[str(index)]["enough_context"]
+
+                new_data[dialog_key] = new_dialog
+            data = new_data 
 
         self.filename = filename
         self.username = username
-
+        
+        
+        print(data["3e7tuj2egcm900r9as17x8quhc09ds"])
         return self.fill_dialogs(data)
 
     def save_json(self, json_data, dialog_id):
@@ -483,6 +340,8 @@ class MongoData:
         """
 
         self.saving_in_progress = True
+
+
 
         # Wrap the save_json logic in a method that can be run in a thread
         thread = threading.Thread(
@@ -541,6 +400,7 @@ class MongoData:
         """
         Fills the dialogs in the empty json data with all the annotations the annotator already made.
         """
+        
         collection = self.db.json_annotations_dialogs
         query = {"username": self.username, "file_id": self.filename}
         results = collection.find(query)

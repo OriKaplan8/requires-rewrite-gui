@@ -127,24 +127,26 @@ def retrieve_annotation_by_user_and_file_id(file_id, username):
     - json_data (dict): The JSON data of the annotated file, if found.
     - None: If no document is found with the specified file ID or username.
     """
+    json_data = retrieve_json_template_by_file_id1(file_id)
+    
+    if not json_data:
+        return None
+     
+    collection = db.json_annotations_dialogs
+    query = {"username": username, "file_id": file_id}
+    results = collection.find(query) 
 
-    collection = db.json_annotations
-    query = {"file_id": file_id}
-    result = collection.find_one(query)
-    json_data = {}
-    if result is not None:
-        query = {"file_id": file_id, "username": username}
-        result = collection.find_one(query)
-        if result is not None:
-            json_data = result["json_data"]
-            return json_data  # Return only the json_data field
-        else:
-            print("No document found with the specified username.")
-            return None
-    else:
-        print("No document found with the specified file ID.")
+
+    found_any = False
+    for result in results:
+        json_data[result["dialog_id"]] = result["dialog_data"]
+        found_any = True
+
+    if not found_any:
+        print("No document found with the specified username.")
         return None
 
+    return json_data
 
 def delete_json_template_and_annotations_by_file_id(file_id):
     """

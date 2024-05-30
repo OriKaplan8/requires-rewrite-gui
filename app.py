@@ -30,7 +30,7 @@ class AnnotationApp:
         self.fields_check = True
 
         self.save_before_exit = False
-        self.dev_mode = False
+        self.dev_mode = True
 
         # Create a Top Panel Frame for options
         top_panel_frame = tk.Frame(root)
