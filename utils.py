@@ -1,4 +1,4 @@
-import datetime
+
 import tkinter as tk
 from tkinter import font
 from tkinter import ttk, font, simpledialog, messagebox
@@ -7,6 +7,7 @@ from pymongo import MongoClient
 import threading
 import re
 from jsonFunctions import *
+from datetime import datetime
 
 def compare_norm_texts(text1, text2):
     """

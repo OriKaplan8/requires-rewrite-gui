@@ -10,8 +10,6 @@ from utils import (
 )
 import tkinter as tk
 from tkinter import font
-from db import MongoClient
-
 
 class AnnotationApp:
 

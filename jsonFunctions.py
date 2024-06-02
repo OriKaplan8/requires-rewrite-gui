@@ -1,17 +1,4 @@
-import datetime
-import tkinter as tk
-from tkinter import font
-from tkinter import ttk, font, simpledialog, messagebox
-import random
-from pymongo import MongoClient
-import threading
-import re
-import json
-
 class JsonFunctions:
-
-
-
 
     def get_turn(json_data, dialog_id, turn_num):
 
