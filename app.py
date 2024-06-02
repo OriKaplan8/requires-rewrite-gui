@@ -30,7 +30,7 @@ class AnnotationApp:
         self.fields_check = True
 
         self.save_before_exit = False
-        self.dev_mode = True
+        self.dev_mode = False
 
         # Create a Top Panel Frame for options
         top_panel_frame = tk.Frame(root)
@@ -121,6 +121,15 @@ class AnnotationApp:
         self.init_turn()
 
     def change_dialog(self, dialog_num):
+        """
+        Change the current dialog to the specified dialog number.
+
+        Args:
+            dialog_num (int): The dialog number to change to.
+
+        Returns:
+            bool: True if the dialog was successfully changed, False otherwise.
+        """
         dialog_num -= 1
         if int(dialog_num) > len(self.json_data):
             tk.messagebox.showerror(
@@ -151,7 +160,15 @@ class AnnotationApp:
         self.init_turn()
 
     def update_status_bar(self, dialog_id):
-        # Update the dialog label with the provided dialog_id
+        """
+        Update the status bar with the provided dialog_id.
+
+        Parameters:
+        - dialog_id (str): The ID of the dialog.
+
+        Returns:
+        - None
+        """
         myfont = font.Font(family="Helvetica", size=9, weight="bold")
         
         # Enable the text widget to update its content
@@ -176,8 +193,20 @@ class AnnotationApp:
         # Disable the text widget to make it read-only
         self.dialog_text.config(state=tk.DISABLED)
 
- 
     def update_progress_bar(self):
+        """
+        Updates the progress bar with the current turn dialog labels.
+
+        Parameters:
+        - json_data (dict): The JSON data containing the dialog information.
+        - current_dialog_num (int): The current dialog number.
+        - dialog_id (str): The ID of the dialog.
+        - current_turn_num (int): The current turn number.
+        - total_turns (int): The total number of turns in the dialog.
+
+        Returns:
+        None
+        """
         self.progress.update_current_turn_dialog_labels(
             self.json_data,
             self.current_dialog_num,
@@ -187,29 +216,36 @@ class AnnotationApp:
         )
 
     def quick_annotation(self, event):
+        """
+        Handles quick annotation based on the key pressed.
 
-            if event.keycode == 65:  # Keycode for 'z' on many keyboards
-                self.require_rewrite.choice_var.set(1)
-                self.enough_context.choice_var.set(1)
-                self.next_turn()
+        Args:
+            event (Event): The event object containing information about the key press.
 
-            elif event.keycode == 83:  # Keycode for 'x' on many keyboards
-                self.require_rewrite.choice_var.set(0)
-                self.enough_context.choice_var.set(1)
-                self.next_turn()
+        Returns:
+            None
+        """
+        if event.keycode == 65:  # Keycode for 'z' on many keyboards
+            self.require_rewrite.choice_var.set(1)
+            self.enough_context.choice_var.set(1)
+            self.next_turn()
 
-            elif event.keycode == 68:  # Keycode for 'c' on many keyboards
-                self.require_rewrite.choice_var.set(1)
-                self.enough_context.choice_var.set(0)
-                self.next_turn()
-            
-            elif event.keycode == 37:
-                self.prev_turn()
-            
-            elif event.keycode == 39:
-                self.next_turn()
+        elif event.keycode == 83:  # Keycode for 'x' on many keyboards
+            self.require_rewrite.choice_var.set(0)
+            self.enough_context.choice_var.set(1)
+            self.next_turn()
 
-      
+        elif event.keycode == 68:  # Keycode for 'c' on many keyboards
+            self.require_rewrite.choice_var.set(1)
+            self.enough_context.choice_var.set(0)
+            self.next_turn()
+
+        elif event.keycode == 37:
+            self.prev_turn()
+
+        elif event.keycode == 39:
+            self.next_turn()
+
     def on_closing(self):
         """This function is called when the user tries to close the program. It checks if the user has saved the file, and if not, it asks the user if they want to save it."""
         if self.save_before_exit == False:
@@ -279,6 +315,7 @@ class AnnotationApp:
         self.LoadingScreen.show_loading_screen(message="Saving your progress...")
         self.update_json()
         finished = False
+        self.LoadingScreen.close_loading_screen()
         if self.mongo.save_to_mongo(self.json_data, self.get_dialog_id()) == False:
             tk.messagebox.showerror(
                 "Error",
@@ -287,7 +324,6 @@ class AnnotationApp:
         else:
             finished = True
 
-        self.LoadingScreen.close_loading_screen()
         if finished == True:
             tk.messagebox.showinfo("Success", "The file was saved successfully.")
 
@@ -318,51 +354,66 @@ class AnnotationApp:
         return JsonFunctions.get_dialog_id(self.json_data, self.current_dialog_num)
 
     def init_turn(self):
-        """This is an important function which initializes and updates the GUI for each turn.
+            """
+            Initializes a new turn in the GUI application.
 
-        It performs the following tasks:
-        1. Updates the current turn dialog labels.
-        2. Displays the dialog frame.
-        3. Updates the entry text for rewriting.
-        4. Updates the rewrites.
-        5. Updates the annotator rewrite.
-        6. Updates the font size.
-        7. Sets focus on the requires_rewrite_entry.
-        8. Prints the progress string.
-        """
-        progress_string = (
-            f"Turn={self.current_turn_num+1} | Dialog={self.current_dialog_num+1}"
-        )
-        print(progress_string)
-        self.save_counter += 1
-        self.progress.update_current_turn_dialog_labels(
-            self.json_data,
-            self.current_dialog_num,
-            self.get_dialog_id(),
-            self.current_turn_num,
-            JsonFunctions.count_turns_in_dialog(self.json_data, self.get_dialog_id()),
-        )
-        self.dialog_frame.display_dialog(
-            self.get_dialog_id(), self.current_turn_num, self.json_data
-        )
-        self.require_rewrite.update_entry_text(
-            self.get_dialog_id(), self.current_turn_num, self.json_data
-        )
-        self.enough_context.update_entry_text(
-            self.get_dialog_id(), self.current_turn_num, self.json_data
-        )
+            This method performs the following tasks:
+            - Prints the progress string indicating the current turn and dialog number.
+            - Updates the current turn and dialog labels in the progress bar.
+            - Displays the dialog in the dialog frame.
+            - Updates the entry text for the "require rewrite" field.
+            - Updates the entry text for the "enough context" field.
+            - Updates the font size.
+            - Sets focus on the "require rewrite" field.
+            - Updates the maximum dialog number if necessary.
+            - Updates the status bar.
 
-        self.font.update_font_size_wrapper()
-        self.require_rewrite.focus_on()
+            Parameters:
+            None
 
-        if self.current_dialog_num > self.max_dialog_num:
-            self.max_dialog_num = self.current_dialog_num
+            Returns:
+            None
+            """
+            
+            progress_string = (
+                f"Turn={self.current_turn_num+1} | Dialog={self.current_dialog_num+1}"
+            )
+            print(progress_string)
+            self.save_counter += 1
+            self.progress.update_current_turn_dialog_labels(
+                self.json_data,
+                self.current_dialog_num,
+                self.get_dialog_id(),
+                self.current_turn_num,
+                JsonFunctions.count_turns_in_dialog(self.json_data, self.get_dialog_id()),
+            )
+            self.dialog_frame.display_dialog(
+                self.get_dialog_id(), self.current_turn_num, self.json_data
+            )
+            self.require_rewrite.update_entry_text(
+                self.get_dialog_id(), self.current_turn_num, self.json_data
+            )
+            self.enough_context.update_entry_text(
+                self.get_dialog_id(), self.current_turn_num, self.json_data
+            )
 
-        self.update_status_bar(self.get_dialog_id())
+            self.font.update_font_size_wrapper()
+            self.require_rewrite.focus_on()
+
+            if self.current_dialog_num > self.max_dialog_num:
+                self.max_dialog_num = self.current_dialog_num
+
+            self.update_status_bar(self.get_dialog_id())
 
     def get_first_turn_index(self):
+            """
+            Returns the index of the first turn in the JSON data for the current dialog.
 
-        return JsonFunctions.first_turn(self.json_data, self.get_dialog_id())
+            Returns:
+                int: The index of the first turn.
+            """
+            
+            return JsonFunctions.first_turn(self.json_data, self.get_dialog_id())
 
     def get_original_question(self):
         """
@@ -511,6 +562,18 @@ class AnnotationApp:
         return True
 
     def update_enough_focus_state(self):
+        """
+        Update the focus state of the 'enough_context' based on the value of 'require_rewrite' choice variable.
+
+        If the 'require_rewrite' choice variable is 0, the 'enough_context' is set to a focused state.
+        Otherwise, the 'enough_context' is set to a normal state.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         if self.require_rewrite.choice_var.get() == 0:
             self.enough_context.choice_var.set(1)
             self.enough_context.circle1.config(state="disabled")

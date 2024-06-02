@@ -1,95 +1,102 @@
-## Note for Users
+# Annotation Program Documentation
 
-This GitHub repository is intended for use by administrators. Annotators can only receive the executable (`exe`) file and do not require access to the source code or any other files hosted here. 
+This repository is intended for administrators. Annotators only need the executable (`.exe`) file and do not require access to other files.
 
+## File Structure
+
+The code has been refactored and organized into smaller files for better maintainability and readability:
+
+- **utils**: Classes used by the main application, including frontend and backend classes.
+- **app**: Main application code, including the primary function that runs the program.
+- **jsonFunctions**: Functions to handle JSON files retrieved from MongoDB for reading and writing JSON data.
+- **db**: Functions for administrators to manage annotations made by annotators (formerly `mongo_data_manager`).
+- **main**: Run this file to start the application.
 
 ## Getting Started
 
-This section guides you through setting up and starting the Require-rewrite-context-gui program, designed for annotating 'requires rewrite' and 'enough context' fields.
-
 ### Installation
 
-Download the executable file (`.exe`) to your computer. Once downloaded, simply double-click the file to launch the program. Upon opening, you will be prompted to enter a name and a `file_id`. 
+1. Download the executable file (`.exe`) to your computer.
+2. Double-click the file to launch the program.
+3. Enter your `username` and the `filename` of the dataset you wish to annotate.
 
 ### Using the Program
 
-To annotate the `asi` dataset:
-1. Enter the filename `asi-14_4` in the filename prompt.
-2. Provide a username. This username will be associated with your annotations, allowing for personalized data tracking.
+1. Choose a dataset from the following options:
+    - asi-14_4
+    - asi-23_4
+    - agent_conv_1
+    - agent_conv_2
+    - agent_conv_3
+2. Enter the chosen filename in the `filename` prompt.
+3. Provide a username to associate with your annotations for personalized data tracking.
 
 ### Reviewing Annotations
 
-To view your annotations or those made by other annotators:
-- Use the `mongo_data_manager.ipynb` notebook. This notebook contains a function called `retrieve_annotation_by_user_and_file_id`, which you can run with the desired filename and username to retrieve the relevant annotations.
+To view annotations:
 
-Further details and functions are explained within the notebook itself.
+1. Use the `db.py` file (formerly `mongo_data_manager.ipynb`).
+2. Run the `retrieve_annotation_by_user_and_file_id` function with the desired filename and username to retrieve annotations.
 
 ## Repository Files
 
-### `annotation_sources_asi`
-This folder contains the original `.xlsx` file provided by ASI, along with a `.json` file that was created from the Excel data. 
+### `annotation_sources`
 
-### `annotation_requires_rewrite_gui.ipynb`
-This Jupyter Notebook contains the source code for the Require-rewrite-context-gui software. It includes detailed explanations of each function used within the software.
+- **asi**: Contains the original `.xlsx` file provided by ASI and the generated `.json` file.
+- **yael**: Contains the original `.xlsx` file provided by YAEL and the generated `.json` file.
 
+## JSON Structure
 
-## JSON Structure Description
+The JSON object represents a dialog structure with annotations. The primary key `dialog` serves as the root level, containing details about conversational turns and annotations.
 
-The JSON object represents a dialog structure with annotations. The primary key `dialog` serves as the root level, containing details about conversational turns and annotations. Here is the structure and description of each field within the JSON:
+### Structure
 
-### Root Level
+- `<dialog_id>`: Contains the details of each dialog in the dataset.
+  - **number_of_turns**: Total number of turns in the dialog.
+  - **annotator_id**: Annotator's username, filled automatically when entered in the software's username prompt (or `null` if not filled).
+  - **dialog**: Details of each turn in the dialog.
 
-- `<dialog_id>` (`dict`): Contains the details of each dialog in the dataset and serves as the root level of the structure.
+#### Turn Details
 
-### <dialog_id> Fields
+Each turn within the `dialog` dictionary includes:
 
-- `number_of_turns` (`integer`): Indicates the total number of turns in the dialog.
-- `annotator_id` (`string` or `null`): The annotator's username, filled automatically when entered in the software's username prompt. If `null`, it hasn't been filled yet.
-- `dialog` (`list` of `dict`): Details of each turn in the dialog, as outlined below.
-- `turn_num` (`dict`): Key-value pairs representing specific turns that can be annotated. These fields are indexed by numbers. Structure and field types are detailed below.
+- **turn_num**: Sequential number of the turn.
+- **sample_id**: Unique identifier for the dialog turn.
+- **original_question**: The original question asked in the turn.
+- **answer**: The answer provided in the turn.
+- **requires_rewrite**: Indicates whether the turn requires rewriting (`boolean` or `null`).
+- **enough_context**: Determines whether the turn has enough context for rewrites (`boolean` or `null`).
 
-### Dialog Fields
-
-Within the `dialog` list, each dictionary represents a turn and includes the following fields:
-
-- `turn_num` (`integer`): The sequential number of the turn within the dialog.
-- `sample_id` (`string`): A unique identifier for the dialog turn.
-- `original_question` (`string`): The original question asked in the turn.
-- `answer` (`string`): The answer provided in the turn.
-
-### <turn_num> - Annotatable Turns
-
-This section includes additional annotation fields for certain turns:
-
-- `sample_id` (`string`): A unique identifier for the dialog turn.
-- `requires_rewrite` (`boolean` or `null`): Indicates whether the turn requires rewriting. If `null`, it indicates that the field has not been filled in yet.
-- `enough_context` (`boolean` or `null`): Determines whether the turn has enough context for rewrites. If `null`, it indicates that the field has not been filled in yet.
-
-Here's a sample JSON snippet for quick reference:
+### Example JSON
 
 ```json
 {
-    "QReCC-Train_1102": {
-        "number_of_turns": 2,
-        "annotator_id": null,
-        "dialog": [
-            {
-                "turn_num": 0,
-                "sample_id": "QReCC-Train_1102_1",
-                "original_question": "Why did Gavin leave Tit\u00e3s?",
-                "answer": "Gavin stated that he was physically and mentally exhausted because of the Titas tours and album releases."
-            },
-            {
-                "turn_num": 1,
-                "sample_id": "QReCC-Train_1102_2",
-                "original_question": "Did they replace him with anyone?",
-                "answer": "Yes, Drummer Mario Fabre, who has remained with the Titas since then as a session member."
-            }
-        ],
-        "1": {
-            "sample_id": "QReCC-Train_1102_2",
-            "requires_rewrite": null,
-            "enough_context": null
-        }
-    },
-    "QReCC-Train_7296": { 
+  'QReCC-Train_514': {
+    'number_of_turns': 3,
+    'annotator_id': null,
+    'dialog': {
+      '0': {
+        'turn_num': 0,
+        'sample_id': 'QReCC-Train_514_1',
+        'original_question': "What is Symphony X's Iconoclast?",
+        'answer': 'Iconoclast is the eighth album by American progressive metal band Symphony X.'
+      },
+      '1': {
+        'turn_num': 1,
+        'sample_id': 'QReCC-Train_514_2',
+        'original_question': 'When was it released?',
+        'answer': "Symphony X's Iconoclast was released on June 17, 2011, in Europe, June 21, 2011, in the United States and on June 28, 2011, in Canada.",
+        'requires_rewrite': null,
+        'enough_context': null
+      },
+      '2': {
+        'turn_num': 2,
+        'sample_id': 'QReCC-Train_514_3',
+        'original_question': 'Did it do well on the charts?',
+        'answer': "Symphony X's Iconoclast debuted at number 76 on the Billboard 200 album chart in the United States, selling more than 7,300 copies in its first week.",
+        'requires_rewrite': null,
+        'enough_context': null
+      }
+    }
+  }
+}

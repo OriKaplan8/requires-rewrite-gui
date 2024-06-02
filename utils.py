@@ -45,8 +45,6 @@ def compare_norm_texts(text1, text2):
     else:
         return False
 
-
-
 class LabelSeparator(tk.Frame):
     def __init__(self, parent, text="", *args, **kwargs):
         super().__init__(parent, *args, **kwargs)
@@ -65,7 +63,6 @@ class LabelSeparator(tk.Frame):
         # Adjust label placement using the 'sticky' parameter to center it
         # 'ns' means north-south, which centers the label vertically in the grid cell
         self.label.grid_configure(sticky="ns")
-
 
 class FontSizeChanger:
     def __init__(self, position, root, font_size=12):
@@ -155,7 +152,6 @@ class FontSizeChanger:
         self.root.geometry(f"{new_width}x{new_height}")
         self.root.update()
 
-
 class ProgressIndicator:
     def __init__(self, position, dialog_change_function=None):
         """
@@ -233,10 +229,24 @@ class ProgressIndicator:
             text=f"Turn: {completed_turns_counter+1}/{count_turns}"
         )
 
-
 class MongoData:
 
     class FileDialog(simpledialog.Dialog):
+        """
+        A dialog window for choosing a file.
+
+        Inherits from simpledialog.Dialog class.
+
+        Attributes:
+            field1 (tk.Entry): The entry field for the username.
+            field2 (tk.Entry): The entry field for the filename.
+            result (tuple): A tuple containing the values entered in the entry fields.
+
+        Methods:
+            body(master): Creates the body of the dialog window.
+            apply(): Applies the changes made in the dialog window.
+        """
+
         def body(self, master):
             self.title("Choose File")
 
@@ -274,13 +284,19 @@ class MongoData:
     def get_saving_status(self):
         return self.saving_in_progress
     
-    def choose_file(self, test=False):
+    def choose_file(self):
+        """
+        Choose a file and load its data.
+
+        Returns:
+            str: Status message indicating the result of the file loading process.
+        """
         username, filename, data = None, None, None
 
         if self.dev_mode:
             username = "ori"
             filename = "asi-23_4"
-  
+
         else:
             self.root.withdraw()
             dialog = self.FileDialog(self.root)
@@ -288,10 +304,9 @@ class MongoData:
             print(f"filename: {filename}, username: {username}")
             self.root.deiconify()
 
-
         if "asi" in re.split(r'[ _\-]', filename):
             collection = self.db.json_annotations
-            query = { "file_id": filename, "username": username}
+            query = {"file_id": filename, "username": username}
             result = collection.find_one(query)
             if result != None:
                 data = result['json_data']
@@ -313,9 +328,9 @@ class MongoData:
             for dialog_key, dialog_data in data.items():
 
                 new_dialog = {"number_of_turns": 0,
-                            "annotator_id": username,
-                            "dialog": {}}
-                
+                              "annotator_id": username,
+                              "dialog": {}}
+
                 for index, value in enumerate(dialog_data["dialog"]):
                     new_dialog["dialog"][str(index)] = value
                     new_dialog["number_of_turns"] += 1
@@ -325,13 +340,11 @@ class MongoData:
                         new_dialog["dialog"][str(index)]["enough_context"] = dialog_data[str(index)]["enough_context"]
 
                 new_data[dialog_key] = new_dialog
-            data = new_data 
+            data = new_data
 
         self.filename = filename
         self.username = username
-        
-        
-        print(data["3e7tuj2egcm900r9as17x8quhc09ds"])
+
         return self.fill_dialogs(data)
 
     def save_json(self, json_data, dialog_id):
@@ -356,6 +369,9 @@ class MongoData:
         # thread.join()
 
     def show_error_file_not_found(self):
+        """
+        Displays an error message indicating that the file was not found and attempts to close the program.
+        """
         # Show error message
         tk.messagebox.showerror("Error", "File not found")
         # Attempt to close the program
@@ -369,10 +385,15 @@ class MongoData:
 
     def save_to_mongo(self, json_data, dialog_id):
         """
-        Sends the json_file (that is saved in the program memory as a string) back to MongoDB to be saved.
+        Saves the given JSON data for a specific dialog to MongoDB.
+
+        Args:
+            json_data (dict): The JSON data to be saved.
+            dialog_id (str): The ID of the dialog.
+
+        Returns:
+            bool: True if the save operation was successful, False otherwise.
         """
-
-
         json_data[dialog_id]["annotator_id"] = self.username
 
         collection = self.db.json_annotations_dialogs
@@ -388,9 +409,9 @@ class MongoData:
 
         update_result = collection.update_one(query, my_values, upsert=True)
 
-        self.saving_in_progress = False #changes this to let the program now request is over
+        self.saving_in_progress = False  # changes this to let the program know the request is over
 
-        if update_result.matched_count > 0:
+        if update_result.acknowledged:
             print(f"Dialog with username: {self.username} | filename: {self.filename} | dialog: {dialog_id} updated.")
             return True
         else:
@@ -409,8 +430,6 @@ class MongoData:
             json_data[result["dialog_id"]] = result["dialog_data"]
 
         return json_data
-
-
 
 class LoadingScreen:
     def __init__(self, root):
@@ -474,7 +493,6 @@ class LoadingScreen:
     def is_active(self):
         return self.active
 
-
 class RequireRewriteCheckBox:
     def __init__(self, position, root, update_enough_focus_state):
         self.root = root
@@ -511,14 +529,28 @@ class RequireRewriteCheckBox:
         self.circle2.grid(row=1, column=0, sticky="w", padx=5, pady=0)
 
     def on_select(self):
+        """
+        This method is called when an option is selected.
+        It prints the value of the selected option.
+        """
         print(self.choice_var.get())
 
     def update_entry_text(self, dialog_id, turn_num, json_data):
+        """
+        Updates the marked choice based on the given dialog ID, turn number, and JSON data.
+
+        Args:
+            dialog_id (int): The ID of the dialog.
+            turn_num (int): The turn number.
+            json_data (dict): The JSON data containing the dialog information.
+
+        Returns:
+            None
+        """
         entry_text = JsonFunctions.get_require_rewrite(json_data, dialog_id, turn_num)
 
         if entry_text is not None and entry_text != -1:
             self.choice_var.set(int(entry_text))
-
         else:
             self.choice_var.set(-1)
 
@@ -541,24 +573,50 @@ class RequireRewriteCheckBox:
         return json_data
 
     def is_empty(self):
+        """
+        Check if the choice variable is empty.
+
+        Returns:
+            bool: True if the choice variable is empty, False otherwise.
+        """
         if self.choice_var.get() == -1:
             return True
         return False
 
     def requires_rewrite_positive(self):
+        """
+        Check if the choice variable is set to 1.
+
+        Returns:
+            bool: True if the choice variable is 1, False otherwise.
+        """
         if self.choice_var.get() == 1:
             return True
         return False
 
     def get_requires_rewrite(self):
+        """
+        Get the value of the choice variable.
+
+        Returns:
+            The value of the choice variable.
+        """
         return self.choice_var.get()
 
     def set_requires_rewrite(self, value):
+        """
+        Sets the value of requires_rewrite.
+
+        Args:
+            value: The new value for requires_rewrite.
+
+        Returns:
+            None
+        """
         self.choice_var.set(value)
 
     def focus_on(self):
         pass
-
 
 class EnoughContext:
     def __init__(self, position, root):
@@ -588,12 +646,21 @@ class EnoughContext:
         self.circle2.grid(row=1, column=0, sticky="w", padx=5, pady=0)
 
     def update_entry_text(self, dialog_id, turn_num, json_data):
+        """
+        Updates the marked choice based on the provided dialog ID, turn number, and JSON data.
 
+        Args:
+            dialog_id (int): The ID of the dialog.
+            turn_num (int): The turn number.
+            json_data (dict): The JSON data containing the context.
+
+        Returns:
+            None
+        """
         entry_text = JsonFunctions.get_context(json_data, dialog_id, turn_num)
 
         if entry_text is not None and entry_text != -1:
             self.choice_var.set(int(entry_text))
-
         else:
             self.choice_var.set(-1)
 
@@ -614,25 +681,47 @@ class EnoughContext:
         return json_data
 
     def is_empty(self):
+        """
+        Check if the choice variable is empty.
+
+        Returns:
+            bool: True if the choice variable is empty, False otherwise.
+        """
         if self.choice_var.get() == -1:
             return True
         return False
 
     def context_positive(self):
+        """
+        Checks if the choice variable is equal to 1 and returns True if it is, otherwise returns False.
+        """
         if self.choice_var.get() == 1:
             return True
         return False
 
     def get_context(self):
+        """
+        Returns the current context selected by the user.
+
+        Returns:
+            str: The selected context.
+        """
         return self.choice_var.get()
 
     def set_context(self, value):
+        """
+        Sets the context value for the choice variable.
+
+        Parameters:
+        - value: The value to set as the context.
+
+        Returns:
+        None
+        """
         self.choice_var.set(value)
 
     def focus_on(self):
         pass
-
-
 
 class DialogFrame:
     def __init__(self, position, root):

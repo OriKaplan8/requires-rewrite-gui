@@ -1,12 +1,12 @@
 from pymongo import MongoClient  # mongo libary for the server
 import datetime  # for the time
 import json  # for the json files
+import re
 
 
 connection_string = "mongodb+srv://ori:CqxF0bLlZoX2OQoD@cluster0.agjlk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"  # the connection string, the adress of the server
 client = MongoClient(connection_string)
 db = client.require_rewrite_b  # the name of the database
-
 
 
 def add_or_update_json_template_in_db(
@@ -59,7 +59,6 @@ def add_or_update_json_template_in_db(
     else:
         print("No changes made to the database.")
 
-
 def retrieve_json_template_by_file_id(file_id):
     """
     Retrieves the JSON data from the MongoDB collection based on the specified file ID.
@@ -77,14 +76,15 @@ def retrieve_json_template_by_file_id(file_id):
     collection = db.json_batches
     query = {"file_id": file_id}
     result = collection.find_one(query)
-    if result:
-        print("Found document:")
-        print(result["json_data"])  # Print only the json_data field
+     
+    if result: # If a document is found
+        if "asi" in re.split(r'[ _\-]', file_id):
+            return convert_old_to_new_format(result["json_data"])
+        
         return result["json_data"]  # Return only the json_data field
     else:
         print("No document found with the specified project name and file ID.")
         return None
-
 
 def retrieve_annotations_by_file_id(file_id):
     """
@@ -114,40 +114,88 @@ def retrieve_annotations_by_file_id(file_id):
         print("No document found with the specified project name and file ID.")
         return None
 
-
 def retrieve_annotation_by_user_and_file_id(file_id, username):
     """
-    Retrieves the annotated file of a specific annotator from the MongoDB collection.
+    Retrieve annotations by user and file ID.
 
-    Parameters:
-    - file_id (str): The ID of the file to retrieve.
-    - username (str): The username of the annotator.
+    Args:
+        file_id (str): The ID of the file.
+        username (str): The username of the user.
 
     Returns:
-    - json_data (dict): The JSON data of the annotated file, if found.
-    - None: If no document is found with the specified file ID or username.
+        dict or None: A dictionary containing the retrieved annotations if found, 
+                      None if no annotations were found.
     """
-    json_data = retrieve_json_template_by_file_id1(file_id)
+
+    json_data = None
+    found_any = False
+    old_version = False
+    
+    if "asi" in re.split(r'[ _\-]', file_id):
+        json_data = retrieve_old_annotations_by_user_and_file_id(file_id, username)
+        found_any = True if json_data else False
+        old_version = True
     
     if not json_data:
-        return None
+        json_data = retrieve_json_template_by_file_id(file_id)
+        if not json_data:
+            return None
      
     collection = db.json_annotations_dialogs
     query = {"username": username, "file_id": file_id}
     results = collection.find(query) 
 
-
-    found_any = False
     for result in results:
         json_data[result["dialog_id"]] = result["dialog_data"]
         found_any = True
 
     if not found_any:
-        print("No document found with the specified username.")
+        print("No annotations found with the specified username.")
         return None
+    
+    if old_version:
+        return convert_old_to_new_format(json_data)
+    
+    else:
+        return json_data
 
-    return json_data
+def convert_old_to_new_format(old_data):
+    """
+    Converts old data format to a new format.
+    Old data includes the following:
+        - asi-14_4
+        - asi-23_4
 
+    Args:
+        old_data (dict): The old data to be converted.
+
+    Returns:
+        dict: The new data in the updated format.
+    """
+    new_data = {}
+    for dialog_key, dialog_data in old_data.items():
+        
+        if isinstance(dialog_data["dialog"], dict):
+            new_data[dialog_key] = dialog_data
+            continue # Already in the new format
+
+        new_dialog = {"number_of_turns": 0,
+                    "annotator_id": dialog_data["annotator_id"],
+                    "dialog": {}}
+        
+        for index, value in enumerate(dialog_data["dialog"]):
+            new_dialog["dialog"][str(index)] = value
+            new_dialog["number_of_turns"] += 1
+
+            if index > 0:
+                new_dialog["dialog"][str(index)]["requires_rewrite"] = dialog_data[str(index)]["requires_rewrite"]
+                new_dialog["dialog"][str(index)]["enough_context"] = dialog_data[str(index)]["enough_context"]
+
+            
+        new_data[dialog_key] = new_dialog
+        
+    return new_data
+           
 def delete_json_template_and_annotations_by_file_id(file_id):
     """
     Deletes a JSON template from the MongoDB collection based on the specified file ID.
@@ -176,13 +224,52 @@ def delete_json_template_and_annotations_by_file_id(file_id):
     else:
         print("No document found with the specified file ID.")
 
-
 def load_json_from_file(file_path):
+    """
+    Load JSON data from a file.
+
+    Args:
+        file_path (str): The path to the JSON file.
+
+    Returns:
+        dict: The JSON data loaded from the file.
+
+    Raises:
+        Exception: If the file is not found or if it is not a valid JSON file.
+    """
     try:
         with open(file_path, "r") as file:
             data = json.load(file)
         return data
     except FileNotFoundError:
         raise Exception(
-            f"Cannot find the json file: {file_path}. is the path correct? is it a json file?"
+            f"Cannot find the json file: {file_path}. Is the path correct? Is it a JSON file?"
         )
+
+def retrieve_old_annotations_by_user_and_file_id(file_id, username):
+    """
+    Retrieves the annotated file of a specific annotator from the MongoDB collection.
+
+    Parameters:
+    - file_id (str): The ID of the file to retrieve.
+    - username (str): The username of the annotator.
+
+    Returns:
+    - json_data (dict): The JSON data of the annotated file, if found.
+    - None: If no document is found with the specified file ID or username.
+    """
+
+    collection = db.json_annotations
+    query = {'file_id': file_id}
+    result = collection.find_one(query)
+    json_data = {}
+    if result is not None:
+        query = {'file_id': file_id, 'username': username}
+        result = collection.find_one(query)
+        if result is not None:
+            json_data = result["json_data"]
+            return json_data  # Return only the json_data field
+        else: 
+            return None
+    else:
+        return None
