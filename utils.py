@@ -513,14 +513,14 @@ class RequireRewriteCheckBox:
 
         self.circle1 = tk.Radiobutton(
             self.requires_rewrite_grid,
-            text="Question Requires Rewrite",
+            text="Utterance Needs Rephrasing",
             variable=self.choice_var,
             value=1,
             command=lambda: update_enough_focus_state(),
         )
         self.circle2 = tk.Radiobutton(
             self.requires_rewrite_grid,
-            text="Question Does Not Require Rewrite",
+            text="Utterance Doesn't Need Rephrasing",
             variable=self.choice_var,
             value=0,
             command=lambda: update_enough_focus_state(),
@@ -806,10 +806,10 @@ class DialogFrame:
 
             # Format each turn
             turn_text = f"Turn {turn_data['turn_num']}:\n"
-            turn_text += f"Q: {turn_data['original_question']}\n"
+            turn_text += f"U.u: {turn_data['original_question']}\n"
 
             if i < turn_num:
-                turn_text += f"A: {turn_data['answer']}\n"
+                turn_text += f"U.s: {turn_data['answer']}\n"
 
             turn_text += "-" * 40 + "\n"  # Separator line
 
