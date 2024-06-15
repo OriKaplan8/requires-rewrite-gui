@@ -8,6 +8,8 @@ import threading
 import re
 from jsonFunctions import *
 from datetime import datetime
+import certifi
+ca = certifi.where()
 
 def compare_norm_texts(text1, text2):
     """
@@ -274,7 +276,7 @@ class MongoData:
             connection_string (str): The connection string for the MongoDB database.
         """
         self.root = root
-        self.client = MongoClient(connection_string)
+        self.client = MongoClient(connection_string, tlsCAFile=ca)
         self.db = self.client.require_rewrite_b
 
         self.username = None
@@ -295,7 +297,7 @@ class MongoData:
         username, filename, data = None, None, None
 
         if self.dev_mode:
-            username = "ori"
+            username = "test69"
             filename = "asi-23_4"
 
         else:
@@ -619,6 +621,132 @@ class RequireRewriteCheckBox:
     def focus_on(self):
         pass
 
+class NeedsClarificationCheckBox:
+    def __init__(self, position, root, update_enough_focus_state):
+        self.root = root
+        self.position = position
+        self.function = update_enough_focus_state
+
+        self.requires_rewrite_frame = tk.Frame(root)
+        position.add(self.requires_rewrite_frame, stretch="always", height=30)
+        LabelSeparator(
+            self.requires_rewrite_frame, text="Needs Clarification Checkbox"
+        ).pack(fill=tk.X)
+
+        self.requires_rewrite_grid = tk.Frame(self.requires_rewrite_frame)
+        self.requires_rewrite_grid.pack(fill=tk.BOTH, padx=10, pady=10)
+
+        self.choice_var = tk.IntVar(value=-1)
+
+        self.circle1 = tk.Radiobutton(
+            self.requires_rewrite_grid,
+            text="Utterance Needs Clarification",
+            variable=self.choice_var,
+            value=1,
+            command=lambda: update_enough_focus_state(),
+        )
+        self.circle2 = tk.Radiobutton(
+            self.requires_rewrite_grid,
+            text="Utterance Doesn't Need Clarification",
+            variable=self.choice_var,
+            value=0,
+            command=lambda: update_enough_focus_state(),
+        )
+
+        self.circle1.grid(row=0, column=0, sticky="w", padx=5, pady=0)
+        self.circle2.grid(row=1, column=0, sticky="w", padx=5, pady=0)
+
+    def on_select(self):
+        """
+        This method is called when an option is selected.
+        It prints the value of the selected option.
+        """
+        print(self.choice_var.get())
+
+    def update_entry_text(self, dialog_id, turn_num, json_data):
+        """
+        Updates the marked choice based on the given dialog ID, turn number, and JSON data.
+
+        Args:
+            dialog_id (int): The ID of the dialog.
+            turn_num (int): The turn number.
+            json_data (dict): The JSON data containing the dialog information.
+
+        Returns:
+            None
+        """
+        entry_text = JsonFunctions.get_require_rewrite(json_data, dialog_id, turn_num)
+
+        if entry_text is not None and entry_text != -1:
+            self.choice_var.set(int(entry_text))
+        else:
+            self.choice_var.set(-1)
+
+        self.function()
+
+    def update_json_data(self, dialog_id, turn_id, json_data):
+        """
+        Updates the JSON data with the new value from the requires_rewrite Entry widget.
+
+        Args:
+            dialog_id: The ID of the dialog.
+            turn_id: The turn ID.
+            json_data: The JSON data.
+
+        Returns:
+            dict: The modified JSON data.
+        """
+        new_value = self.choice_var.get()
+        JsonFunctions.change_requires_rewrite(json_data, dialog_id, turn_id, new_value)
+        return json_data
+
+    def is_empty(self):
+        """
+        Check if the choice variable is empty.
+
+        Returns:
+            bool: True if the choice variable is empty, False otherwise.
+        """
+        if self.choice_var.get() == -1:
+            return True
+        return False
+
+    def requires_rewrite_positive(self):
+        """
+        Check if the choice variable is set to 1.
+
+        Returns:
+            bool: True if the choice variable is 1, False otherwise.
+        """
+        if self.choice_var.get() == 1:
+            return True
+        return False
+
+    def get_requires_rewrite(self):
+        """
+        Get the value of the choice variable.
+
+        Returns:
+            The value of the choice variable.
+        """
+        return self.choice_var.get()
+
+    def set_requires_rewrite(self, value):
+        """
+        Sets the value of requires_rewrite.
+
+        Args:
+            value: The new value for requires_rewrite.
+
+        Returns:
+            None
+        """
+        self.choice_var.set(value)
+
+    def focus_on(self):
+        pass
+
+
 class EnoughContext:
     def __init__(self, position, root):
         self.root = root
@@ -818,3 +946,9 @@ class DialogFrame:
 
         # Update the dialog text widget using the new method
         self.update_dialog_text(dialog_text_content)
+        
+    def scroll_up(self):
+        self.dialog_text.yview_scroll(-5, "units")
+    
+    def scroll_down(self):
+        self.dialog_text.yview_scroll(5, "units")

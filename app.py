@@ -10,6 +10,8 @@ from utils import (
 )
 import tkinter as tk
 from tkinter import font
+import platform
+import os
 
 class AnnotationApp:
 
@@ -28,7 +30,7 @@ class AnnotationApp:
         self.fields_check = True
 
         self.save_before_exit = False
-        self.dev_mode = False
+        self.dev_mode = True
 
         # Create a Top Panel Frame for options
         top_panel_frame = tk.Frame(root)
@@ -223,26 +225,39 @@ class AnnotationApp:
         Returns:
             None
         """
-        if event.keycode == 65:  # Keycode for 'z' on many keyboards
+        print(event.keycode)
+        keycodes = []
+        if platform.system() == "Darwin":
+            keycodes = [97, 16777331, 33554532, 2063660802, 2080438019, 2113992448, 2097215233]
+        elif platform.system() == "Windows":
+            keycodes = [65, 83, 68, 37, 39, 38, 40]
+            
+        if event.keycode == keycodes[0]:  # Keycode for 'z' on many keyboards
             self.require_rewrite.choice_var.set(1)
             self.enough_context.choice_var.set(1)
             self.next_turn()
 
-        elif event.keycode == 83:  # Keycode for 'x' on many keyboards
+        elif event.keycode == keycodes[1]:  # Keycode for 'x' on many keyboards
             self.require_rewrite.choice_var.set(0)
             self.enough_context.choice_var.set(1)
             self.next_turn()
 
-        elif event.keycode == 68:  # Keycode for 'c' on many keyboards
+        elif event.keycode == keycodes[2]:  # Keycode for 'c' on many keyboards
             self.require_rewrite.choice_var.set(1)
             self.enough_context.choice_var.set(0)
             self.next_turn()
 
-        elif event.keycode == 37:
+        elif event.keycode == keycodes[3]:  # Keycode for left arrow
             self.prev_turn()
 
-        elif event.keycode == 39:
+        elif event.keycode == keycodes[4]:  # Keycode for right arrow
             self.next_turn()
+            
+        elif event.keycode == keycodes[5]: # Keycode for up arrow
+            self.dialog_frame.scroll_up()
+            
+        elif event.keycode == keycodes[6]: # Keycode for down arrow
+            self.dialog_frame.scroll_down()
 
     def on_closing(self):
         """This function is called when the user tries to close the program. It checks if the user has saved the file, and if not, it asks the user if they want to save it."""
