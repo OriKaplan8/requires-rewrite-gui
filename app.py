@@ -7,7 +7,9 @@ from utils import (
     LoadingScreen,
     DialogFrame,
     MongoData,
+    NeedsClarificationCheckBox
 )
+
 import tkinter as tk
 from tkinter import font
 import platform
@@ -18,6 +20,7 @@ class AnnotationApp:
     def __init__(
         self,
         root,
+        dev_mode=[],
     ):
 
         # Main windows settings
@@ -30,12 +33,11 @@ class AnnotationApp:
         self.fields_check = True
 
         self.save_before_exit = False
-        self.dev_mode = True
 
         # Create a Top Panel Frame for options
         top_panel_frame = tk.Frame(root)
         top_panel_frame.pack(side=tk.TOP, fill=tk.X) 
-        version_label = tk.Label(top_panel_frame, text="Version 3.0")
+        version_label = tk.Label(top_panel_frame, text="Version 3.1")
         version_label.pack(side=tk.RIGHT, padx=10, pady=10)
 
         # Create Main PanedWindow
@@ -61,7 +63,6 @@ class AnnotationApp:
         )
         next_dialog_button.pack(side=tk.LEFT)
 
-        self.root.bind('<KeyPress>', self.quick_annotation)
 
         # Save Button at the top
         self.save_button = tk.Button(
@@ -95,7 +96,7 @@ class AnnotationApp:
 
         # Load JSON data
         connection_string = "mongodb+srv://ori:CqxF0bLlZoX2OQoD@cluster0.agjlk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-        self.mongo = MongoData(self.root, connection_string, self.dev_mode)
+        self.mongo = MongoData(self.root, connection_string, dev_mode)
         self.json_data = self.mongo.choose_file()
 
         self.progress = ProgressIndicator(top_panel_frame, dialog_change_function=self.change_dialog)
@@ -103,13 +104,21 @@ class AnnotationApp:
         self.font = FontSizeChanger(top_panel_frame, root)
         self.font.add_exclude_widget(self.dialog_label)
         self.require_rewrite = RequireRewriteCheckBox(
-            main_pane, root, self.update_enough_focus_state
+            main_pane, root, self.update_enough_focus_needs_clarification_state
         )
         self.enough_context = EnoughContext(main_pane, root)
+        self.needs_clarification = None
+        self.quick_annotation = self.quick_annotation_no_clarification_version
+        if self.mongo.get_needs_clarification():
+            self.needs_clarification = NeedsClarificationCheckBox(main_pane, root)
+            self.quick_annotation = self.quick_annotation_needs_clarification_version
+            
         self.LoadingScreen = LoadingScreen(root)
 
         if self.json_data == None or self.json_data == "":
             raise Exception(f"The json files is Null.\n JSON={self.json_data}")
+        
+        self.root.bind('<KeyPress>', self.quick_annotation) # Bind the key press event to the quick annotation function
 
         # Load JSON and display data
         self.save_counter = 15
@@ -215,7 +224,7 @@ class AnnotationApp:
             JsonFunctions.count_turns_in_dialog(self.json_data, self.get_dialog_id()),
         )
 
-    def quick_annotation(self, event):
+    def quick_annotation_no_clarification_version(self, event):
         """
         Handles quick annotation based on the key pressed.
 
@@ -225,38 +234,88 @@ class AnnotationApp:
         Returns:
             None
         """
-        print(event.keycode)
+  
         keycodes = []
         if platform.system() == "Darwin":
-            keycodes = [97, 16777331, 33554532, 2063660802, 2080438019, 2113992448, 2097215233]
+            keycodes = {"z": 97, "x": 16777331, "c": 33554532, "left": 2063660802, "right": 2080438019, "up": 2113992448, "down": 2097215233, "q": 201326705}
         elif platform.system() == "Windows":
-            keycodes = [65, 83, 68, 37, 39, 38, 40]
+            keycodes = {"z": 65, "x": 83, "c": 68, "left": 37, "right": 39, "up": 38, "down": 40, "q": 81}
             
-        if event.keycode == keycodes[0]:  # Keycode for 'z' on many keyboards
-            self.require_rewrite.choice_var.set(1)
-            self.enough_context.choice_var.set(1)
+        if event.keycode == keycodes["z"]:  # Keycode for 'z' on many keyboards
+            self.require_rewrite.set_requires_rewrite(1)
+            self.enough_context.set_context(1)
             self.next_turn()
 
-        elif event.keycode == keycodes[1]:  # Keycode for 'x' on many keyboards
-            self.require_rewrite.choice_var.set(0)
-            self.enough_context.choice_var.set(1)
+        elif event.keycode == keycodes["x"]:  # Keycode for 'x' on many keyboards
+            self.require_rewrite.set_requires_rewrite(0)
+            self.enough_context.set_context(1)
             self.next_turn()
 
-        elif event.keycode == keycodes[2]:  # Keycode for 'c' on many keyboards
-            self.require_rewrite.choice_var.set(1)
-            self.enough_context.choice_var.set(0)
+        elif event.keycode == keycodes["c"]:  # Keycode for 'c' on many keyboards
+            self.require_rewrite.set_requires_rewrite(1)
+            self.enough_context.set_context(0)
             self.next_turn()
 
-        elif event.keycode == keycodes[3]:  # Keycode for left arrow
+        elif event.keycode == keycodes["left"]:  # Keycode for left arrow
             self.prev_turn()
 
-        elif event.keycode == keycodes[4]:  # Keycode for right arrow
+        elif event.keycode == keycodes["right"]:  # Keycode for right arrow
             self.next_turn()
             
-        elif event.keycode == keycodes[5]: # Keycode for up arrow
+        elif event.keycode == keycodes["up"]: # Keycode for up arrow
             self.dialog_frame.scroll_up()
             
-        elif event.keycode == keycodes[6]: # Keycode for down arrow
+        elif event.keycode == keycodes["down"]: # Keycode for down arrow
+            self.dialog_frame.scroll_down()
+
+    def quick_annotation_needs_clarification_version(self, event):
+        """
+        Handles quick annotation based on the key pressed.
+
+        Args:
+            event (Event): The event object containing information about the key press.
+
+        Returns:
+            None
+        """
+        keycodes = []
+        if platform.system() == "Darwin":
+            keycodes = {"z": 97, "x": 16777331, "c": 33554532, "left": 2063660802, "right": 2080438019, "up": 2113992448, "down": 2097215233, "q": 201326705}
+        elif platform.system() == "Windows":
+            keycodes = {"z": 65, "x": 83, "c": 68, "left": 37, "right": 39, "up": 38, "down": 40, "q": 81}
+           
+        if event.keycode == keycodes["q"]:  # Keycode for 'q' on many keyboards
+            self.require_rewrite.set_requires_rewrite(0)
+            self.next_turn()
+            
+        if event.keycode == keycodes["z"]:  # Keycode for 'z' on many keyboards
+            self.require_rewrite.set_requires_rewrite(1)
+            self.enough_context.set_context(1)
+            self.needs_clarification.set_needs_clarification(0)
+            self.next_turn()
+
+        elif event.keycode == keycodes["x"]:  # Keycode for 'x' on many keyboards
+            self.require_rewrite.set_requires_rewrite(1)
+            self.enough_context.set_context(1)
+            self.needs_clarification.set_needs_clarification(1)
+            self.next_turn()
+
+        elif event.keycode == keycodes["c"]:  # Keycode for 'c' on many keyboards
+            self.require_rewrite.set_requires_rewrite(1)
+            self.enough_context.set_context(0)
+            self.needs_clarification.set_needs_clarification(1)
+            self.next_turn()
+
+        elif event.keycode == keycodes["left"]:  # Keycode for left arrow
+            self.prev_turn()
+
+        elif event.keycode == keycodes["right"]:  # Keycode for right arrow
+            self.next_turn()
+            
+        elif event.keycode == keycodes["up"]: # Keycode for up arrow
+            self.dialog_frame.scroll_up()
+            
+        elif event.keycode == keycodes["down"]: # Keycode for down arrow
             self.dialog_frame.scroll_down()
 
     def on_closing(self):
@@ -287,8 +346,7 @@ class AnnotationApp:
                             self.json_data, dialog_id, key
                         )
                         == None
-                        or JsonFunctions.get_context(self.json_data, dialog_id, key)
-                        == None
+                        
                     ):
                         self.current_dialog_num = dialog_index 
                         self.max_dialog_num = dialog_index 
@@ -310,8 +368,13 @@ class AnnotationApp:
         if self.require_rewrite.is_empty():
             missing_fields.append("Requires-Rewrite")
 
-        if self.enough_context.is_empty():
-            missing_fields.append("Enough-Context")
+        if self.require_rewrite.get_requires_rewrite() != 0:
+            if self.enough_context.is_empty():
+                missing_fields.append("Enough-Context")
+                
+            if self.needs_clarification:
+                if self.needs_clarification.is_empty():
+                    missing_fields.append("Needs-Clarification")
 
         if missing_fields and self.fields_check:
             tk.messagebox.showwarning(
@@ -355,6 +418,11 @@ class AnnotationApp:
         self.json_data = self.enough_context.update_json_data(
             self.get_dialog_id(), self.current_turn_num, self.json_data
         )
+        
+        if self.needs_clarification:
+            self.json_data = self.needs_clarification.update_json_data(
+                self.get_dialog_id(), self.current_turn_num, self.json_data
+            )
 
         return True
 
@@ -407,8 +475,14 @@ class AnnotationApp:
                 self.get_dialog_id(), self.current_turn_num, self.json_data
             )
             self.enough_context.update_entry_text(
+                
                 self.get_dialog_id(), self.current_turn_num, self.json_data
             )
+            if self.needs_clarification: # If the needs_clarification field is present
+                self.needs_clarification.update_entry_text(
+                    
+                    self.get_dialog_id(), self.current_turn_num, self.json_data
+                )
 
             self.font.update_font_size_wrapper()
             self.require_rewrite.focus_on()
@@ -574,7 +648,7 @@ class AnnotationApp:
                 return False
         return True
 
-    def update_enough_focus_state(self):
+    def update_enough_focus_needs_clarification_state(self):
         """
         Update the focus state of the 'enough_context' based on the value of 'require_rewrite' choice variable.
 
@@ -588,10 +662,21 @@ class AnnotationApp:
             None
         """
         if self.require_rewrite.choice_var.get() == 0:
-            self.enough_context.choice_var.set(1)
+            self.enough_context.choice_var.set(-1)
             self.enough_context.circle1.config(state="disabled")
             self.enough_context.circle2.config(state="disabled")
+            
+            if self.needs_clarification:
+                self.needs_clarification.choice_var.set(-1)
+                self.needs_clarification.circle1.config(state="disabled")
+                self.needs_clarification.circle2.config(state="disabled")
+                
         else:
             self.enough_context.circle1.config(state="normal")
             self.enough_context.circle2.config(state="normal")
             self.enough_context.choice_var.set(-1)
+            
+            if self.needs_clarification:
+                self.needs_clarification.circle1.config(state="normal")
+                self.needs_clarification.circle2.config(state="normal")
+                self.needs_clarification.choice_var.set(-1)

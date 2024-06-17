@@ -283,6 +283,20 @@ class MongoData:
         self.filename = None
         self.saving_in_progress = False
         self.dev_mode = dev_mode
+        self.needs_clarification = None
+        
+    def check_needs_clarification(self, json_data):
+        if not json_data:
+            self.needs_clarification = False
+            return
+
+        dialog_data = next(iter(json_data))
+        
+        if "needs_clarification" in json_data[dialog_data]["dialog"]["1"].keys():
+            self.needs_clarification = True
+        else:
+            self.needs_clarification = False
+
         
     def get_saving_status(self):
         return self.saving_in_progress
@@ -296,9 +310,9 @@ class MongoData:
         """
         username, filename, data = None, None, None
 
-        if self.dev_mode:
-            username = "test69"
-            filename = "asi-23_4"
+        if len(self.dev_mode) != 0 and len(self.dev_mode) == 2:
+            username = self.dev_mode[0]
+            filename = self.dev_mode[1]
 
         else:
             self.root.withdraw()
@@ -347,9 +361,12 @@ class MongoData:
 
         self.filename = filename
         self.username = username
-
+        self.check_needs_clarification(data)
         return self.fill_dialogs(data)
 
+    def get_needs_clarification(self):
+        return self.needs_clarification
+    
     def save_json(self, json_data, dialog_id):
         """
         Opens a thread and sends the user's progress to the MongoDB.
@@ -572,7 +589,7 @@ class RequireRewriteCheckBox:
             dict: The modified JSON data.
         """
         new_value = self.choice_var.get()
-        JsonFunctions.change_requires_rewrite(json_data, dialog_id, turn_id, new_value)
+        json_data = JsonFunctions.change_requires_rewrite(json_data, dialog_id, turn_id, new_value)
         return json_data
 
     def is_empty(self):
@@ -616,16 +633,18 @@ class RequireRewriteCheckBox:
         Returns:
             None
         """
+        
         self.choice_var.set(value)
+        self.function()
 
     def focus_on(self):
         pass
 
 class NeedsClarificationCheckBox:
-    def __init__(self, position, root, update_enough_focus_state):
+    def __init__(self, position, root):
         self.root = root
         self.position = position
-        self.function = update_enough_focus_state
+        
 
         self.requires_rewrite_frame = tk.Frame(root)
         position.add(self.requires_rewrite_frame, stretch="always", height=30)
@@ -643,14 +662,12 @@ class NeedsClarificationCheckBox:
             text="Utterance Needs Clarification",
             variable=self.choice_var,
             value=1,
-            command=lambda: update_enough_focus_state(),
         )
         self.circle2 = tk.Radiobutton(
             self.requires_rewrite_grid,
             text="Utterance Doesn't Need Clarification",
             variable=self.choice_var,
             value=0,
-            command=lambda: update_enough_focus_state(),
         )
 
         self.circle1.grid(row=0, column=0, sticky="w", padx=5, pady=0)
@@ -675,18 +692,18 @@ class NeedsClarificationCheckBox:
         Returns:
             None
         """
-        entry_text = JsonFunctions.get_require_rewrite(json_data, dialog_id, turn_num)
+        entry_text = JsonFunctions.get_needs_clarification(json_data, dialog_id, turn_num)
 
         if entry_text is not None and entry_text != -1:
             self.choice_var.set(int(entry_text))
         else:
             self.choice_var.set(-1)
 
-        self.function()
+        
 
     def update_json_data(self, dialog_id, turn_id, json_data):
         """
-        Updates the JSON data with the new value from the requires_rewrite Entry widget.
+        Updates the JSON data with the new value from the needs_clarification Entry widget.
 
         Args:
             dialog_id: The ID of the dialog.
@@ -697,7 +714,7 @@ class NeedsClarificationCheckBox:
             dict: The modified JSON data.
         """
         new_value = self.choice_var.get()
-        JsonFunctions.change_requires_rewrite(json_data, dialog_id, turn_id, new_value)
+        json_data = JsonFunctions.change_needs_clarification(json_data, dialog_id, turn_id, new_value)
         return json_data
 
     def is_empty(self):
@@ -711,7 +728,7 @@ class NeedsClarificationCheckBox:
             return True
         return False
 
-    def requires_rewrite_positive(self):
+    def needs_clarification_positive(self):
         """
         Check if the choice variable is set to 1.
 
@@ -722,7 +739,7 @@ class NeedsClarificationCheckBox:
             return True
         return False
 
-    def get_requires_rewrite(self):
+    def get_needs_clarification(self):
         """
         Get the value of the choice variable.
 
@@ -731,12 +748,12 @@ class NeedsClarificationCheckBox:
         """
         return self.choice_var.get()
 
-    def set_requires_rewrite(self, value):
+    def set_needs_clarification(self, value):
         """
-        Sets the value of requires_rewrite.
+        Sets the value of needs_clarification.
 
         Args:
-            value: The new value for requires_rewrite.
+            value: The new value for needs_clarification.
 
         Returns:
             None
@@ -806,7 +823,7 @@ class EnoughContext:
             dict: The modified JSON data.
         """
         new_value = self.choice_var.get()
-        JsonFunctions.change_context(json_data, dialog_id, turn_id, new_value)
+        json_data = JsonFunctions.change_context(json_data, dialog_id, turn_id, new_value)
         return json_data
 
     def is_empty(self):

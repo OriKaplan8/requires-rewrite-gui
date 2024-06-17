@@ -4,8 +4,6 @@ class JsonFunctions:
 
         return json_data[dialog_id]['dialog'][str(turn_num)]
         
-    
-    
     def set_turn(json_data, dialog_id, turn_num, new_turn_data):
         json_data[dialog_id]['dialog'][str(turn_num)] = new_turn_data
         return json_data
@@ -35,6 +33,46 @@ class JsonFunctions:
             )
 
         return turn_data[field]
+    
+    def get_needs_clarification(json_data, dialog_id, turn_num):
+        """
+        Retrieves the value of the 'needs_clarification' field from the given JSON data.
+
+        Args:
+            json_data (dict): The JSON data containing the dialog information.
+            dialog_id (str): The ID of the dialog.
+            turn_num (int): The turn number.
+
+        Returns:
+            The value of the 'needs_clarification' field.
+
+        Raises:
+            Exception: If the 'needs_clarification' field is not found in the dialog data.
+        """
+
+        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+
+        field = ""
+        if "needs_clarification" in turn_data.keys():
+            field = "needs_clarification"
+        elif "needs clarification" in turn_data.keys():
+            field = "needs clarification"
+        else:
+            raise Exception(
+                f"needs_clarification field not found in dialog_id={dialog_id} and turn_num={turn_num} | keys_found = {turn_data.keys()}"
+            )
+
+        return turn_data[field]
+
+    def change_needs_clarification(json_data, dialog_id, turn_num, new_value):
+        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+
+        if new_value == -1:
+            new_value = None
+
+        turn_data["needs_clarification"] = new_value
+
+        return JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn_data)
 
     def get_annotator_rewrite(json_data, dialog_id, turn_num):
         """
@@ -89,8 +127,6 @@ class JsonFunctions:
         """
 
         return json_data[dialog_id]["number_of_turns"] - 1
-
-    
 
     def get_original_question(json_data, dialog_id, turn_num):
         """
