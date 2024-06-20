@@ -522,7 +522,7 @@ class RequireRewriteCheckBox:
         self.requires_rewrite_frame = tk.Frame(root)
         position.add(self.requires_rewrite_frame, stretch="always", height=30)
         LabelSeparator(
-            self.requires_rewrite_frame, text="Requires Rewrites Checkbox"
+            self.requires_rewrite_frame, text="Needs Rephrasing"
         ).pack(fill=tk.X)
 
         self.requires_rewrite_grid = tk.Frame(self.requires_rewrite_frame)
@@ -532,14 +532,14 @@ class RequireRewriteCheckBox:
 
         self.circle1 = tk.Radiobutton(
             self.requires_rewrite_grid,
-            text="Utterance Needs Rephrasing",
+            text="Needs Rephrasing",
             variable=self.choice_var,
             value=1,
             command=lambda: update_enough_focus_state(),
         )
         self.circle2 = tk.Radiobutton(
             self.requires_rewrite_grid,
-            text="Utterance Doesn't Need Rephrasing",
+            text="Doesn't Need Rephrasing",
             variable=self.choice_var,
             value=0,
             command=lambda: update_enough_focus_state(),
@@ -659,13 +659,13 @@ class NeedsClarificationCheckBox:
 
         self.circle1 = tk.Radiobutton(
             self.requires_rewrite_grid,
-            text="Utterance Needs Clarification",
+            text="Needs Clarification",
             variable=self.choice_var,
             value=1,
         )
         self.circle2 = tk.Radiobutton(
             self.requires_rewrite_grid,
-            text="Utterance Doesn't Need Clarification",
+            text="Doesn't Need Clarification",
             variable=self.choice_var,
             value=0,
         )
@@ -965,7 +965,7 @@ class DialogFrame:
         self.update_dialog_text(dialog_text_content)
         
     def scroll_up(self):
-        self.dialog_text.yview_scroll(-5, "units")
+        self.dialog_text.yview_scroll(-10, "units")
     
     def scroll_down(self):
-        self.dialog_text.yview_scroll(5, "units")
+        self.dialog_text.yview_scroll(10, "units")

@@ -37,7 +37,7 @@ class AnnotationApp:
         # Create a Top Panel Frame for options
         top_panel_frame = tk.Frame(root)
         top_panel_frame.pack(side=tk.TOP, fill=tk.X) 
-        version_label = tk.Label(top_panel_frame, text="Version 3.1")
+        version_label = tk.Label(top_panel_frame, text="Version 3.2")
         version_label.pack(side=tk.RIGHT, padx=10, pady=10)
 
         # Create Main PanedWindow
@@ -223,7 +223,26 @@ class AnnotationApp:
             self.current_turn_num,
             JsonFunctions.count_turns_in_dialog(self.json_data, self.get_dialog_id()),
         )
+    
+    def other_quick_actions(self, event):
+        keycodes = []
+        if platform.system() == "Darwin":
+            keycodes = {"z": 97, "x": 16777331, "c": 33554532, "left": 2063660802, "right": 2080438019, "up": 2113992448, "down": 2097215233, "q": 201326705}
+        elif platform.system() == "Windows":
+            keycodes = {"z": 65, "x": 83, "c": 68, "left": 37, "right": 39, "up": 38, "down": 40, "q": 81}
+        
+        if event.keycode == keycodes["left"]:  # Keycode for left arrow
+            self.prev_turn()
 
+        elif event.keycode == keycodes["right"]:  # Keycode for right arrow
+            self.next_turn()
+            
+        elif event.keycode == keycodes["up"]: # Keycode for up arrow
+            self.dialog_frame.scroll_up()
+            
+        elif event.keycode == keycodes["down"]: # Keycode for down arrow
+            self.dialog_frame.scroll_down()
+    
     def quick_annotation_no_clarification_version(self, event):
         """
         Handles quick annotation based on the key pressed.
@@ -255,18 +274,9 @@ class AnnotationApp:
             self.require_rewrite.set_requires_rewrite(1)
             self.enough_context.set_context(0)
             self.next_turn()
-
-        elif event.keycode == keycodes["left"]:  # Keycode for left arrow
-            self.prev_turn()
-
-        elif event.keycode == keycodes["right"]:  # Keycode for right arrow
-            self.next_turn()
             
-        elif event.keycode == keycodes["up"]: # Keycode for up arrow
-            self.dialog_frame.scroll_up()
-            
-        elif event.keycode == keycodes["down"]: # Keycode for down arrow
-            self.dialog_frame.scroll_down()
+        else:
+            self.other_quick_actions(event)
 
     def quick_annotation_needs_clarification_version(self, event):
         """
@@ -305,18 +315,9 @@ class AnnotationApp:
             self.enough_context.set_context(0)
             self.needs_clarification.set_needs_clarification(1)
             self.next_turn()
-
-        elif event.keycode == keycodes["left"]:  # Keycode for left arrow
-            self.prev_turn()
-
-        elif event.keycode == keycodes["right"]:  # Keycode for right arrow
-            self.next_turn()
             
-        elif event.keycode == keycodes["up"]: # Keycode for up arrow
-            self.dialog_frame.scroll_up()
-            
-        elif event.keycode == keycodes["down"]: # Keycode for down arrow
-            self.dialog_frame.scroll_down()
+        else:
+            self.other_quick_actions(event)
 
     def on_closing(self):
         """This function is called when the user tries to close the program. It checks if the user has saved the file, and if not, it asks the user if they want to save it."""
@@ -354,7 +355,7 @@ class AnnotationApp:
                         return
 
         self.current_dialog_num = self.count_dialogs_in_batch() - 1
-        self.current_turn_num = self.count_turns_in_dialog() - 1
+        self.current_turn_num = self.count_turns_in_dialog()  
         self.max_dialog_num = self.count_dialogs_in_batch() - 1
 
     def are_all_fields_filled(self):
