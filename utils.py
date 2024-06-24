@@ -532,14 +532,14 @@ class RequireRewriteCheckBox:
 
         self.circle1 = tk.Radiobutton(
             self.requires_rewrite_grid,
-            text="Needs Rephrasing",
+            text="Requires Rewrite",
             variable=self.choice_var,
             value=1,
             command=lambda: update_enough_focus_state(),
         )
         self.circle2 = tk.Radiobutton(
             self.requires_rewrite_grid,
-            text="Doesn't Need Rephrasing",
+            text="Doesn't Require Rewrite",
             variable=self.choice_var,
             value=0,
             command=lambda: update_enough_focus_state(),

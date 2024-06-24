@@ -37,7 +37,7 @@ class AnnotationApp:
         # Create a Top Panel Frame for options
         top_panel_frame = tk.Frame(root)
         top_panel_frame.pack(side=tk.TOP, fill=tk.X) 
-        version_label = tk.Label(top_panel_frame, text="Version 3.2")
+        version_label = tk.Label(top_panel_frame, text="Version 3.3")
         version_label.pack(side=tk.RIGHT, padx=10, pady=10)
 
         # Create Main PanedWindow
