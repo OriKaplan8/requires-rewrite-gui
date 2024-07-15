@@ -85,6 +85,14 @@ def retrieve_json_template_by_file_id(file_id):
     else:
         print("No document found with the specified project name and file ID.")
         return None
+    
+def file_exists(file_id):
+        collection = db.json_batches
+        query = {"file_id": file_id}
+        if collection.find_one(query):
+            return True
+        else:
+            return False
 
 def retrieve_annotations_by_file_id(file_id):
     """
@@ -100,20 +108,43 @@ def retrieve_annotations_by_file_id(file_id):
         None
 
     """
-    collection = db.json_annotations
-    query = {"file_id": file_id}
-    result = collection.find(query)
-    json_data = {}
-    if result is not None:
-        for document in result:
-
-            json_data[document["username"]] = document["json_data"]
-
-        return json_data  # Return only the json_data field
-    else:
+    if not file_exists(file_id):
         print("No document found with the specified project name and file ID.")
         return None
+    
+    json_data = {}
 
+    if "asi" in re.split(r'[ _\-]', file_id):
+        collection = db.json_annotations
+        query = {"file_id": file_id}
+        result = collection.find(query)
+        json_data = {}
+        if result is not None:
+            for document in result:
+                json_data.update({document["username"]: document["json_data"]})
+                print(document["username"])
+
+    collection = db.json_annotations_dialogs
+    query = {"file_id": file_id}
+    result = collection.find(query)
+    template = None
+    for result in result:
+        if result["username"] in list(json_data.keys()):
+            json_data[result["username"]][result["dialog_id"]] = result["dialog_data"]
+
+        else:
+            if template is None:
+                template = retrieve_json_template_by_file_id(file_id)
+            json_data[result["username"]] = template
+            json_data[result["username"]][result["dialog_id"]] = result["dialog_data"]
+            
+
+    for key, json in json_data.items():
+        json_data[key] = convert_old_to_new_format(json)
+
+    return json_data
+
+           
 def retrieve_annotation_by_user_and_file_id(file_id, username):
     """
     Retrieve annotations by user and file ID.
@@ -273,3 +304,39 @@ def retrieve_old_annotations_by_user_and_file_id(file_id, username):
             return None
     else:
         return None
+    
+
+def count_completed_dialogs(json_data):
+
+    def is_rewrite_empty(rewrite_data):
+        if rewrite_data["requires_rewrite"] == None:
+            return True
+        elif rewrite_data["enough_context"] == None:
+            return True
+        else:
+            return False
+
+
+    num_of_dialogs = len(json_data)
+    counter = 0
+    for dialog_data in json_data.values():
+
+        for key, value in dialog_data["dialog"].items():
+            if int(key) == 0:
+                continue 
+            if key.isdigit():
+                if is_rewrite_empty(value):
+                    return counter
+        
+        counter += 1
+
+    return counter
+
+
+annotators_json_data = retrieve_annotations_by_file_id("asi-23_4")
+#print(annotators_json_data)
+for annotator, data in annotators_json_data.items():
+    print(f"Annotator: {annotator}")
+    print(f"Completed dialogs: {count_completed_dialogs(data)}")
+    
+    print("\n\n")
