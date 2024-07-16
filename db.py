@@ -129,6 +129,9 @@ def retrieve_annotations_by_file_id(file_id):
     result = collection.find(query)
     template = None
     for result in result:
+        if result["username"]  == "test111" and result["dialog_id"] == "QReCC-Train_1354":
+            print("here i am") 
+            
         if result["username"] in list(json_data.keys()):
             json_data[result["username"]][result["dialog_id"]] = result["dialog_data"]
 
@@ -306,37 +309,3 @@ def retrieve_old_annotations_by_user_and_file_id(file_id, username):
         return None
     
 
-def count_completed_dialogs(json_data):
-
-    def is_rewrite_empty(rewrite_data):
-        if rewrite_data["requires_rewrite"] == None:
-            return True
-        elif rewrite_data["enough_context"] == None:
-            return True
-        else:
-            return False
-
-
-    num_of_dialogs = len(json_data)
-    counter = 0
-    for dialog_data in json_data.values():
-
-        for key, value in dialog_data["dialog"].items():
-            if int(key) == 0:
-                continue 
-            if key.isdigit():
-                if is_rewrite_empty(value):
-                    return counter
-        
-        counter += 1
-
-    return counter
-
-
-annotators_json_data = retrieve_annotations_by_file_id("asi-23_4")
-#print(annotators_json_data)
-for annotator, data in annotators_json_data.items():
-    print(f"Annotator: {annotator}")
-    print(f"Completed dialogs: {count_completed_dialogs(data)}")
-    
-    print("\n\n")
