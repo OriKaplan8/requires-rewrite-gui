@@ -1,0 +1,546 @@
+{
+    "chat_ea4ce38c-8980-4320-b6aa-72dea6ee6b27": {
+        "number_of_turns": 5,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Hello! I'm agent quack.\nI'm here to answer any questions you have, or maybe you'd rather choose a question others are asking me?\n[more about me >](action/profile)",
+                "answer": "",
+                "needs_clarification": null
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "can you annotate the text for me",
+                "answer": "I'm sorry, but I'm unable to annotate the text for you. My purpose is to answer questions based on the provided documentation. If you have any specific questions about the text, I'll be happy to help!",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "one the first page what things can i underline for [points of dicssusion and why",
+                "answer": "On the first page, there are several points that can be underlined for points of discussion:\n\n1. The Panopticon as a laboratory for experiments and behavior alteration.\n2. The use of the Panopticon for trying out different punishments and techniques.\n3. The possibility of conducting pedagogical experiments and secluded education.\n4. The idea of bringing up children according to different systems of thought.\n5. The potential for making discoveries in the domain of metaphysics.\n6. The Panopticon as a privileged place for analyzing transformations in individuals.\n7. The ability of the director to spy on and control the employees.\n8. The panoptic mechanism as a way of making power relations function within a function.\n9. The benefits listed by Bentham for the Panopticon, such as moral reform and economic efficiency.\n10. The possibility of inspections by the public to ensure democratic control.\n\nThese points can be underlined for discussion because they highlight the various aspects and implications of the Panopticon as a mechanism of power and control.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "can you highlight things in the pdf",
+                "answer": "I'm sorry, but as an AI text-based agent, I cannot directly highlight things in a PDF. However, I can provide you with relevant information from the documentation. If you have any specific questions or need assistance with a particular topic, please let me know and I'll do my best to help you.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "can you give me notes on the paper",
+                "answer": "I'm sorry, but I couldn't find any specific information about \"notes on the paper\" in the documentation. As an AI, I can only provide information based on the given documentation. Is there anything else I can assist you with?",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            }
+        }
+    },
+    "chat_3a10a242-72f4-4f3f-b293-131bc89972c6": {
+        "number_of_turns": 5,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "\ud83d\udc4b Hi, I'm OneAgent-Assistant! Get ready to integrate GPT that learns your content\u2014be it text, audio, or video, with no size constraints\u2014directly onto your website. It's 100% in your control, and 100% what users expect. \ud83d\udcbc\ud83d\ude80 Shall we start?",
+                "answer": "",
+                "needs_clarification": null
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What type of files can be uploded?",
+                "answer": "You can upload various types of files, such as documents (PDF, Word, Excel), images (JPEG, PNG), audio files (MP3), and video files (MP4).",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Can you upload XML files?",
+                "answer": "Yes, OneAgent has the capability to ingest and comprehend various types of content, including XML files. It can extract information from XML files and use it to provide intelligent responses and insights.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "How can I upload an XML file?",
+                "answer": "As the OneAgent, I'm trained to answer questions related to OneAI.com and its products. While I can't provide specific instructions on how to upload an XML file, I can suggest a general approach. Typically, you can upload an XML file through a file upload feature provided by the platform or application you are using. Please refer to the documentation or support resources of the specific platform or application you are working with for detailed instructions on how to upload an XML file.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What does \"suggested\" mean when uploading files?",
+                "answer": "I'm sorry, but I couldn't find information specifically about the term \"suggested\" when uploading files in the documentation. However, I can provide general information about file uploading. When uploading files, it typically means transferring files from a local device to a remote server or platform. The term \"suggested\" might refer to recommendations or guidelines provided during the file upload process. If you have any specific questions or need further assistance, please let me know.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            }
+        }
+    },
+    "chat_68f01076-8748-4d02-8773-8612a2ecaf80": {
+        "number_of_turns": 9,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "\ud83d\ude80 Welcome to SQream! Leverage SQL on GPU to reduce analytics costs and increase performance!\nWould you like to ask me about data challenges, watch a short demo or schedule a chat with our data solution experts? \n<sub>(To find more about our privacy policy, [click here](https://sqream.com/privacy-policy))</sub>",
+                "answer": "",
+                "needs_clarification": null
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "advisors of sqream",
+                "answer": "The advisors of SQream include Andy Brown and Charlie Federman.\n\n*I\u2019m happy to connect you with our team if you want to learn more. May I ask if your organization suffers from long-running queries? feel free to share your use case*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "who are in the leadership?",
+                "answer": "In our leadership team, we have Razi Shoshani as the CTO, Saray Ben-Meir as the Chief-of-Staff and Corporate Innovation, Deborah Leff as the Chief Revenue Officer, Yoav Ron as the CFO, Ittai Bareket as the Chief Alliance Officer, and Matan Libis as the VP of Product. Each member brings unique expertise and experience to drive SQream's innovation and growth. Is there anything specific you'd like to know about our leadership team or their roles?",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "can you tell me about your partners?",
+                "answer": "Certainly! We work with our partners to liberate customer organizations from their growing data stores while achieving their full potential through a data analytics acceleration platform built for Massive Data. Our partners play a crucial role in helping us deliver game-changing solutions in big data analytics. Is there anything specific you'd like to know about our partnerships?\n\n*What specific aspects of our partnerships are you interested in learning more about?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "do you work with HP?",
+                "answer": "We do not have specific information about working with HP. However, we do have extensive experience in working with databases and cloud environments. Is there a specific aspect of working with HP that you would like to know more about?",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "do you work with HPE?\n",
+                "answer": "We do not have specific information on HPE partnerships. However, we do work with various technology partners to deliver game-changing solutions in big data analytics. Is there anything specific you'd like to know about our partnerships or integrations?",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Do you have any connections with Vast?",
+                "answer": "We do not have any direct connections with Vast. However, we are always looking to expand our network and collaborate with new partners. Is there a specific aspect of Vast's work that you are interested in exploring further?",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "leadership of sqream",
+                "answer": "At SQream, our leadership team is comprised of experienced professionals who bring a wealth of expertise to the company. Our Chief-of-Staff, Saray Ben-Meir, ensures alignment on broad and strategic initiatives across the company, while our Chief Revenue Officer, Deborah Leff, leads the global sales and go-to-market teams. Additionally, Razi Shoshani, our Co-Founder & CTO, is responsible for SQream\u2019s next generation technology innovation. We are proud to have a team that drives constant process improvement and ensures the organization abides by its cultural values. If you have any specific questions about our leadership team, feel free to ask!\n\n*What specific information would you like to know about our leadership team?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "who is sqream's ceo?",
+                "answer": "The CEO of SQream is Ami Gal. He brings more than 20 years of technology industry expertise and executive management experience to his role with the company. Prior to SQream, Ami was Vice President of Business Development at Magic Software. Do you have any other questions about SQream's leadership team?",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            }
+        }
+    },
+    "chat_fc9e2bf7-7723-4f88-913f-bbecbd9f9e66": {
+        "number_of_turns": 6,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Hello!\nI'm here to answer any questions you have, or maybe you'd rather choose a question others are asking me?",
+                "answer": "",
+                "needs_clarification": null
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Can I bring my minivan in and have you guys recommend the best system for my wife\u2019s needs?",
+                "answer": "That is what we do. You come in, tell us the result you want, and we show you what it will take to get there. We recommend bringing your minivan to our store so that we can assess your wife's needs and provide a personalized recommendation.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "She\u2019s all about that base. Can I get her some base for under a grand??",
+                "answer": "Yes, we can recommend a car audio system with good bass for your wife's minivan within your budget. Our store is like a restaurant menu, so you can pick the components you want and we will create the package for you. We have a range of options that fit different budgets and preferences. Feel free to visit our store and our team of techs will assist you in choosing the best components for your wife's minivan.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Are you open weekends\u00a0",
+                "answer": "We are open 7 days a week. The hours are Monday through Friday 9AM to 7PM, Saturday 9AM to 6PM and Sunday 10AM to 5PM.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What is the slowest day for you guys\u00a0",
+                "answer": "We are open 7 days a week, so we do not have a specific slowest day.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Can I come in and get it all done in one day\u00a0",
+                "answer": "Yes, we offer same-day installation services for car audio systems. You can bring in your minivan and we will work on installing the system for you on the same day. Our team of technicians will ensure that the installation is done efficiently and to your satisfaction.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            }
+        }
+    },
+    "chat_dc4673d7-1667-4d9d-85ca-f90d49188b57": {
+        "number_of_turns": 10,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Hi there! I'm agent rotobrush-gpt.\nHow can I help?",
+                "answer": "",
+                "needs_clarification": null
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Where can I get service for my machine?",
+                "answer": "Absolutely. At Rotobrush, we understand the importance of reliable support when it comes to your equipment. Our dedicated service department is here to promptly address any warranty claims or service issues you may encounter. Rest assured that our team of experts is committed to resolving any concerns efficiently, minimizing downtime for your business. Furthermore, we provide 24/7 technical support Monday through Friday to assist you whenever you need it.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Where can I get service for my machine?",
+                "answer": "Absolutely. At Rotobrush, we understand the importance of reliable support when it comes to your equipment. Our dedicated service department is here to promptly address any warranty claims or service issues you may encounter. Rest assured that our team of experts is committed to resolving any concerns efficiently, minimizing downtime for your business. Furthermore, we provide 24/7 technical support Monday through Friday to assist you whenever you need it.\n\n*Are you interested in a new equipment or interested in parts/service for your existing equipment?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Where can I get service for my machine?",
+                "answer": "Ok.\n\n*You can shop online [here](https://www.rotobrush.com/product-category/machine-parts/).\nOtherwise, you can contact our customer service, at 1-800-535-3878 or email customerservice@rotobrush.com (hours are Monday-Friday 8am-5pm CST).*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "How can I order new equipment?",
+                "answer": "Sure thing.\n\n*Are you a new business or an existing business?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Where can I get service for my machine?",
+                "answer": "Absolutely. At Rotobrush, we understand the importance of reliable support when it comes to your equipment. Our dedicated service department is here to promptly address any warranty claims or service issues you may encounter. Rest assured that our team of experts is committed to resolving any concerns efficiently, minimizing downtime for your business. Furthermore, we provide 24/7 technical support Monday through Friday to assist you whenever you need it.\n\n*May I ask for your full name?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Yes",
+                "answer": "Yes, we do offer used equipment packages.\n\n*May I ask for your full name?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Where can I get service for my machine?",
+                "answer": "Absolutely. At Rotobrush, we understand the importance of reliable support when it comes to your equipment. Our dedicated service department is here to promptly address any warranty claims or service issues you may encounter. Rest assured that our team of experts is committed to resolving any concerns efficiently, minimizing downtime for your business. Furthermore, we provide 24/7 technical support Monday through Friday to assist you whenever you need it.\n\n*May I ask for your phone & email?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Is Rotobrush equipment safe for flex ducts?",
+                "answer": "Yes, the Rotobrush equipment, including the brushes and vacuum machines, is safe for flex ducts. The system is designed to be easily interchangeable, ensuring seamless adaptation to various duct materials without hassle.\n\n*Are you a new business or an existing business?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Where can I order parts?",
+                "answer": "You can shop online [here](https://www.rotobrush.com/product-category/machine-parts/).\n\n*in case our chat closes, what email should I use to reach you?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            }
+        }
+    },
+    "chat_8bcde1d3-0dd2-4a2a-a334-acd7dd2c9690": {
+        "number_of_turns": 15,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Hello! I'm agent sai_gianluca.\nI'm here to answer any questions you have, or maybe you'd rather choose a question others are asking me?",
+                "answer": "",
+                "needs_clarification": null
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "what erp implementation?",
+                "answer": "The ERP implementation at Vittor is driven by two main factors. The first factor is the increasing difficulty and cost of maintaining the old systems. The second factor is the lack of standards across different enterprise systems in various sites and countries. While the ERP is not the solution for defining standards, it helps in implementing and controlling them. The goal is to achieve transversal efficiency between different plants and trainings. The coordination among various actors and the balance between day-to-day activities and the project are crucial for the success of the implementation. Customizations and multiple system providers are seen as risks, and a risk assessment is being conducted to mitigate these issues. The implementation has not disrupted day-to-day activities in the plant, but there has been an economic impact due to the need for replacements. The main takeaway so far is the importance of thorough planning and attention to detail.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "why erp implementation?",
+                "answer": "According to the documentation, there are two main drivers behind the ERP implementation at Vittor. \n\nThe first driver is the maintenance of the old systems, which is becoming more difficult and expensive. Implementing an ERP system helps address this issue.\n\nThe second driver is the need for standardization across different sites and countries. Having multiple enterprise systems exacerbates the absence of standards within the company. Implementing the ERP system allows for the implementation of proper standards in terms of processes, items, and business patterns.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "WHAT ARE THE CHALLENGES IN IMPLEMENTATION?",
+                "answer": "The challenges in implementation include the need to adapt the Configurator to the changes brought by the ERP system, the complexity of working with products that have been developed and changed for 40 years, the balancing of different environments and moments in a pioneer approach, the delays and uncertainties in decision-making, and the difficulties in defining and implementing standards across different sites and countries. Additionally, there is a risk of creating confusion and conflicting opinions when working with multiple system providers and experts.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "POSITIVE ASPECTS IN THE WAY IMPLEMENTATION TAKING PLACE",
+                "answer": "There are several positive aspects in the way the implementation is taking place. \n\n1. The project is being developed in a transversal manner, meaning that it is being designed to be applicable across different areas.\n2. The inputs and contributions from the people who are actually working in the various activities are being valued and considered, creating a more bottom-up approach.\n3. The implementation is helping to put existing standards under discussion and optimize them for better efficiency.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "negative aspects in implementation taking place",
+                "answer": "The documentation mentions some negative aspects in the ERP implementation at Vittor. These include delays, uncertainty in how to proceed, and issues faced by system architects. It is acknowledged that these challenges are normal during such transformations. However, it is important to address these issues to ensure a successful implementation.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "give more details",
+                "answer": "Apologies, but I couldn't find any more details regarding the negative aspects of the ERP implementation in the provided documentation. My responses are based solely on the information available in the documentation.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "negative aspects",
+                "answer": "I'm sorry, but I couldn't find any specific information about negative aspects of the ERP transformation project within Vittor in the provided documentation. My responses are based solely on the information available in the documentation. Is there anything else I can help you with?",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "less satisfied ",
+                "answer": "I apologize for any dissatisfaction you may be experiencing. As an AI assistant, I'm here to provide information based on the documentation available to me. If there is anything specific you would like assistance with or any questions you have, please let me know and I'll do my best to help you.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "less satisfied with the way project is taking place",
+                "answer": "According to the documentation, there have been some challenges and issues faced during the project. It mentions that the proper balance between different moments and environments is fundamental, and there are concerns about not knowing how to act. It also states that there have been delays and uncertainties, causing some dissatisfaction. However, it is mentioned that in one year from now, there are expectations of gaining benefits in terms of efficiency.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "check information after instance 16:47",
+                "answer": "After instance 16:47, you should check the proper balance between different IT environments and how different entities can coexist. This includes ensuring that the architecture, processes, and procedures reflect the needs of people conducting tests and those performing real-life activities. It is important to plan and be prepared for this balance to avoid any issues.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "what are the lessons learned?",
+                "answer": "The documentation mentions some lessons learned during the ERP transformation project in Italy. One lesson learned was the importance of involving key users from the beginning and leveraging the experience and information from the implementation in Spain. Another lesson learned was the need for a proper balance between the different moments and environments, especially when working with multiple live companies and a project company. Additionally, the documentation mentions the challenges of adapting the Configurator and understanding the effects of changes, as well as the language barrier. These lessons learned can help inform future transformations and improve efficiency.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "extract important quotations",
+                "answer": "During the ERP transformation project in Italy, there were several important lessons learned. Here are some key quotations:\n\n1. \"We are effectively trying to develop something that is as much transversal as possible.\" This highlights the focus on creating a system that is shared and has common basics across different sites and countries.\n\n2. \"We've moved to keep in high value the inputs that are coming from the people that are effectively working in the various activities.\" This emphasizes the shift towards valuing the input and expertise of the employees involved in the project, taking a more bottom-up approach.\n\n3. \"This implementation is helping us to put under discussion and optimize several standards that have been usual for much time in the past.\" This shows that the ERP transformation project provided an opportunity to reevaluate and improve existing standards and processes.\n\nThese quotations reflect the positive aspects and lessons learned during the ERP transformation project in Italy.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "give me quotations from document",
+                "answer": "- \"So can you give me your experience, Can you briefly tell me about your experience with ERP transformation that's happening within Vittor, both in terms of internal aspects and external aspects?\"\n- \"So in one year from now, once that we will go live, I'm expecting that we're getting also some benefits in terms of efficiency, but particularly in terms of transversal efficiency between the various plans and the various trainings.\"\n- \"But what I've been trying to do since the beginning has been to generate the coordination among the various actors.\"\n- \"I'm supporting the local project manager that is ludovika clauser, that is anyhow an IT person with the eyes of the business.\"\n- \"I'm coordinating the activities of like users together with functional functional leaders and the business analyst.\"\n- \"I would say and and no, no I would add another point that is I do have a responsibility for saying we go live or we don't.\"\n- \"The second thing on which I think we should work is the is the fact that we need to avoid in this case.\"\n- \"If you're changing too often the system providers, we are having beneficial effect for the local implementation.\"\n- \"What is the impact of this on on the plant there has been no, no impact if not an economical impact.\"\n- \"The day-to-day activities have gone on and obviously there has been an economical impact in the fact that we are having some replacement that has been pretty said, taken as a substitute of local like users work and we have to pay them.\"\n- \"Are we sure that every key user want to go back to his own work afterwards?\"\n- \"I will tell you after we go live up to now, up to now, OK, up to now I would have the main take away is that we the good planning is always successful and I would have had to be even more.\"\n- \"Because we must be paranoid, yes, in the planning and analyzing the consequences of such a large project.\"\n- \"So if you have to, yes, I'm sorry, plan but be paranoid.\"\n- \"I'm quite satisfied up to now or let's say 8.\"",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "give me impostant quotations from the document",
+                "answer": "- \"Even if you had started from the very beginning and from already two years and half work on that, the reality is that until that you do not face the effective changes that Ln will bring. You will not be able to adapt your Configurator and you will not be able to understand if the changes that you need to make are big, small, medium and the effects that they can have.\"\n- \"The proper balance between the different moments and environments is fundamental while we are still in a pioneer approach.\"\n- \"In one year from now, once that we will go live, I'm expecting that we're getting also some benefits in terms of efficiency, but particularly in terms of transversal efficiency between the various plans and the various trainings.\"\n- \"I've been trying to generate the coordination among the various actors. So I'm supporting the local project manager that is an IT person with the eyes of the business. I'm coordinating the activities of users together with functional leaders and the business analyst.\"\n- \"We need to avoid some specific needs of the local plant being brought as the standards. It must be sure that we have analyzed it properly against the global tech play that is less generic on what it has been up to now or less specific as it has been up to now.\"\n- \"If you're changing too often the system providers, we are having beneficial effect for the local implementation. If you're changing more adapt to the local, but we run the risk that you are creating a Babel. All the different experts, IT experts or system experts that are working together with different opinions and different methods.\"\n- \"There has been no impact on the plant if not an economical impact. The day-to-day activities have gone on and obviously there has been an economical impact in the fact that we are having some replacement that has been pretty said, taken as a substitute of local like users work and we have to pay them.\"\n- \"My main takeaway is that good planning is always successful. I would have needed to be even more boring in defining all the details of a planning, so to be sure that nothing was given as a matter of fact. Because we must be paranoid, yes, in the planning and analyzing the consequences of such a large project.\"\n- \"If you have to rate from one to 10 of your satisfaction level with the way the ERP transformation is going on, I'm quite satisfied up to now or let's say 8.\"",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            }
+        }
+    },
+    "chat_41dcee47-4ec7-4ed0-8f5e-0ad77a22aee4": {
+        "number_of_turns": 5,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Hello! I'm agent raisi-insights.\nI'm here to answer any questions you have, or maybe you'd rather choose a question others are asking me?",
+                "answer": "",
+                "needs_clarification": null
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "how did raisi die?",
+                "answer": "Ebrahim Raisi died in a helicopter crash. For more details, you can refer to the article titled \"Iran helicopter crash: What we know about how Ebrahim Raisi died\" published on May 20, 2024, at https://www.bbc.com/news/articles/c4nnd23d505o.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "what is lulu lemon?",
+                "answer": "Lululemon is a fitness brand that started in Vancouver, Canada, as a yoga retail store. It was envisioned as a community for people to share healthy lifestyles and build real relationships with customers. Over time, Lululemon expanded its product range to include more athletic gear beyond yoga, catering to various fitness activities. The brand is known for its high-quality, stylish products and has a significant global presence with 574 stores worldwide.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "where can i swim with dolphins?",
+                "answer": "The provided documentation doesn't contain information about locations where you can swim with dolphins. My responses are based solely on the given documentation.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "where can i buy a new table?",
+                "answer": "The provided documentation doesn't contain information about where to buy a new table. My responses are limited to the content within the documentation. For purchasing a new table, you might want to check out local furniture stores, online retailers like Amazon or IKEA, or specialized furniture websites.",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            }
+        }
+    },
+    "chat_b78e870a-2a38-4de7-ba32-762140b28e79": {
+        "number_of_turns": 9,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Oof! Welcome to HomeWork Solutions. </br> I'm Howie and I can retrieve answers for most questions you have about household payroll and tax compliance. I'm still in beta, so please call my humans at 1-800-626-4829 for more expert answers!\n</br> Feel free to ask me anything you want!\n[more about me >](action/profile)",
+                "answer": "",
+                "needs_clarification": null
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Do I have to pay employer taxes for a nanny?\n",
+                "answer": "Yes, if you have a household employee, you may need to pay state and federal employment taxes, including social security tax, Medicare tax, federal unemployment tax, and federal income tax withholding. This applies if you pay cash wages of $1,800 or more in 2013 to any one household employee. Do you have a nanny or household employee in mind?\n\n*How do you plan to handle the tax obligations for your nanny?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "that's what I'm here for, I guess you can help?",
+                "answer": "Absolutely, I can definitely help guide you through the process of handling tax obligations for your nanny. It's important to ensure compliance with state and federal regulations. Have you already started the process of setting up payroll and tax withholding for your nanny?\n\n*What specific concerns do you have about handling the tax obligations for your nanny?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "to make sure it's all covered and I wont be sued",
+                "answer": "To ensure you've covered all necessary tax obligations for your nanny and avoid legal issues, it's crucial to comply with labor and tax laws. This includes paying your nanny legally, providing a Form W-2 at year end, and remitting all Social Security and Medicare taxes. Memorializing your arrangement with a written work agreement is also essential for clear expectations. Feeling overwhelmed? Consider seeking professional guidance. Have you considered reaching out to professionals for assistance with navigating nanny payroll taxes? \n",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "yes :)",
+                "answer": "I'm glad to hear that! How can I assist you today?\n\n*What type of employee do you have or are hiring?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Housekeeper",
+                "answer": "Great, we help thousands of famillies pay their household employees!\n\n*When do you need to start paying your employee?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "within the month",
+                "answer": "Thank you for responding with Hiring Timeframe \"<30D\"!\n\n*Which state do you live in? We are familiar with employer tax compliance in all 50 states and Washington, D.C.*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "california",
+                "answer": "Thanks for that\n\n*Would you like to book a free consultation with one of our specialists?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "yea sure",
+                "answer": "Thanks for that.\n\n*I\u2019m happy to connect you with our team if you want to learn more. May I ask for your full name?*",
+                "requires_rewrite": null,
+                "enough_context": null,
+                "needs_clarification": null
+            }
+        }
+    }
+}
