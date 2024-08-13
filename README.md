@@ -25,10 +25,8 @@ The code has been refactored and organized into smaller files for better maintai
 1. Choose a dataset from the following options:
    - asi-14_4
    - asi-23_4
-   - agent_conv_1
-   - agent_conv_2
-   - agent_conv_3
-   - agent_conv_4
+   - agent_conv_test
+   - agent_conv_complete
 2. Enter the chosen filename in the `filename` prompt.
 3. Provide a username to associate with your annotations for personalized data tracking.
 
