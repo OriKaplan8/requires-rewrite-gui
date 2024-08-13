@@ -2,7 +2,7 @@ from pymongo import MongoClient  # mongo libary for the server
 import datetime  # for the time
 import json  # for the json files
 import re
-
+import copy
 
 connection_string = "mongodb+srv://ori:CqxF0bLlZoX2OQoD@cluster0.agjlk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"  # the connection string, the adress of the server
 client = MongoClient(connection_string)
@@ -126,19 +126,17 @@ def retrieve_annotations_by_file_id(file_id):
 
     collection = db.json_annotations_dialogs
     query = {"file_id": file_id}
-    result = collection.find(query)
+    results = collection.find(query)
     template = None
-    for result in result:
-        if result["username"]  == "test111" and result["dialog_id"] == "QReCC-Train_1354":
-            print("here i am") 
-            
+    for result in results:
+        username = result["username"]
         if result["username"] in list(json_data.keys()):
-            json_data[result["username"]][result["dialog_id"]] = result["dialog_data"]
+            json_data[username][result["dialog_id"]] = result["dialog_data"]
 
         else:
             if template is None:
                 template = retrieve_json_template_by_file_id(file_id)
-            json_data[result["username"]] = template
+            json_data[result["username"]] = copy.deepcopy(template)
             json_data[result["username"]][result["dialog_id"]] = result["dialog_data"]
             
 
@@ -146,7 +144,6 @@ def retrieve_annotations_by_file_id(file_id):
         json_data[key] = convert_old_to_new_format(json)
 
     return json_data
-
            
 def retrieve_annotation_by_user_and_file_id(file_id, username):
     """
@@ -307,5 +304,48 @@ def retrieve_old_annotations_by_user_and_file_id(file_id, username):
             return None
     else:
         return None
+    
+def count_completed_dialogs(json_data):
+    """
+    Counts the number of completed dialogs in the given JSON data.
+    Parameters:
+    - json_data (dict): A dictionary containing the JSON data.
+    Returns:
+    - int: The number of completed dialogs.
+    """
+    counter = -1
+    for dialog_value in json_data.values():
+        counter += 1
+        for turn_key, turn_value in dialog_value["dialog"].items():
+            if turn_key == "0":
+                continue
+            
+            else:
+                if "requires_rewrite" in turn_value:
+                    if turn_value["requires_rewrite"] == None:
+                        return counter
+                    else:
+                        continue    
+    return counter
+
+def topn(json_data, n=10):
+    """
+    Returns the top n dialogues from the given JSON data.
+
+    Parameters:
+    - json_data (dict): A dictionary containing dialog IDs as keys and dialog data as values.
+    - n (int): The number of top dialogues to return. Default is 10.
+
+    Returns:
+    - top_n (dict): A dictionary containing the top n dialogues from the given JSON data.
+    """
+    top_n = {}
+    counter = 0
+    for dialog_id, dialog_data in json_data.items():
+        top_n[dialog_id] = dialog_data
+        counter += 1
+        if counter == n:
+            break
+    return top_n
     
 
