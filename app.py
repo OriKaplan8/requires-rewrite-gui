@@ -256,21 +256,21 @@ class AnnotationApp:
   
         keycodes = []
         if platform.system() == "Darwin":
-            keycodes = {"z": 97, "x": 16777331, "c": 33554532, "left": 2063660802, "right": 2080438019, "up": 2113992448, "down": 2097215233, "q": 201326705}
+            keycodes = {"a": 97, "s": 16777331, "d": 33554532, "left": 2063660802, "right": 2080438019, "up": 2113992448, "down": 2097215233, "q": 201326705}
         elif platform.system() == "Windows":
-            keycodes = {"z": 65, "x": 83, "c": 68, "left": 37, "right": 39, "up": 38, "down": 40, "q": 81}
+            keycodes = {"a": 65, "s": 83, "d": 68, "left": 37, "right": 39, "up": 38, "down": 40, "q": 81}
             
-        if event.keycode == keycodes["z"]:  # Keycode for 'z' on many keyboards
+        if event.keycode == keycodes["a"]:  # Keycode for 'a' on many keyboards
             self.require_rewrite.set_requires_rewrite(1)
             self.enough_context.set_context(1)
             self.next_turn()
 
-        elif event.keycode == keycodes["x"]:  # Keycode for 'x' on many keyboards
+        elif event.keycode == keycodes["s"]:  # Keycode for 's' on many keyboards
             self.require_rewrite.set_requires_rewrite(0)
             self.enough_context.set_context(1)
             self.next_turn()
 
-        elif event.keycode == keycodes["c"]:  # Keycode for 'c' on many keyboards
+        elif event.keycode == keycodes["d"]:  # Keycode for 'd' on many keyboards
             self.require_rewrite.set_requires_rewrite(1)
             self.enough_context.set_context(0)
             self.next_turn()
@@ -290,30 +290,30 @@ class AnnotationApp:
         """
         keycodes = []
         if platform.system() == "Darwin":
-            keycodes = {"z": 97, "x": 16777331, "c": 33554532, "left": 2063660802, "right": 2080438019, "up": 2113992448, "down": 2097215233, "q": 201326705}
+            keycodes = {"a": 97, "s": 16777331, "d": 33554532, "left": 2063660802, "right": 2080438019, "up": 2113992448, "down": 2097215233, "q": 201326705}
         elif platform.system() == "Windows":
-            keycodes = {"z": 65, "x": 83, "c": 68, "left": 37, "right": 39, "up": 38, "down": 40, "q": 81}
+            keycodes = {"a": 65, "s": 83, "d": 68, "left": 37, "right": 39, "up": 38, "down": 40, "q": 81}
            
         if event.keycode == keycodes["q"]:  # Keycode for 'q' on many keyboards
             self.require_rewrite.set_requires_rewrite(0)
             self.next_turn()
             
-        if event.keycode == keycodes["z"]:  # Keycode for 'z' on many keyboards
+        if event.keycode == keycodes["a"]:  # Keycode for 'a' on many keyboards
             self.require_rewrite.set_requires_rewrite(1)
             self.enough_context.set_context(1)
             self.needs_clarification.set_needs_clarification(0)
             self.next_turn()
 
-        elif event.keycode == keycodes["x"]:  # Keycode for 'x' on many keyboards
+        elif event.keycode == keycodes["s"]:  # Keycode for 's' on many keyboards
             self.require_rewrite.set_requires_rewrite(1)
             self.enough_context.set_context(1)
             self.needs_clarification.set_needs_clarification(1)
             self.next_turn()
 
-        elif event.keycode == keycodes["c"]:  # Keycode for 'c' on many keyboards
+        elif event.keycode == keycodes["d"]:  # Keycode for 'd' on many keyboards
             self.require_rewrite.set_requires_rewrite(1)
             self.enough_context.set_context(0)
-            self.needs_clarification.set_needs_clarification(1)
+            self.needs_clarification.set_needs_clarification(0)
             self.next_turn()
             
         else:
