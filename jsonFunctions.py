@@ -1,3 +1,4 @@
+import random
 class JsonFunctions:
 
     def get_turn(json_data, dialog_id, turn_num):
@@ -73,32 +74,6 @@ class JsonFunctions:
         turn_data["needs_clarification"] = new_value
 
         return JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn_data)
-
-    def get_annotator_rewrite(json_data, dialog_id, turn_num):
-        """
-        Retrieves the value of the 'annotator_rewrite' field from the JSON data.
-
-        Parameters:
-        - json_data: The JSON data.
-        - dialog_id: The ID of the dialog.
-        - turn_num: The turn number.
-
-        Returns:
-        - The value of the 'annotator_rewrite' field.
-        """
-        turn_data = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
-
-        field = ""
-        if "annotator_rewrite" in turn_data.keys():
-            field = "annotator_rewrite"
-        if "annotator rewrite" in turn_data.keys():
-            field = "annotator rewrite"
-        else:
-            raise Exception(
-                f"annotator_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num} | keys_found = {turn_data.keys()}"
-            )
-
-        return turn_data[field]
 
     def get_turns(json_data, dialog_id, only_annotatable=True):
         turns = {}
@@ -221,3 +196,124 @@ class JsonFunctions:
     def count_dialogs_in_batch(json_data):
         return len(json_data)
     
+    def get_rewrites(json_data, dialog_id, turn_num):
+        """
+        Retrieves the rewrites from the JSON data.
+
+        Parameters:
+        - json_data: The JSON data.
+        - dialog_id: The ID of the dialog.
+        - turn_num: The turn number.
+
+        Returns:
+        - The rewrites from the JSON data.
+        """
+        turn = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+        rewrites = {}
+
+        for key, value in turn["models_rewrites"].items():
+                rewrites[key] = value
+
+        return dict(random.sample(list(rewrites.items()), len(rewrites)))
+    
+    def get_rewrite(json_data, dialog_id, turn_num, rewrite_num):
+        rewrites = JsonFunctions.get_rewrites(json_data, dialog_id, turn_num)
+
+        return rewrites[rewrite_num]
+    
+    def get_score(json_data, dialog_id, turn_num, rewrite_num):
+        rewrite = JsonFunctions.get_rewrite(json_data, dialog_id, turn_num, rewrite_num)
+
+        return rewrite["score"]
+    
+    def get_optimal(json_data, dialog_id, turn_num, rewrite_num):
+        rewrite = JsonFunctions.get_rewrite(json_data, dialog_id, turn_num, rewrite_num)
+
+        return rewrite["optimal"]
+    
+    def set_score(json_data, dialog_id, turn_num, rewrite_num, new_score):
+        turn = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+        turn["models_rewrites"][rewrite_num]["score"] = new_score
+        return JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn)
+    
+    def set_optimal(json_data, dialog_id, turn_num, rewrite_num, new_optimal):
+        turn = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+        turn["models_rewrites"][rewrite_num]["optimal"] = new_optimal
+        return JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn)
+
+    def change_annotator_rewrite(json_data, dialog_id, turn_num, new_value):
+        """
+        Changes the value of the 'annotator_rewrite' field in the JSON data.
+
+        Parameters:
+        - json_data: The JSON data.
+        - dialog_id: The ID of the dialog.
+        - turn_num: The turn number.
+        - new_value: The new value to set.
+
+        Returns:
+        - The updated JSON data.
+        """
+
+        turn = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+
+        field = ''
+        if 'annotator_rewrite' in turn.keys():
+            field = 'annotator_rewrite'
+        elif 'annotator rewrite' in turn.keys():
+            field = 'annotator rewrite'
+        else:
+            raise Exception(f"annotator_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num}.  Existing fields: {[f for f in JsonFunctions.get_turn(json_data,dialog_id,turn_num)]}")
+        
+        turn[field] = new_value
+
+        json_data = JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn)
+
+        return json_data
+    
+    def change_rewrite_field(json_data, dialog_id, turn_num, rewrite_key, field, new_value):
+        """
+        Changes the value of a field in the rewrites dictionary.
+
+        Parameters:
+        - json_data: The JSON data.
+        - dialog_id: The ID of the dialog.
+        - turn_num: The turn number.
+        - rewrite_key: The key of the rewrite.
+        - field: The field to change.
+        - new_value: The new value to set.
+
+        Returns:
+        - The updated JSON data.
+        """
+        if field == "optimal":
+            return JsonFunctions.set_optimal(json_data, dialog_id, turn_num, rewrite_key, new_value)
+        elif field == "score":
+            return JsonFunctions.set_score(json_data, dialog_id, turn_num, rewrite_key, new_value)
+        else:
+            raise Exception(f"Rewrite field {field} was not found in turn. Existing fields: {[f for f in JsonFunctions.get_turn(json_data,dialog_id,turn_num)]}")
+      
+    def get_annotator_rewrite(json_data, dialog_id, turn_num):
+        """
+        Retrieves the value of the 'annotator_rewrite' field from the JSON data.
+
+        Parameters:
+        - json_data: The JSON data.
+        - dialog_id: The ID of the dialog.
+        - turn_num: The turn number.
+
+        Returns:
+        - The value of the 'annotator_rewrite' field.
+        """
+        turn = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+        field = ''
+        if 'annotator_rewrite' in turn.keys():
+            field = 'annotator_rewrite'
+        elif 'annotator rewrite' in turn.keys():
+            field = 'annotator rewrite'
+        else:
+            raise Exception(f"annotator_rewrite field not found in dialog_id={dialog_id} and turn_num={turn_num}. fields: {turn.keys()}")
+        
+        
+        return turn[field]
+        

@@ -9,6 +9,7 @@ import re
 from jsonFunctions import *
 from datetime import datetime
 import certifi
+import enchant
 ca = certifi.where()
 
 def compare_norm_texts(text1, text2):
@@ -234,40 +235,7 @@ class ProgressIndicator:
 
 class MongoData:
 
-    class FileDialog(simpledialog.Dialog):
-        """
-        A dialog window for choosing a file.
-
-        Inherits from simpledialog.Dialog class.
-
-        Attributes:
-            field1 (tk.Entry): The entry field for the username.
-            field2 (tk.Entry): The entry field for the filename.
-            result (tuple): A tuple containing the values entered in the entry fields.
-
-        Methods:
-            body(master): Creates the body of the dialog window.
-            apply(): Applies the changes made in the dialog window.
-        """
-
-        def body(self, master):
-            self.title("Choose File")
-
-            tk.Label(master, text="username").grid(row=0)
-            tk.Label(master, text="filename").grid(row=1)
-
-            self.field1 = tk.Entry(master)
-            self.field2 = tk.Entry(master)
-
-            self.field1.grid(row=0, column=1)
-            self.field2.grid(row=1, column=1)
-
-            return self.field1
-
-        def apply(self):
-            self.result = (self.field1.get(), self.field2.get())
-
-    def __init__(self, root, connection_string, dev_mode=False):
+    def __init__(self, root, connection_string, login):
         """
         Initializes an instance of the MongoData class.
 
@@ -279,10 +247,9 @@ class MongoData:
         self.client = MongoClient(connection_string, tlsCAFile=ca)
         self.db = self.client.require_rewrite_b
 
-        self.username = None
-        self.filename = None
+        self.username = login["username"]
+        self.filename = login["filename"]
         self.saving_in_progress = False
-        self.dev_mode = dev_mode
         self.needs_clarification = None
         
     def check_needs_clarification(self, json_data):
@@ -301,25 +268,20 @@ class MongoData:
     def get_saving_status(self):
         return self.saving_in_progress
     
-    def choose_file(self):
+    def load_file(self):
         """
         Choose a file and load its data.
 
         Returns:
             str: Status message indicating the result of the file loading process.
         """
-        username, filename, data = None, None, None
-
-        if len(self.dev_mode) != 0 and len(self.dev_mode) == 2:
-            username = self.dev_mode[0]
-            filename = self.dev_mode[1]
-
-        else:
-            self.root.withdraw()
-            dialog = self.FileDialog(self.root)
-            username, filename = dialog.result
-            print(f"filename: {filename}, username: {username}")
-            self.root.deiconify()
+        if self.filename is None or self.username is None:
+            raise Exception("login details missing")
+        
+        data = None
+        
+        filename = self.filename
+        username = self.username
 
         if "asi" in re.split(r'[ _\-]', filename):
             collection = self.db.json_annotations
@@ -514,7 +476,7 @@ class LoadingScreen:
         return self.active
 
 class RequireRewriteCheckBox:
-    def __init__(self, position, root, update_enough_focus_state):
+    def __init__(self, position, root, update_enough_focus_state=None):
         self.root = root
         self.position = position
         self.function = update_enough_focus_state
@@ -522,7 +484,7 @@ class RequireRewriteCheckBox:
         self.requires_rewrite_frame = tk.Frame(root)
         position.add(self.requires_rewrite_frame, stretch="always", height=30)
         LabelSeparator(
-            self.requires_rewrite_frame, text="Needs Rephrasing"
+            self.requires_rewrite_frame, text="Requires Rewrite"
         ).pack(fill=tk.X)
 
         self.requires_rewrite_grid = tk.Frame(self.requires_rewrite_frame)
@@ -535,14 +497,14 @@ class RequireRewriteCheckBox:
             text="Requires Rewrite",
             variable=self.choice_var,
             value=1,
-            command=lambda: update_enough_focus_state(),
+            command=lambda: update_enough_focus_state() if update_enough_focus_state is not None else None
         )
         self.circle2 = tk.Radiobutton(
             self.requires_rewrite_grid,
             text="Doesn't Require Rewrite",
             variable=self.choice_var,
             value=0,
-            command=lambda: update_enough_focus_state(),
+            command=lambda: update_enough_focus_state() if update_enough_focus_state is not None else None
         )
 
         self.circle1.grid(row=0, column=0, sticky="w", padx=5, pady=0)
@@ -574,7 +536,8 @@ class RequireRewriteCheckBox:
         else:
             self.choice_var.set(-1)
 
-        self.function()
+        if self.function is not None:
+            self.function()
 
     def update_json_data(self, dialog_id, turn_id, json_data):
         """
@@ -635,7 +598,8 @@ class RequireRewriteCheckBox:
         """
         
         self.choice_var.set(value)
-        self.function()
+        if self.function is not None:
+            self.function()
 
     def focus_on(self):
         pass
@@ -762,7 +726,6 @@ class NeedsClarificationCheckBox:
 
     def focus_on(self):
         pass
-
 
 class EnoughContext:
     def __init__(self, position, root):
@@ -969,3 +932,580 @@ class DialogFrame:
     
     def scroll_down(self):
         self.dialog_text.yview_scroll(10, "units")
+
+class Rewrites():
+    def __init__(self, position, root):
+        """
+        Initializes the Rewrites object.
+
+        Parameters:
+        - position (tk.Position): The position object to manage the layout.
+        - root (tk.Tk): The root Tkinter window.
+        """
+        self.rewrites = {}
+        self.root = root
+        self.rewrites_frame_base = tk.Frame(root)
+        position.add(self.rewrites_frame_base, stretch="always", height=70)
+        LabelSeparator(self.rewrites_frame_base, text="Rewrites").pack(fill=tk.X)
+
+        # inside Frame for rewrites annotation entries
+        self.rewrite_table_grid = tk.Frame(self.rewrites_frame_base)
+        self.rewrite_table_grid.pack(fill=tk.BOTH, padx=10, pady=10)
+        
+        text = tk.Label(self.rewrite_table_grid, text="Text")
+        score = tk.Label(self.rewrite_table_grid, text="Score")
+        optimal = tk.Label(self.rewrite_table_grid, text="Optimal")
+        
+        # Place the labels in the grid
+        text.grid(row=0, column=1, sticky='nsew')
+        score.grid(row=0, column=2, sticky='nsew')
+        optimal.grid(row=0, column=3, sticky='nsew')
+
+        # Configure the frame columns to expand with the window size
+        self.rewrite_table_grid.columnconfigure(0, weight = 1)
+        self.rewrite_table_grid.columnconfigure(1, weight = 50)
+        self.rewrite_table_grid.columnconfigure(2, weight = 1)
+        self.rewrite_table_grid.columnconfigure(3, weight = 1)
+
+        #label that appear if there are no rewrites
+        self.no_rewrites_label = tk.Label(self.rewrite_table_grid, text="No rewrites in this turn.")
+        self.no_rewrites_label.grid(column=1, row=3)
+        self.no_rewrites_label.grid_remove()  # This hides the label initially
+    
+    def update_rewrites(self, dialog_id, turn_num, json_data):
+
+        if not self.rewrites == {}:
+            for rewrite in self.rewrites.values():
+                rewrite.optimal.destroy()
+                rewrite.score.destroy()
+                rewrite.text.destroy()
+                rewrite.rewrite_label.destroy()
+
+        valid_rewrites_len = 0
+        rewrite_row = 1
+        self.rewrites = {}
+
+        for rewrite_key, rewrite_value in JsonFunctions.get_rewrites(json_data, dialog_id, turn_num).items():
+            if not {"text", "optimal", "score"}.issubset(rewrite_value.keys()):
+                print(JsonFunctions.get_rewrites(json_data, dialog_id, turn_num))
+                raise Exception(f"The value(s) are not in the rewrite keys: {rewrite_value.keys()}")
+            
+            duplicate = False
+            
+            for exsiting_rewrite in self.rewrites.values():
+                if compare_norm_texts(exsiting_rewrite.get_text(), rewrite_value['text']):
+                    exsiting_rewrite.duplicates.append(rewrite_key)
+                    duplicate = True
+
+            if duplicate == False:
+                self.rewrites[rewrite_key] = (SingleRewrite(rewrite_value['text'], rewrite_value['optimal'], rewrite_value['score'], rewrite_row, self))
+                
+                rewrite_row += 1
+                valid_rewrites_len += 1
+
+        if valid_rewrites_len == 0:
+            self.no_rewrites_label.grid()  # Show the label
+
+        else:
+            self.no_rewrites_label.grid_remove()  # Hide the label
+
+    def update_json_data(self, dialog_id, turn_num, json_data):
+        """
+        Updates the JSON data with the scores and optimal values for rewrites.
+
+        Args:
+            dialog_id (str): The ID of the dialog.
+            turn_num (int): The turn number.
+            json_data (dict): The JSON data to be updated.
+
+        Returns:
+            dict: The updated JSON data.
+        """
+
+        def update_rewrite_field_json(rewrite_key, field, value):
+            JsonFunctions.change_rewrite_field(json_data, dialog_id, turn_num, rewrite_key, field, value)
+
+        for rewrite_key, rewrite_data in self.rewrites.items():
+
+            score = rewrite_data.get_score()
+            optimal = rewrite_data.get_optimal()
+
+            update_rewrite_field_json(rewrite_key, 'score', score)
+            update_rewrite_field_json(rewrite_key, 'optimal', optimal)
+
+            if rewrite_data.duplicates != []:
+                for duplicate in rewrite_data.duplicates:
+                    update_rewrite_field_json(duplicate, 'score', score)
+                    update_rewrite_field_json(duplicate, 'optimal', optimal)
+
+        return json_data
+    
+    def get_max_score(self):
+        """
+        Returns the maximum score among all the rewrites.
+
+        Returns:
+            int: The maximum score. Returns None if any rewrite has a score of None.
+        """
+        max_score = 0
+        for rewrite in self.rewrites.values():
+            if rewrite.get_score() is None:
+                return None
+            if rewrite.get_score() > max_score:
+                max_score = rewrite.get_score()
+        return max_score
+    
+    def all_scores_filled(self):
+        """
+        Checks if all scores for the rewrites have been filled.
+
+        Returns:
+            bool: True if all scores are filled, False otherwise.
+        """
+        for rewrite in self.rewrites.values():
+            if rewrite.get_score() == None:
+                return False
+        return True
+    
+    def clean_optimals(self):
+        """
+        Clears the optimal values in the rewrites.
+
+        This method iterates through each rewrite in the `rewrites` list and clears the optimal value by deleting the existing text and inserting an empty string.
+
+        Parameters:
+            None
+
+        Returns:
+            None
+        """
+        for rewrite in self.rewrites.values():
+            rewrite.set_optimal(None)
+            
+    def is_empty(self):
+        """
+        Checks if any rewrite in the list has a score or optimal value of None.
+
+        Returns:
+            bool: True if any rewrite has a score or optimal value of None, False otherwise.
+        """
+        for rewrite in self.rewrites.values():
+            if rewrite.get_score() is None or rewrite.get_optimal() is None:
+                return True
+        return False
+    
+    def sync_optimals(self, score, optimal):
+        """
+        Synchronizes the optimal value for rewrites with a given score.
+
+        Parameters:
+        - score: The score to match against the rewrites' scores.
+        - optimal: The new optimal value to set for the matching rewrites.
+
+        Returns:
+        None
+        """
+        for rewrite in self.rewrites.values():
+            if rewrite.get_score() == score:
+                rewrite.set_optimal(optimal)
+                rewrite.optimal.delete(0, tk.END)
+                if optimal == None:
+                    optimal = ''
+                rewrite.optimal.insert(0, optimal)
+                
+    def positive_optimal_exists(self):
+        """
+        Checks if an optimal rewrite exists in the list of rewrites.
+
+        Returns:
+            bool: True if an optimal rewrite exists, False otherwise.
+        """
+        for rewrite in self.rewrites.values():
+            if rewrite.get_optimal() == 1:
+                return True
+        return False
+    
+    def handle_positive_optimal(self, score):
+        """
+        Sets the 'optimal' flag for rewrites with a score greater than or equal to the given score.
+
+        Parameters:
+        - score: The threshold score to compare against.
+
+        Returns:
+        None
+        """
+        for rewrite in self.rewrites.values():
+            if rewrite.get_score() >= score:
+                rewrite.set_optimal(1)
+            else:
+                rewrite.set_optimal(0)
+    
+class SingleRewrite():
+   
+    def __init__(self, rewrite_text, rewrite_optimal, rewrite_score, rewrite_row, rewrites_instance):
+        """
+        Initializes a SingleRewrite instance.
+
+        Parameters:
+            rewrite_text (str): The text content of the rewrite.
+            rewrite_optimal (int or None): The optimal value for the rewrite.
+            rewrite_score (int or None): The score value for the rewrite.
+            
+            rewrite_row (int): The row number of the rewrite in the rewrite table.
+            rewrites_instance (Rewrites): The instance of the parent rewrites class.
+        """
+  
+        self.rewrite_text = rewrite_text
+        self.rewrite_instance = rewrites_instance
+        self.duplicates = []
+
+        self.text = tk.Text(rewrites_instance.rewrite_table_grid, height=1, wrap='none')
+        self.score = tk.Entry(rewrites_instance.rewrite_table_grid, width=5, text=None)
+        self.optimal = tk.Entry(rewrites_instance.rewrite_table_grid, width=5, text=None)
+
+        self.init_gui(rewrites_instance.rewrite_table_grid, rewrite_text, rewrite_optimal, rewrite_score, rewrite_row)
+        
+
+    def init_gui(self, rewrite_grid, rewrite_text, rewrite_optimal, rewrite_score, rewrite_row):
+        self.rewrite_label = tk.Label(rewrite_grid, text=f"Rewrite {rewrite_row}")
+        self.rewrite_label.grid(column=0, row=rewrite_row)
+        
+        self.text.insert(tk.END, rewrite_text)
+        self.text.config(state='disabled')
+
+        self.score.insert(tk.END, rewrite_score if rewrite_score is not None else '')
+        self.optimal.insert(tk.END, rewrite_optimal if rewrite_optimal is not None else '')
+        
+        self.text.grid(row=rewrite_row, column=1, sticky='we', padx=5, pady=5)
+        self.score.grid(row=rewrite_row, column=2, sticky='we', padx=5, pady=5)
+        self.optimal.grid(row=rewrite_row, column=3, sticky='we', padx=5, pady=5)
+
+        self.optimal.bind("<KeyRelease>", self.optimal_input_handle)
+        self.score.bind("<KeyRelease>", self.score_input_handle)
+
+        self.score.bind("<FocusIn>", self.select_text)
+        self.optimal.bind("<FocusIn>", self.select_text)
+        
+    def score_input_handle(self, event=None):
+        """
+        Handles the input score and performs necessary actions based on the input.
+
+        Returns:
+            bool: True if the input score is valid, False otherwise.
+        """
+        new_score = self.get_score()
+        self.rewrite_instance.clean_optimals()
+        
+        if new_score == '' or new_score == None:
+            self.set_score(None)
+            return True
+        
+        elif new_score in [1,2,3,4,5,6,7,8,9]:
+            return True      
+
+        else:
+            tk.messagebox.showwarning("Invalid Input", f"Allowed values are: 1-9")
+            self.set_score(None)
+            return False
+        
+    def optimal_input_handle(self, event=None):
+        """
+        Handles the input for the optimal value.
+        
+        Retrieves the text from an Entry widget and performs validation checks.
+        If the input is valid, it updates the optimal value and returns True.
+        If the input is invalid, it displays a warning message and returns False.
+        
+        Returns:
+            bool: True if the input is valid and processed successfully, False otherwise.
+        """
+        # Retrieve text from an Entry widget
+        new_optimal = self.get_optimal()
+        
+        if new_optimal == '' or new_optimal == None:
+            self.set_optimal(None)
+            return True
+        
+        if not self.rewrite_instance.all_scores_filled():
+            tk.messagebox.showwarning("Invalid Input", f"Please fill in all scores first.")
+            self.set_optimal(None)
+            return False
+        
+        if new_optimal == 1:
+
+            if True or (self.rewrite_instance.get_max_score() == self.get_score()):
+                self.rewrite_instance.sync_optimals(self.get_score(), new_optimal)
+                self.rewrite_instance.handle_positive_optimal(self.get_score())
+                return True
+
+        elif new_optimal == 0:
+            self.rewrite_instance.sync_optimals(self.get_score(), new_optimal)
+            return True
+
+        else:
+            self.set_optimal(None)
+            tk.messagebox.showwarning("Invalid Input", f"Allowed values are: 0 or 1")
+            return False
+        
+    def select_text(self, event=None):
+        """
+        Selects all the text in the widget.
+
+        Parameters:
+        - event: The event that triggered the method (optional).
+
+        Returns:
+        None
+        """
+        event.widget.select_range(0, tk.END)
+
+    def get_text(self):
+        """
+        Retrieve the text from the text widget and return it as a string.
+
+        Returns:
+            str: The text content of the text widget.
+        """
+        return self.text.get(1.0, tk.END).strip()
+
+    def get_score(self):
+        """
+        Retrieves the score from the input field.
+
+        Returns:
+            int or str or None: The score value entered by the user. If the score is a valid integer, it is returned as an int.
+            If the score is a non-empty string, it is returned as a str. If the score is None or an empty string, None is returned.
+        """
+        score = self.score.get()
+        if score.isdigit():
+            return int(score)
+        elif score != None and score != '':
+            return score
+        else:
+            return None
+    
+    def set_score(self, score):
+        """
+        Sets the score value in the input field.
+
+        Parameters:
+            score (int or str or None): The score value to be set. If the score is None, an empty string is set.
+
+        Returns:
+            None
+        """
+        if score == None:
+            score = ''
+        self.score.delete(0, tk.END)
+        self.score.insert(0, score)
+        
+    def get_optimal(self):
+        """
+        Retrieves the optimal value from the input field.
+
+        Returns:
+            int or str or None: The optimal value entered by the user. If the optimal value is a valid integer, it is returned as an int.
+            If the optimal value is a non-empty string, it is returned as a str. If the optimal value is None or an empty string, None is returned.
+        """
+        optimal = self.optimal.get()
+        if optimal.isdigit():
+            return int(optimal)
+        elif optimal != None and optimal != '':
+            return optimal
+        else:
+            return None
+
+    def set_optimal(self, optimal):
+        """
+        Sets the optimal value in the input field.
+
+        Parameters:
+            optimal (int or str or None): The optimal value to be set. If the optimal value is None, an empty string is set.
+
+        Returns:
+            None
+        """
+        if optimal == None:
+            optimal = ''
+        self.optimal.delete(0, tk.END)
+        self.optimal.insert(0, optimal)
+            
+class AnnotatorRewrite():
+    """
+    A class representing the Annotator Rewrite component.
+
+    Attributes:
+    - position: The position object to add the Annotator Rewrite frame to.
+    - root: The root Tkinter window.
+    """
+
+    
+    def __init__(self, position, root):
+        """
+        Initializes the AnnotatorRewrite object.
+        """
+        self.annotator_rewrite_frame_base = tk.Frame(root)
+        position.add(self.annotator_rewrite_frame_base, stretch="always", height=30)
+        LabelSeparator(self.annotator_rewrite_frame_base, text="Annotator Rewrite").pack(fill=tk.X)
+        
+        self.annotator_rewrite_frame_grid = tk.Frame(self.annotator_rewrite_frame_base)
+        self.annotator_rewrite_frame_grid.pack(fill=tk.X, padx=10, pady=10)
+        
+        self.annotator_rewrite_label = tk.Label(self.annotator_rewrite_frame_grid, text="Annotator Rewrite:")
+        self.annotator_rewrite_label.grid(row=1, column=0, sticky='w', padx=5, pady=5)
+        
+        # Single-line Text widget (height=1) with no wrapping
+        self.annotator_rewrite_entry = tk.Text(self.annotator_rewrite_frame_grid, height=1, width=50, wrap="none")
+        self.annotator_rewrite_entry.grid(row=1, column=1, sticky='wne', padx=5, pady=5)
+
+        self.annotator_rewrite_frame_grid.columnconfigure(0, weight=10)
+        self.annotator_rewrite_frame_grid.columnconfigure(1, weight=1000)
+
+        # Bind events to prevent multi-line input and handle spell checking
+        self.annotator_rewrite_entry.bind("<Return>", self.prevent_newline)
+        self.annotator_rewrite_entry.bind("<FocusIn>", self.select_text)
+        self.annotator_rewrite_entry.bind("<space>", self.check_spelling)  # Spell check on key release
+
+        # Spell check dictionary for English
+        self.english_dictionary = enchant.Dict("en_US")
+
+        # Create a tag for misspelled words (red underline)
+        self.annotator_rewrite_entry.tag_configure("misspelled", underline=True, foreground="red")
+
+    
+    def prevent_newline(self, event):
+        """ Prevents the Text widget from creating a new line when Enter is pressed. """
+        return 'break'  # Stops the event, preventing a new line
+    
+    def get_annotator_rewrite(self):
+        """
+        Returns the text entered in the Annotator Rewrite entry field.
+        """
+        text = self.annotator_rewrite_entry.get("1.0", tk.END).strip()  # Get text from tk.Text
+        if text == '':
+            return None
+        return text
+    
+    def set_annotator_rewrite(self, text):
+        """
+        Sets the text in the Annotator Rewrite entry field.
+        """
+        if text is None:
+            text = ''
+        self.annotator_rewrite_entry.delete("1.0", tk.END)  # Clear the Text widget
+        self.annotator_rewrite_entry.insert("1.0", text)  # Insert the new text
+        self.check_spelling()
+    
+    def is_empty(self):
+        """
+        Checks if the Annotator Rewrite entry field is empty.
+        """
+        def contains_english_char(s):
+            return any(c.isalpha() and c.isascii() for c in s)
+
+        text = self.get_annotator_rewrite()
+        if text is None:
+            return True
+        return not contains_english_char(text)
+          
+    def select_text(self, event=None):
+        """
+        Selects all the text in the Annotator Rewrite entry field.
+        """
+        event.widget.tag_add(tk.SEL, "1.0", tk.END)  # Select all text in tk.Text
+        return 'break'  # Prevent default behavior
+        
+    def update_json_data(self, dialog_id, turn_num, json_data):
+        """
+        Updates the JSON data with the new Annotator Rewrite value.
+
+        Parameters:
+        - dialog_id: The ID of the dialog.
+        - turn_num: The turn number.
+        - json_data: The JSON data to update.
+
+        Returns:
+        - The updated JSON data.
+        """
+        new_value = self.get_annotator_rewrite()
+        JsonFunctions.change_annotator_rewrite(json_data, dialog_id, turn_num, new_value)
+
+        return json_data
+     
+    def update(self, dialog_id, turn_num, json_data):
+        """
+        Updates the Annotator Rewrite entry field with the value from the JSON data.
+
+        Parameters:
+        - dialog_id: The ID of the dialog.
+        - turn_num: The turn number.
+        - json_data: The JSON data.
+
+        """
+
+        annotator_rewrite = JsonFunctions.get_annotator_rewrite(json_data, dialog_id, turn_num)
+
+        self.set_annotator_rewrite(annotator_rewrite)
+
+    def check_spelling(self, event=None):
+        """ Checks the spelling of words in the Text widget and underlines misspelled words in red, 
+            but ignores words that start with a capital letter. """
+        
+        # Remove previous misspelled tags
+        self.annotator_rewrite_entry.tag_remove("misspelled", "1.0", tk.END)
+        
+        # Get the text from the widget
+        text_content = self.annotator_rewrite_entry.get("1.0", tk.END).strip()
+        
+        # Split the text into words
+        words = text_content.split()
+
+        start_pos = "1.0"
+        for word in words:
+            # Skip words that start with a capital letter
+            if word[0].isupper():
+                continue
+            
+            # Find the start position of the word
+            start_pos = self.annotator_rewrite_entry.search(word, start_pos, stopindex=tk.END)
+            
+            if start_pos:
+                end_pos = f"{start_pos} + {len(word)}c"
+                
+                # Check if the word is misspelled
+                if not self.english_dictionary.check(word):
+                    # Underline the misspelled word
+                    self.annotator_rewrite_entry.tag_add("misspelled", start_pos, end_pos)
+                
+                # Move to the end of the current word for next search
+                start_pos = end_pos
+
+    def handle_unique(self, rewrites, original_question):
+        """
+        Handles the uniqueness check for the Annotator Rewrite.
+
+        Parameters:
+        - rewrites: The list of rewrites.
+        - original_question: The original question.
+
+        Returns:
+        - True if the Annotator Rewrite is unique, False otherwise.
+        """
+        
+        if self.is_empty():
+            return True
+        
+        for rewrite in rewrites:
+            if compare_norm_texts(rewrite.get_text(), self.get_annotator_rewrite()):
+                self.set_annotator_rewrite(None)
+                tk.messagebox.showwarning("Annotator Rewrite Identical", f"Annotator Rewrite is identical to a rewrite.")
+                return False
+            
+        if (compare_norm_texts(self.get_annotator_rewrite(), original_question)):
+            self.set_annotator_rewrite(None)
+            tk.messagebox.showwarning("Annotator Rewrite Identical", f"Annotator Rewrite is identical to the original question.")
+            return False
+        
+        return True
+    
