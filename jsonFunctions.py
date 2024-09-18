@@ -317,3 +317,22 @@ class JsonFunctions:
         
         return turn[field]
         
+    def all_rewrites_filled(json_data, dialog_id, turn_num):
+        """
+        Checks if all rewrites have been filled in the JSON data.
+
+        Parameters:
+        - json_data: The JSON data.
+        - dialog_id: The ID of the dialog.
+        - turn_num: The turn number.
+
+        Returns:
+        - True if all rewrites have been filled; False otherwise.
+        """
+        turn = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
+
+        for key, value in turn["models_rewrites"].items():
+            if value["optimal"] == None or value["score"] == None:
+                return False
+
+        return True

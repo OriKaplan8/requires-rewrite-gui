@@ -303,6 +303,10 @@ class ScoringRewritesApp:
                         )
                         == None
                         
+                    ) or (
+                        JsonFunctions.all_rewrites_filled(
+                            self.json_data, dialog_id, key
+                        ) == False
                     ):
                         self.current_dialog_num = dialog_index 
                         self.max_dialog_num = dialog_index 

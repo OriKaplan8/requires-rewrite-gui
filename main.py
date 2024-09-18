@@ -53,27 +53,35 @@ class FileDialog(simpledialog.Dialog):
 dev = ["lieli", "agent_conv_test"]
 dev1 = ["ori", "asi-23_4"]
 toy = ["test-user", "toy-dataset-1" ]
+test= ["ori1" , "old-dataset"]
 
-def main():
+def main(dev = None):
     root = tk.Tk()
     app = None
     login = None
     version = 4.0
-    dialog = FileDialog(root)
+    if dev is None:
+        dialog = FileDialog(root)
 
-    if dialog.result:
-        username, filename = dialog.result
-        login = {"username": username, "filename": filename}
+        if dialog.result:
+            username, filename = dialog.result
+            login = {"username": username, "filename": filename}
 
-        if filename in ["agent_conv_complete", "agent_conv_test", "asi-14_4", "asi-23_4"]:
+            if filename in ["agent_conv_complete", "agent_conv_test", "asi-14_4", "asi-23_4"]:
+                app = RequiresRewriteApp
+            else:
+                app = ScoringRewritesApp
+
+        else:
+            root.destroy()
+    
+    else:
+        login = {"username": dev[0], "filename": dev[1]}
+        if dev[1] in ["agent_conv_complete", "agent_conv_test", "asi-14_4", "asi-23_4"]:
             app = RequiresRewriteApp
         else:
             app = ScoringRewritesApp
 
-    else:
-        root.destroy()
-
- 
 
     app(root, version, login)
     root.mainloop()
