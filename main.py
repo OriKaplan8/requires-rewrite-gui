@@ -52,8 +52,9 @@ class FileDialog(simpledialog.Dialog):
 
 dev = ["lieli", "agent_conv_test"]
 dev1 = ["ori", "asi-23_4"]
-toy = ["test-user", "toy-dataset-1" ]
-test= ["ori1" , "old-dataset"]
+toy = ["test-user", "toy-dataset-2" ]
+test= ["ori2" , "old-dataset"]
+new = ["test1", "rewrite-scoring"]
 
 def main(dev = None):
     root = tk.Tk()
@@ -89,4 +90,4 @@ def main(dev = None):
 
 
 if __name__ == "__main__":
-    main()
+    main(new)

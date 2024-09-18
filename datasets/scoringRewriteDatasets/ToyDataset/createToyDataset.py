@@ -27,7 +27,6 @@ def create_toy_turn_dict(dialog_n, turn_n, max_rewrites=3):
             "original_question": f"original_question_{dialog_n}_{turn_n}",
             "answer": f"answer_{dialog_n}_{turn_n}",
             "requires_rewrite": None,
-            "annotator_rewrite": None,
             "models_rewrites": rewrites}
 
 def create_toy_dialog_dict(dialog_n, max_turns=5):
@@ -57,6 +56,6 @@ def create_toy_dataset(num_dialogs, num_turns_per_dialog):
 
 def generate_toy_dataset(num_dialogs, num_turns_per_dialog):
     data = create_toy_dataset(num_dialogs, num_turns_per_dialog)
-    save_json_file(data, "toy_dataset.json")
+    save_json_file(data, "toy_dataset_no_ant_r.json")
     
 generate_toy_dataset(5, 5)

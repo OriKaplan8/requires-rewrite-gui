@@ -107,7 +107,6 @@ class ScoringRewritesApp:
         self.font.add_exclude_widget(self.dialog_label)
         self.require_rewrite = RequireRewriteCheckBox(main_pane, root)
         self.rewrite_frame = Rewrites(main_pane, root)
-        self.annotator_rewrite = AnnotatorRewrite(main_pane, root)
         self.quick_annotation = self.quick_annotation_rewrite_scoring
         self.LoadingScreen = LoadingScreen(root)
 
@@ -331,22 +330,6 @@ class ScoringRewritesApp:
         if self.rewrite_frame.is_empty():
             missing_fields.append("Rewrites-Fields")
 
-        if self.annotator_rewrite.is_empty():
-            
-            if (self.require_rewrite.is_empty()):
-                missing_fields.append('Annotator-Rewrite')
-                
-            elif (self.require_rewrite.requires_rewrite_positive()):
-                
-                if (self.rewrite_frame.is_empty()):
-                    missing_fields.append('Annotator-Rewrite')
-                    
-                elif (self.rewrite_frame.positive_optimal_exists()):
-                    pass
-                
-                else:
-                    missing_fields.append('Annotator-Rewrite')
-
         
         if missing_fields and self.fields_check:
             tk.messagebox.showwarning(
@@ -386,7 +369,6 @@ class ScoringRewritesApp:
         """
         self.json_data = self.require_rewrite.update_json_data(self.get_dialog_id(), self.current_turn_num, self.json_data)
         self.json_data = self.rewrite_frame.update_json_data(self.get_dialog_id(), self.current_turn_num, self.json_data)
-        self.json_data = self.annotator_rewrite.update_json_data(self.get_dialog_id(), self.current_turn_num, self.json_data)
 
         return True
 
@@ -439,7 +421,6 @@ class ScoringRewritesApp:
                 self.get_dialog_id(), self.current_turn_num, self.json_data
             )
             self.rewrite_frame.update_rewrites(self.get_dialog_id(), self.current_turn_num, self.json_data)
-            self.annotator_rewrite.update(self.get_dialog_id(), self.current_turn_num, self.json_data)
             
             self.font.update_font_size_wrapper()
             self.require_rewrite.focus_on()
@@ -529,9 +510,7 @@ class ScoringRewritesApp:
 
         elif not self.update_json():
             return False
-        
-        elif not self.annotator_rewrite.handle_unique(self.rewrite_frame.rewrites.values(), self.get_original_question()):
-            return False
+    
         
         elif not self.handle_require_rewrite_negative_with_identical_rewrite():
             return False
