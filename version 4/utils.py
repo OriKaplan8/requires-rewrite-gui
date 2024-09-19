@@ -971,6 +971,12 @@ class Rewrites():
         self.no_rewrites_label = tk.Label(self.rewrite_table_grid, text="No rewrites in this turn.")
         self.no_rewrites_label.grid(column=1, row=3)
         self.no_rewrites_label.grid_remove()  # This hides the label initially
+        
+    def show_no_rewrites_label(self):
+        self.no_rewrites_label.grid()
+        
+    def hide_no_rewrites_label(self):
+        self.no_rewrites_label.grid_remove()
     
     def update_rewrites(self, dialog_id, turn_num, json_data):
 
@@ -986,6 +992,8 @@ class Rewrites():
         self.rewrites = {}
 
         for rewrite_key, rewrite_value in JsonFunctions.get_rewrites(json_data, dialog_id, turn_num).items():
+           
+            
             if not {"text", "optimal", "score"}.issubset(rewrite_value.keys()):
                 print(JsonFunctions.get_rewrites(json_data, dialog_id, turn_num))
                 raise Exception(f"The value(s) are not in the rewrite keys: {rewrite_value.keys()}")

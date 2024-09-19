@@ -87,11 +87,12 @@ def process_json(json_list):
     return json_converted_data
             
 def process_dialog(dialog_data):
-    dialog_converted_data = {"number_of_turns": len(dialog_data),
+    dialog_converted_data = {"number_of_turns": 0,
                    "annotator_id": None,
                    "dialog": {"0" : process_intro(dialog_data[0])}}
     
-
+    turn_counter = 1
+    
     for turn_index in range(1, len(dialog_data), 2):
         assistant_turn, user_turn = None, None
 
@@ -103,8 +104,11 @@ def process_dialog(dialog_data):
         else:
             assistant_turn = None
 
-        dialog_converted_data["dialog"][int((user_turn["utr_num"]+1)/2)] = process_turn(user_turn, assistant_turn)
+        dialog_converted_data["dialog"][turn_counter] = process_turn(user_turn, assistant_turn, turn_counter)
+        turn_counter += 1
 
+
+    dialog_converted_data["number_of_turns"] = turn_counter
     return dialog_converted_data
 
 def process_intro(assistant_turn):
@@ -128,10 +132,10 @@ def process_intro(assistant_turn):
         
     }
 
-def process_turn(user_turn, assistant_turn):
+def process_turn(user_turn, assistant_turn, turn_counter ):
     if assistant_turn is not None:
         return {
-            "turn_num": user_turn["utr_num"],
+            "turn_num": turn_counter,
             "original_question": user_turn["utr"],
             "answer": assistant_turn["utr"],
             "info": {
@@ -149,8 +153,8 @@ def process_turn(user_turn, assistant_turn):
                 },
         
             },
-            "require_rewrite": None,
-            "models_rewrite": process_rewrites(user_turn)
+            "requires_rewrite": None,
+            "models_rewrites": process_rewrites(user_turn)
         }
     else:
         return {
@@ -171,8 +175,8 @@ def process_turn(user_turn, assistant_turn):
                 },
         
             },
-            "require_rewrite": None,
-            "models_rewrite": process_rewrites(user_turn)
+            "requires_rewrite": None,
+            "models_rewrites": process_rewrites(user_turn)
         }
 
 def process_rewrites(user_turn):
@@ -180,11 +184,12 @@ def process_rewrites(user_turn):
     rewrite_keys = ["prod_rewite", "DcR_rewrite"]
     for key, value in user_turn.items():
        if key in rewrite_keys:
-           rewrites_dict[key] = {
-               "text": value,
-               "score": None,
-               "optimal": None
-           }
+           if value is not None:
+            rewrites_dict[key] = {
+                "text": value,
+                "score": None,
+                "optimal": None
+            }
     return rewrites_dict
            
 

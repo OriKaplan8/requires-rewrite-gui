@@ -2,8 +2,13 @@ import random
 class JsonFunctions:
 
     def get_turn(json_data, dialog_id, turn_num):
-
-        return json_data[dialog_id]['dialog'][str(turn_num)]
+        
+        try:
+            return json_data[dialog_id]['dialog'][str(turn_num)]
+        
+        except:
+            raise Exception(f"Dialog ID {dialog_id} and turn number {turn_num} not found in JSON data.\nDialog IDs: {json_data[dialog_id]['dialog'].keys()}")
+        
         
     def set_turn(json_data, dialog_id, turn_num, new_turn_data):
         json_data[dialog_id]['dialog'][str(turn_num)] = new_turn_data
