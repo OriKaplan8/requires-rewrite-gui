@@ -1,4 +1,6 @@
 import random
+from shared_utils import compare_norm_texts
+
 class JsonFunctions:
 
     def get_turn(json_data, dialog_id, turn_num):
@@ -80,19 +82,40 @@ class JsonFunctions:
 
         return JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn_data)
 
-    def get_turns(json_data, dialog_id, only_annotatable=True):
+    def get_turns(json_data, dialog_id, only_annotatable=True, fitered_for_rewrite_scoring=False):
         turns = {}
         start = 1 if only_annotatable else 0
 
         number_of_turns = JsonFunctions.count_turns_in_dialog(json_data, dialog_id, only_annotatable)
         
-
-            
         for i in range(start, number_of_turns + 1):
             turns[str(i)] = JsonFunctions.get_turn(json_data, dialog_id, i)
 
+        if fitered_for_rewrite_scoring:
+            turns = JsonFunctions.filter_for_rewrite_scoring_annotation(json_data, dialog_id ,turns)
+
     
         return turns
+    
+    def filter_for_rewrite_scoring_annotation(json_data, dialog_id, turns):
+        filtered_turns = {}
+
+        for turn_num in turns.keys():
+            if JsonFunctions.is_turn_annotatable_rewrite_scoring(json_data, dialog_id, turn_num):
+                filtered_turns[turn_num] = turns[turn_num]
+
+        return filtered_turns
+    
+    def is_turn_annotatable_rewrite_scoring(json_data, dialog_id, turn_num):
+        turn_valid = False
+        rewrites = JsonFunctions.get_rewrites(json_data, dialog_id, turn_num)
+        for key1, rewrite1 in rewrites.items():
+            for key2, rewrite2 in rewrites.items():
+                if key1 != key2:
+                    if not compare_norm_texts(rewrite1['text'], rewrite2['text']):
+                        turn_valid = True
+                        break
+        return turn_valid
 
     def count_turns_in_dialog(json_data, dialog_id, only_annotatable=True):
         """
@@ -238,7 +261,10 @@ class JsonFunctions:
     
     def set_score(json_data, dialog_id, turn_num, rewrite_num, new_score):
         turn = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
-        turn["models_rewrites"][rewrite_num]["score"] = new_score
+        try:
+            turn["models_rewrites"][rewrite_num]["score"] = new_score
+        except:
+            raise Exception(f"Rewrite id {rewrite_num} not found in turn {turn_num}. Existing rewrites: {turn['models_rewrites'].keys()}")
         return JsonFunctions.set_turn(json_data, dialog_id, turn_num, turn)
     
     def set_optimal(json_data, dialog_id, turn_num, rewrite_num, new_optimal):
@@ -341,3 +367,4 @@ class JsonFunctions:
                 return False
 
         return True
+    

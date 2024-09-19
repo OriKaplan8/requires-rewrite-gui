@@ -292,7 +292,7 @@ class ScoringRewritesApp:
         """goes through the json_file and finds the next turn which is not filled already, then sets the program to show the turn"""
         for dialog_index, dialog_id in enumerate(self.json_data):
             dialog_data = self.json_data[dialog_id]
-            turns = JsonFunctions.get_turns(self.json_data, dialog_id)
+            turns = JsonFunctions.get_turns(self.json_data, dialog_id, fitered_for_rewrite_scoring=True)
 
             for key in turns.keys():
                 if key.isdigit():
@@ -467,6 +467,55 @@ class ScoringRewritesApp:
         """
         return JsonFunctions.count_dialogs_in_batch(self.json_data)
 
+    def find_previous_valid_turn(self):
+
+        temp_turn_num = self.current_turn_num
+        temp_dialog_num = self.current_dialog_num
+
+        while not JsonFunctions.is_turn_annotatable_rewrite_scoring(self.json_data, JsonFunctions.get_dialog_id(self.json_data, temp_dialog_num), temp_turn_num):
+
+            if temp_turn_num > JsonFunctions.first_turn(self.json_data, JsonFunctions.get_dialog_id(self.json_data, temp_dialog_num)):
+                temp_turn_num -= 1
+
+            else:
+                if temp_dialog_num > 0:
+                    temp_dialog_num -= 1
+                    temp_turn_num = JsonFunctions.last_turn(
+                        self.json_data, JsonFunctions.get_dialog_id(self.json_data, temp_dialog_num)
+                    )
+
+                else:
+                    tk.messagebox.showwarning("Warning", "This is the first annotatble turn")
+                    self.current_turn_num += 1
+                    return
+                
+        self.current_turn_num = temp_turn_num
+        self.current_dialog_num = temp_dialog_num
+
+
+    def find_next_valid_turn(self):
+        temp_turn_num = self.current_turn_num
+        temp_dialog_num = self.current_dialog_num
+    
+        while not JsonFunctions.is_turn_annotatable_rewrite_scoring(self.json_data, JsonFunctions.get_dialog_id(self.json_data, temp_dialog_num), temp_turn_num):
+
+            if temp_turn_num < JsonFunctions.last_turn(self.json_data, JsonFunctions.get_dialog_id(self.json_data, temp_dialog_num)):
+                temp_turn_num += 1
+
+            else:
+                if temp_dialog_num >= len(self.json_data) - 1:
+                    tk.messagebox.showinfo(
+                        title="Finished Annotating!", message="No More Annotatble Turns", icon="info"
+                    )
+                    self.current_turn_num -= 1
+                    return
+                
+                temp_dialog_num += 1
+                temp_turn_num = JsonFunctions.first_turn(self.json_data, JsonFunctions.get_dialog_id(self.json_data, temp_dialog_num))
+
+        self.current_turn_num = temp_turn_num
+        self.current_dialog_num = temp_dialog_num
+                
     def prev_turn(self):
         """goes to the previous turn in the dialog
             if there are no more turns, go to the prev dialog,
@@ -479,10 +528,10 @@ class ScoringRewritesApp:
         if not self.update_json(prev=True):
             return False
 
-        if self.current_turn_num > JsonFunctions.first_turn(
-            self.json_data, self.get_dialog_id()
-        ):
+        if self.current_turn_num > JsonFunctions.first_turn(self.json_data, self.get_dialog_id()):
+            
             self.current_turn_num -= 1
+            self.find_previous_valid_turn()
             self.init_turn()
 
         else:
@@ -491,7 +540,7 @@ class ScoringRewritesApp:
         return True
 
     def next_turn(self, event=None):
-        """goes to the previous turn in the dialog
+        """goes to the next turn in the dialog
             if there are no more turns, go to the next dialog,
             if there are no more dialogs and using mongo, goes to next batch (if offline need to manually change target.json)
 
@@ -517,10 +566,10 @@ class ScoringRewritesApp:
 
         self.mongo.save_json(json_data=self.json_data, dialog_id=self.get_dialog_id())
 
-        if self.current_turn_num < JsonFunctions.last_turn(
-            self.json_data, self.get_dialog_id()
-        ):
+        if self.current_turn_num < JsonFunctions.last_turn(self.json_data, self.get_dialog_id()):
+            
             self.current_turn_num += 1
+            self.find_next_valid_turn()
             self.init_turn()
 
         else:
@@ -532,6 +581,8 @@ class ScoringRewritesApp:
         """used in the prev dialog button to go to prev dialog"""
 
         if self.current_dialog_num > 0:
+            
+     
             if not self.require_rewrite.is_empty():
                 self.update_json()
 
@@ -539,6 +590,12 @@ class ScoringRewritesApp:
             self.current_turn_num = JsonFunctions.last_turn(
                 self.json_data, self.get_dialog_id()
             )
+            
+            if not JsonFunctions.is_turn_annotatable_rewrite_scoring(self.json_data, self.get_dialog_id(), self.current_turn_num):
+                self.find_previous_valid_turn()
+
+
+           
             self.init_turn()
             self.font.update_font_size_wrapper()
 
@@ -546,31 +603,28 @@ class ScoringRewritesApp:
             tk.messagebox.showwarning("Warning", "This is the first dialog")
 
     def next_dialog(self):
-        """used in the next dialog button to go to prev dialog"""
-
-        if self.current_dialog_num < len(self.json_data) - 1:
-            if self.fields_check:
-                if self.are_all_turns_filled():
-                    if not self.require_rewrite.is_empty():
-                        self.update_json()
-                    self.current_dialog_num += 1
-                    self.current_turn_num = self.get_first_turn_index()
-                    self.init_turn()
-
-                else:
-                    tk.messagebox.showwarning(
-                        "Warning", "Not all turns in this dialog are filled"
-                    )
-            else:
-                self.update_json()
-                self.current_dialog_num += 1
-                self.current_turn_num = self.get_first_turn_index()
-                self.init_turn()
-
-        else:
+        """Handles advancing to the next dialog."""
+        
+        if self.current_dialog_num >= len(self.json_data) - 1:
             tk.messagebox.showinfo(
                 title="Finished Annotating!", message="No More Annotations", icon="info"
             )
+            return
+
+        if self.fields_check and not self.are_all_turns_filled():
+            tk.messagebox.showwarning(
+                "Warning", "Not all turns in this dialog are filled"
+            )
+            return
+
+        self.update_json()
+
+        self.current_dialog_num += 1
+        self.current_turn_num = self.get_first_turn_index()
+        if not JsonFunctions.is_turn_annotatable_rewrite_scoring(self.json_data, self.get_dialog_id(), self.current_turn_num):
+                self.find_next_valid_turn()
+
+        self.init_turn()
 
     def are_all_turns_filled(self):
         """when going to the next dialog using the button, checks if all the turns in the dialog are filled

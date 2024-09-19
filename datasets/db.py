@@ -157,7 +157,6 @@ def retrieve_annotation_by_user_and_file_id(file_id, username):
         dict or None: A dictionary containing the retrieved annotations if found, 
                       None if no annotations were found.
     """
-
     json_data = None
     found_any = False
     old_version = False
