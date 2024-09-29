@@ -38,7 +38,9 @@ The code has been refactored and organized into smaller files for better maintai
 To view annotations:
 
 1. Use the `db.py` file (formerly `mongo_data_manager.ipynb`).
-2. Run the `retrieve_annotation_by_user_and_file_id` function with the desired filename and username to retrieve annotations.
+2. Run the `retrieve_annotation_by_user_and_file_id` function with the desired filename and username to retrieve annotations. (annotators names are: ['ori', 'AfikK', 'lieli'])
+
+can also use `retrieve_annotations_by_file_id` function with the desired filename to retrieve annotations off all annotators.
 
 ## Repository Files
 
