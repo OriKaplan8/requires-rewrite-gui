@@ -556,6 +556,9 @@ class ScoringRewritesApp:
 
         if not self.are_all_fields_filled():
             return False
+        
+        if not self.rewrite_frame.check_optimals_valid():
+            return False
 
         elif not self.update_json():
             return False
@@ -616,6 +619,7 @@ class ScoringRewritesApp:
                 "Warning", "Not all turns in this dialog are filled"
             )
             return
+        
 
         self.update_json()
 
@@ -634,7 +638,10 @@ class ScoringRewritesApp:
             boolean: Return True if opertion was successful, False if not
         """
         turns = JsonFunctions.get_turns(self.json_data, self.get_dialog_id())
-        for turn_i in range(1, len(turns)):
+        
+        for turn_i in range(1, len(turns)+1):
+            if not JsonFunctions.is_turn_annotatable_rewrite_scoring(self.json_data, self.get_dialog_id(), turn_i):
+                continue
             if (JsonFunctions.get_require_rewrite(
                     self.json_data, self.get_dialog_id(), turn_i
                 )

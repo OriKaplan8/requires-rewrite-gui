@@ -1028,6 +1028,17 @@ class Rewrites():
                 max_score = rewrite.get_score()
         return max_score
     
+    def get_mix_score_optimal(self):
+        min_score = 1000
+        
+        for rewrite in self.rewrites.values():
+            
+            if rewrite.get_score() < min_score:
+                if rewrite.get_optimal() == 1:
+                    min_score = rewrite.get_score()
+                    
+        return min_score
+    
     def all_scores_filled(self):
         """
         Checks if all scores for the rewrites have been filled.
@@ -1085,7 +1096,32 @@ class Rewrites():
                 if optimal == None:
                     optimal = ''
                 rewrite.optimal.insert(0, optimal)
+      
+    def print_rewrites(self):
+        """
+        Prints the rewrites in the rewrites list.
+
+        Returns:
+        None
+        """
+        for rewrite in self.rewrites.values():
+            print(f"Text: {rewrite.get_text()} | Score: {rewrite.get_score()} | Optimal: {rewrite.get_optimal()}")
                 
+    def check_optimals_valid(self):
+        
+        min_score = self.get_mix_score_optimal()
+        
+        for rewrite in self.rewrites.values():
+            if rewrite.get_score() >= min_score:
+                if rewrite.get_optimal() == 0:
+                    print(f"min_score: {min_score}")
+                    self.print_rewrites()
+                    tk.messagebox.showwarning("Invalid Input", f"There are rewrites with a higher or equal score that are not marked as optimal.")
+                    self.clean_optimals()
+                    return False
+                
+        return True
+                        
     def positive_optimal_exists(self):
         """
         Checks if an optimal rewrite exists in the list of rewrites.
@@ -1139,7 +1175,6 @@ class SingleRewrite():
 
         self.init_gui(rewrites_instance.rewrite_table_grid, rewrite_text, rewrite_optimal, rewrite_score, rewrite_row)
         
-
     def init_gui(self, rewrite_grid, rewrite_text, rewrite_optimal, rewrite_score, rewrite_row):
         self.rewrite_label = tk.Label(rewrite_grid, text=f"Rewrite {rewrite_row}")
         self.rewrite_label.grid(column=0, row=rewrite_row)
@@ -1208,12 +1243,12 @@ class SingleRewrite():
         if new_optimal == 1:
 
             if True or (self.rewrite_instance.get_max_score() == self.get_score()):
-                self.rewrite_instance.sync_optimals(self.get_score(), new_optimal)
-                self.rewrite_instance.handle_positive_optimal(self.get_score())
+                #self.rewrite_instance.sync_optimals(self.get_score(), new_optimal)
+                #self.rewrite_instance.handle_positive_optimal(self.get_score())
                 return True
 
         elif new_optimal == 0:
-            self.rewrite_instance.sync_optimals(self.get_score(), new_optimal)
+            #self.rewrite_instance.sync_optimals(self.get_score(), new_optimal)
             return True
 
         else:
@@ -1303,7 +1338,7 @@ class SingleRewrite():
             optimal = ''
         self.optimal.delete(0, tk.END)
         self.optimal.insert(0, optimal)
-            
+     
 class AnnotatorRewrite():
     """
     A class representing the Annotator Rewrite component.
@@ -1312,8 +1347,7 @@ class AnnotatorRewrite():
     - position: The position object to add the Annotator Rewrite frame to.
     - root: The root Tkinter window.
     """
-
-    
+  
     def __init__(self, position, root):
         """
         Initializes the AnnotatorRewrite object.
@@ -1345,7 +1379,6 @@ class AnnotatorRewrite():
 
         # Create a tag for misspelled words (red underline)
         self.annotator_rewrite_entry.tag_configure("misspelled", underline=True, foreground="red")
-
     
     def prevent_newline(self, event):
         """ Prevents the Text widget from creating a new line when Enter is pressed. """

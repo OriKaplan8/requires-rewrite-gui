@@ -54,13 +54,13 @@ dev = ["lieli", "agent_conv_test"]
 dev1 = ["ori", "asi-23_4"]
 toy = ["test-user", "toy-dataset-2" ]
 test= ["ori2" , "old-dataset"]
-new = ["test", "rewrite-scoring"]
+new = ["asi shefer", "rewrite-scoring"]
 
 def main(dev = None):
     root = tk.Tk()
     app = None
     login = None
-    version = 4.0
+    version = 4.1
     if dev is None:
         dialog = FileDialog(root)
 
@@ -90,4 +90,4 @@ def main(dev = None):
 
 
 if __name__ == "__main__":
-    main(new)
+    main()
