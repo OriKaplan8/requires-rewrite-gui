@@ -54,13 +54,13 @@ dev = ["lieli", "agent_conv_test"]
 dev1 = ["ori", "asi-23_4"]
 toy = ["test-user", "toy-dataset-2" ]
 test= ["ori2" , "old-dataset"]
-new = ["asi shefer", "rewrite-scoring"]
+new = ["afik", "rewrite-scoring"]
 
 def main(dev = None):
     root = tk.Tk()
     app = None
     login = None
-    version = 4.1
+    version = 4.2
     if dev is None:
         dialog = FileDialog(root)
 

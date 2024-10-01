@@ -158,9 +158,25 @@ class ScoringRewritesApp:
             )
             self.update_progress_bar()
             return False
+        
+        
 
         self.current_dialog_num = dialog_num
         self.current_turn_num = self.get_first_turn_index()
+
+        msg = "The selected dialog is invalid. Moving to the next dialog with valid turns."
+        if not self.find_next_valid_turn():
+            msg = "The selected dialog has invalid turns. There are no valid dialogs before it, so moving to the previous dialog with valid turns."
+            self.find_previous_valid_turn()
+
+        if dialog_num != self.current_dialog_num:
+            tk.messagebox.showinfo(
+                title="Invalid Dialog", 
+                message=msg, 
+                icon="info"
+            )
+        
+        self.update_progress_bar()
         self.init_turn()
 
     def update_status_bar(self, dialog_id):
@@ -315,6 +331,9 @@ class ScoringRewritesApp:
         self.current_dialog_num = self.count_dialogs_in_batch() - 1
         self.current_turn_num = self.count_turns_in_dialog()  
         self.max_dialog_num = self.count_dialogs_in_batch() - 1
+
+        if not self.find_next_valid_turn(msg=False):
+            self.find_previous_valid_turn()
 
     def are_all_fields_filled(self):
         """check if the turn the annotator is currently on is saved comletly, used before moving to the next turn
@@ -493,7 +512,7 @@ class ScoringRewritesApp:
         self.current_dialog_num = temp_dialog_num
 
 
-    def find_next_valid_turn(self):
+    def find_next_valid_turn(self, msg=True):
         temp_turn_num = self.current_turn_num
         temp_dialog_num = self.current_dialog_num
     
@@ -504,17 +523,18 @@ class ScoringRewritesApp:
 
             else:
                 if temp_dialog_num >= len(self.json_data) - 1:
-                    tk.messagebox.showinfo(
-                        title="Finished Annotating!", message="No More Annotatble Turns", icon="info"
-                    )
-                    self.current_turn_num -= 1
-                    return
+                    if msg:
+                        tk.messagebox.showinfo(
+                            title="Finished Annotating!", message="No More Annotatble Turns", icon="info"
+                        )
+                    return False
                 
                 temp_dialog_num += 1
                 temp_turn_num = JsonFunctions.first_turn(self.json_data, JsonFunctions.get_dialog_id(self.json_data, temp_dialog_num))
 
         self.current_turn_num = temp_turn_num
         self.current_dialog_num = temp_dialog_num
+        return True
                 
     def prev_turn(self):
         """goes to the previous turn in the dialog
@@ -626,7 +646,8 @@ class ScoringRewritesApp:
         self.current_dialog_num += 1
         self.current_turn_num = self.get_first_turn_index()
         if not JsonFunctions.is_turn_annotatable_rewrite_scoring(self.json_data, self.get_dialog_id(), self.current_turn_num):
-                self.find_next_valid_turn()
+                if not self.find_next_valid_turn():
+                    return
 
         self.init_turn()
 

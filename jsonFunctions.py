@@ -238,7 +238,7 @@ class JsonFunctions:
         """
         turn = JsonFunctions.get_turn(json_data, dialog_id, turn_num)
         rewrites = {}
-
+    
         for key, value in turn["models_rewrites"].items():
                 rewrites[key] = value
 
