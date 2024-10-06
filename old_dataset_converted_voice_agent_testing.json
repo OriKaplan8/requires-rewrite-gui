@@ -1,0 +1,5142 @@
+{
+    "3018q3zvoiqh6tkjkzarysii2vbarg": {
+        "number_of_turns": 12,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What's Rubio going to decide in the next few weeks?",
+                "answer": "running for president"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Does he feel confident about it?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What policy is he not in favor of?",
+                "answer": "immigration",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "What type of people does he think are dangerous to the West?",
+                "answer": "Radicalized individuals",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Who are some likely competition to him?",
+                "answer": "Mitt Romney and Jeb Bush",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Does he think they have a lot of money and credibility?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "What was the title of his book?",
+                "answer": "American Dreams",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "When was it released?",
+                "answer": "Tuesday",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Has he decided if he'd be a better president or senator?",
+                "answer": "not yet",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What happens the longer you wait?",
+                "answer": "the harder it becomes",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "When's Romney considering making his own bid?",
+                "answer": "2016",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "What type of resources are Bush and Romney trying to get?",
+                "answer": "big-money supporters",
+                "annotations": null
+            }
+        }
+    },
+    "30og32w0subzh8937xvwlr3znpknep": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What is the title of the chapter?",
+                "answer": "The meeting of the gee eyes"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Who is badly injured?",
+                "answer": "Merwell",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Does Dave think he will recover?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "What does he tell Merwell to do?",
+                "answer": "keep a civil tongue in your head",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "How did Dave leave?",
+                "answer": "he left on an ice-boat",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "What did he throw off the boat?",
+                "answer": "three skates",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "What insult had Dave been called?",
+                "answer": "\"poorhouse rat\"",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "True or False: This made Dave very angry.",
+                "answer": "true",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Was he able to keep his temper?",
+                "answer": "no",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Had he ever been able to?",
+                "answer": "no",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Who does Dave say he wants to find?",
+                "answer": "Henshaw and the others.",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Did Poole want him to leave?",
+                "answer": "no",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "What was Poole afraid Dave would do to him?",
+                "answer": "hit him",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Who did he threaten to tell if Dave did?",
+                "answer": "Doctor Clay",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "Did Dave hit him?",
+                "answer": "no",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Where does Dave say Poole needs to bring Merwell?",
+                "answer": "the Hall",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "What is Poole's first name?",
+                "answer": "Nat",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "And Merwell's?",
+                "answer": "Link",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "What is Dave's last name?",
+                "answer": "Porter",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "Did Poole shout at him in a strong voice?",
+                "answer": "no",
+                "annotations": null
+            }
+        }
+    },
+    "31lvtdxbl7ay2cbnhqzh76ytw9drlm": {
+        "number_of_turns": 19,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who felt there was a silence before the storm?",
+                "answer": "Even Saton"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Who stood in the centre of the little group?",
+                "answer": "Saton and Lois",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Whose elbow was on the mantelpiece?",
+                "answer": "Rochester",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Who looked anxiously at them?",
+                "answer": "Mary",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "And who stood on the side and held his peace?",
+                "answer": "Vandermere",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "What was beginning to slowly ebb away from Saton?",
+                "answer": "courage",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Whose hand was he holding?",
+                "answer": "Lois",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Had she consented to be his wife?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Who had shrunk back, terrified?",
+                "answer": "Pauline",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Where did Saton say he could take Lois if she couldn't be married there?",
+                "answer": "the Comtesse",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What is the title of the chapter?",
+                "answer": "THE CHARLATAN UNMASKED",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "When Saton turned toward Rochester was he defiant or scared?",
+                "answer": "defiant",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Who was forbidden to enter the house (Rochester's)?",
+                "answer": "Saton",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "What else was he not supposed to do?",
+                "answer": "hold any communication with Rochester's ward",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What is Lois today?",
+                "answer": "she is her own mistress",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Do they still have to have Rochestere's approval?",
+                "answer": "no",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "Was Saton still holding Lois' hand when he turned to Rochester again?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "What number chapter is this?",
+                "answer": "XXXVI",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "Did Saton obey 2 conditions set?",
+                "answer": "no",
+                "annotations": null
+            }
+        }
+    },
+    "31lvtdxbl7ay2cbnhqzh76ytxkxrlt": {
+        "number_of_turns": 15,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who was in a temper?",
+                "answer": "Dan"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What kind of temper?",
+                "answer": "fine temper",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Who was restraining him?",
+                "answer": "Seth,",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "How did he turn to his partner?",
+                "answer": "savagely",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "How did seth reply to him?",
+                "answer": "soothingly.",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "What happened to Seth's house?",
+                "answer": ",burned down",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "How much did the man get paid?",
+                "answer": "fifteen cents",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Was the man a runaway criminal?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Why didn't the man raise his hands?",
+                "answer": "he felt bad",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What was his name?",
+                "answer": "Jip Collins",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What does dan think is a shame?",
+                "answer": "letting him go",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "True or False: Seth and Dan are partners.",
+                "answer": "true",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "True or False: Seth thinks Dan should have beaten up Jip.",
+                "answer": "false",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "What kind of name does Seth want dan to avoid?",
+                "answer": "a bruiser.",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "Is Dan okay with having that name?",
+                "answer": "yes",
+                "annotations": null
+            }
+        }
+    },
+    "32ktq2v7rdfc4uxmnl0agydort19mq": {
+        "number_of_turns": 14,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What is the city of focus?",
+                "answer": "New Haven"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What was it's population in 2012?",
+                "answer": "130,741",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "When was that census held?",
+                "answer": "1 July 2012",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "In what year did the Puritans winter there?",
+                "answer": "1637",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Who was the reverend who led them?",
+                "answer": "John Davenport",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Which merchant traveled him?",
+                "answer": "Theophilus Eaton",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "How did the travel?",
+                "answer": "sailed",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What was the settlers hope?",
+                "answer": "to establish a theological community",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "What two tribes were at war?",
+                "answer": "Quinnipiacs and Pequots",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Which of them sold out for protection?",
+                "answer": "Pequots",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Which sound is the city located on?",
+                "answer": "Long Island Sound",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "On which harbor?",
+                "answer": "New Haven Harbor",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "In terms population, where does the city rank?",
+                "answer": "second-largest city in Connecticut",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Which city is first?",
+                "answer": "Bridgeport",
+                "annotations": null
+            }
+        }
+    },
+    "32z9zlut1lktj30hyd3flj0h4btoho": {
+        "number_of_turns": 11,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "did Sean like golden coins?",
+                "answer": "No."
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "why?",
+                "answer": "They were too yellow.",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "what color things did he use to cover his treasure?",
+                "answer": "Green.",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "did he cover his cave?",
+                "answer": "No.",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "did he put stuff all over his cave?",
+                "answer": "Yes.",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "like what?",
+                "answer": "Grass, clovers, leaves, and vines.",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "who was worried?",
+                "answer": "The other dragons.",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "were they afraid he might get hurt?",
+                "answer": "Yes.",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "did Sean agree?",
+                "answer": "No.",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "who did Sean visit?",
+                "answer": "Zarah.",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "what did he see when visiting Zarah?",
+                "answer": "A piece of green in a golden necklace.",
+                "annotations": null
+            }
+        }
+    },
+    "336kav9kyqs1yr11lf9606shu0wy2a": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "How old is Catherine?",
+                "answer": "54"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "where does she live?",
+                "answer": "Sweden",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Who is Tom?",
+                "answer": "a dog",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Who provides care for its people?",
+                "answer": "the government",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "is it expensive?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "How do they afford it?",
+                "answer": "owners offer health and even life _ for their dog.",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Are there taxes on most things in Sweden?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "even dogs?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "how much?",
+                "answer": "500 Swedish kronor",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "what is that money used for?",
+                "answer": "dog hospitals and sometimes medical treatment",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What happens if a dog is hit by a car?",
+                "answer": "the owner, has to pay for any damage done to the car,",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "but what if the dog is killed?",
+                "answer": "even if your dog has been killed in the accident.",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "What does Catherine do for work?",
+                "answer": "secretary",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Does Tom bother most people?",
+                "answer": "No",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What does she consider Tom as?",
+                "answer": "fourth child",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "is treatment for a dog expensive?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "Does Tom buy his own food?",
+                "answer": "No",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "HOw many children does she have besides tom?",
+                "answer": "Three",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "Does he go to the office with her?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "how about shopping?",
+                "answer": "Yes",
+                "annotations": null
+            }
+        }
+    },
+    "33fbrbdw6ozzh32l540id6d1c6t8cp": {
+        "number_of_turns": 16,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What does BFF stand for?",
+                "answer": "Best Friends Forever"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Who is Eddie's BFF?",
+                "answer": "Milo",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "How old is he?",
+                "answer": "six",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "How are they special?",
+                "answer": "they're dogs",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Were they new BFFs?",
+                "answer": "no",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Did one of them start to lose their hearing?",
+                "answer": "no",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "What did he lose?",
+                "answer": "his eyesight.",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "How could they tell this was happening?",
+                "answer": "he was walking into walls",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Did he bump anything else?",
+                "answer": "dustbins",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Did his best buddy decide to let him figure things out himself?",
+                "answer": "no",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What did he do instead?",
+                "answer": "became his guide dog",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Who owned the two?",
+                "answer": "Angie Baker",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "What did she realize?",
+                "answer": "how much Eddie depended on his friend",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Does she take them for runs?",
+                "answer": "no",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What would they take instead?",
+                "answer": "walks",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Did their human mom get them only a few years ago?",
+                "answer": "no",
+                "annotations": null
+            }
+        }
+    },
+    "34bbwhlwhab1k7k3vhca2pei8rowil": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who is a reformed rider?",
+                "answer": "David Millar"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Who has tainted legacies?",
+                "answer": "Lance Armstrong",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What did they win?",
+                "answer": "Tour de France champions",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Who else?",
+                "answer": "Jan Ulrich",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What do they cast?",
+                "answer": "dark shadow",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Where was David sitting in the past?",
+                "answer": "Biarritz restaurant",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "How long ago?",
+                "answer": "nine years",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Where was the restaurant?",
+                "answer": "west France",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Who was he having dinner with?",
+                "answer": "Dave Brailsford",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Who is that now?",
+                "answer": "performance director at British Cycling and Team Sky",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Who arrived there?",
+                "answer": "French police",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "What did they do?",
+                "answer": "arrest the cyclist,",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Why?",
+                "answer": "outing him as a drugs cheat",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Did they ban him?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "For how long?",
+                "answer": "two years",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Did he return?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "Where was he born?",
+                "answer": "Malta",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "Where does he live?",
+                "answer": "England and Hong Kong",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "What is his ethnicity?",
+                "answer": "Scot",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "Did he turn into a doper?",
+                "answer": "Yes",
+                "annotations": null
+            }
+        }
+    },
+    "35gmh2sv3ehhzt9f8cv90g34dzqeow": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "who played a prank?",
+                "answer": "Tom"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "on who?",
+                "answer": "William",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "who asks him about it?",
+                "answer": "Sam",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "what did Sam ask?",
+                "answer": "What did you do to him?",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What did Tom do?",
+                "answer": "Put an advertisement of pills on his back",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "what else?",
+                "answer": "and some other ads in his text books",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "did William notice?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "did he look angry when he was approaching?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "what was he doing?",
+                "answer": "approaching with long strides",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "and what else?",
+                "answer": "he was shaking his other fist wrathfully",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "did he know who did it?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "why couldn't he speak well?",
+                "answer": "he was so full of wrath he could not speak",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "what did he say?",
+                "answer": "Tom Rover, you've--er--insulted me!",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "what else?",
+                "answer": "\"You've humiliated me before the whole class! I'll--I'll----\"",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "what was Tom's reply?",
+                "answer": "Take a cough drop and clear your throat Billy,",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "what was the advertisement for?",
+                "answer": "Gumley's Red Pills",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "what did the advertisement say about them?",
+                "answer": "\"'Gumley's Red Pills for Red-Blooded People,'\"",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "what happened to the guy in Rottenberg?",
+                "answer": "he was flat on his back with half a dozen fatal diseases",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "How long was he to live?",
+                "answer": "three days,",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "did the Gumley's pills save him?",
+                "answer": "yes",
+                "annotations": null
+            }
+        }
+    },
+    "35l9rvqfcoiow8keuzfokps6n55huz": {
+        "number_of_turns": 14,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "what type of watercraft was it?",
+                "answer": "canoe"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "where did it go?",
+                "answer": "the mouth of the river",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "did it get there right away?",
+                "answer": "no",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "when did it?",
+                "answer": "the third day",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "was it morning?",
+                "answer": "no",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "was it because it was far?",
+                "answer": "no",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "then why?",
+                "answer": "the obstacles in the way",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "what location were they coming close to?",
+                "answer": "the place where Gershom had left his wife and sister",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "what was detected?",
+                "answer": "signs of an interest in the welfare of them",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "and what else?",
+                "answer": "uneasiness",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "was he comfortable leaving them alone?",
+                "answer": "no",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "why?",
+                "answer": "the situation was exposed",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "who is le Bourdon's companion?",
+                "answer": "Whiskey Centre",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "where is smoking coming from?",
+                "answer": "the chiente",
+                "annotations": null
+            }
+        }
+    },
+    "35ldd5557a4wlqgdrirz67r42w6km6": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who was wanted to get somewhere?",
+                "answer": ". Uncle John"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Where did he want to go?",
+                "answer": "Rome and Venice,",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What did Mr. Watson do?",
+                "answer": "urged them to visit Syracus",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Why?",
+                "answer": "since they were not likely to return to Sicily again",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What did they canvas?",
+                "answer": "their future travels",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "How?",
+                "answer": "considerable earnestness.",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "What was a few hours away from Taormina?",
+                "answer": "most famous of all the ancient historic capitals w",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "How long did they decide to stay in Syracuse?",
+                "answer": "a week",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Who pleaded?",
+                "answer": "Kenneth",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What did he want?",
+                "answer": "one more day",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "To do what?",
+                "answer": "to finish his picture of Etna",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Did Uncle John confess?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "What was he feeling?",
+                "answer": "Uneasy",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Did Mr. Watson advise them?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "Who might try to entrap them?",
+                "answer": "Il Duca",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Who visited them?",
+                "answer": "the duke",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "When?",
+                "answer": "the enxt day",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "What was he dressed in?",
+                "answer": "his usual faded velvet costume",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "Who wore a gray gown?",
+                "answer": "Tato",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "Who caught her rapturously?",
+                "answer": "patsy",
+                "annotations": null
+            }
+        }
+    },
+    "374tnbha8bviqa3mnqz7woqk90aqy3": {
+        "number_of_turns": 11,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "who had 3 home runs ?",
+                "answer": "Pablo Sandoval"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "for what team ?",
+                "answer": "San Francisco Giants",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "was this the super bowl ?",
+                "answer": "no",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "what was it ?",
+                "answer": "the World Series",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Barry Zito gave up what ?",
+                "answer": "just one run",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "who is Justin Verlander ?",
+                "answer": "Tigers pitching ace",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "what did Babe Ruth do ?",
+                "answer": "Homered three times in one World Series game, twice",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "who else did this ?",
+                "answer": "Reggie Jackson",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "who has been swinging the bat well",
+                "answer": "Sandoval",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "who said that ?",
+                "answer": "His manager",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "what happened in the 5th ?",
+                "answer": "Sandoval added another home run off Al Alburquerque",
+                "annotations": null
+            }
+        }
+    },
+    "37m28k1j0qd08516cu1iw1wrtkcajw": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What time of year was it?",
+                "answer": "not far past the middle of September"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "how was the weather?",
+                "answer": "extremely cold",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What time did they reach the destination?",
+                "answer": "nearly one o'clock",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "What did she need to do first?",
+                "answer": "enter the house",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "and then?",
+                "answer": "introduce herself",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "What was she doing there?",
+                "answer": "to teach her children",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Who's children?",
+                "answer": "Mrs. Bloomfield's",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "How many?",
+                "answer": "four",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Which was known for speaking the truth?",
+                "answer": "Tom",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Does the story tell you who the youngest was?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "who?",
+                "answer": "Harriet",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Who is six?",
+                "answer": "Mary Ann",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "and seven?",
+                "answer": "Tom",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Whos bed is going to be in her room?",
+                "answer": "Mary Ann",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "How old was this teacher?",
+                "answer": "near nineteen",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "What held her attention on the meal?",
+                "answer": "the toughness of the beefsteaks",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "Where did they dine?",
+                "answer": "the dining-room",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "Who dined together?",
+                "answer": "the girl, while Mrs. Bloomfield watched",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "HAs Mrs. Bloomfield been putting in a lot of time teaching the children?",
+                "answer": "no",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "Does she think they are unwilling to learn?",
+                "answer": "no",
+                "annotations": null
+            }
+        }
+    },
+    "39gaf6dqwr0d5co0x0m8ooeiklzv1g": {
+        "number_of_turns": 13,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "who funds MedlinePlus?",
+                "answer": "the NLM"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "what other site do they offer that has consumer health info?",
+                "answer": "MedlinePlus",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "is there any other site that they offer?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "name one",
+                "answer": "PubMed Health",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "what links patients EHR to related MedlinePlus info?",
+                "answer": "MedlinePlus Connect",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "as of 2015 how many people around the world use MedlinePlus?",
+                "answer": "about 400 million people\\",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "how many languages is it offered in?",
+                "answer": "Two",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "what are the languages?",
+                "answer": "English and Spanish",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "is MedlinePlus optimized for mobile?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "what is the cost to end users?",
+                "answer": "it is free",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "when was it introduced?",
+                "answer": "in October 1998",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "by who?",
+                "answer": "The National Library of Medicine",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "what service is it similar to?",
+                "answer": "WebMD",
+                "annotations": null
+            }
+        }
+    },
+    "39gxdjn2otevgc8lwlvn3y1qxc9v89": {
+        "number_of_turns": 15,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "How many friends were there?",
+                "answer": "Three"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Where did they live?",
+                "answer": "England.",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Did they all live in different cities there?",
+                "answer": "No",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "What did they do on their school break?",
+                "answer": "Went to a lake.",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What did they do there?",
+                "answer": "Fished",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "From the shore?",
+                "answer": "No",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "What did they use?",
+                "answer": "A boat.",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Did they search all day for a good spot to no avail?",
+                "answer": "No.",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Was the spot they found a good spot to cast their lines?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "How come?",
+                "answer": "there were a lot of fish.",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Who suggested making the spot easy to return to?",
+                "answer": "Bruce",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Who was in agreement?",
+                "answer": "Bruno",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Who was angry over the plan?",
+                "answer": "Dick",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "What did he want to do instead?",
+                "answer": "Stay out.",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "Would this be a problem if it were a clear night?",
+                "answer": "No",
+                "annotations": null
+            }
+        }
+    },
+    "39u1bhvtdlru2nyqf90cbz5ukfdt3v": {
+        "number_of_turns": 13,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Why is Lisa excited?",
+                "answer": "Saturday, Whiskers turns two"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Who is Whiskers?",
+                "answer": "a cat",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What does it look like?",
+                "answer": "black with a white spot",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Where did she rush on Friday?",
+                "answer": "the pet store",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "For what?",
+                "answer": "to buy presents",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "What did she get last year?",
+                "answer": "a play mouse",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "anything else?",
+                "answer": "a blue feather",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What about this birthday?",
+                "answer": "a ball of yarn",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "What else?",
+                "answer": "a bowl",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "whats on the bowl?",
+                "answer": "a picture",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "of what?",
+                "answer": "a black cat",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Does it match Whiskers?",
+                "answer": "definitely",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Where does this cat sleep?",
+                "answer": "on her favorite chair",
+                "annotations": null
+            }
+        }
+    },
+    "3a0ex8zrn8ovm41x482h1zvlof2by0": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "When did Germany become a nation state?",
+                "answer": "In 1871"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What years were the German Revolution?",
+                "answer": "1918\u201319.",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "After that event, What was the Empire replaced by?",
+                "answer": "Weimar Republic.",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "When did the Nazi seizure of power happen?",
+                "answer": "In 1933",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Did this lead to the establishment of Nazi Germany?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "What was that built upon?",
+                "answer": "A dictatorship",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "How many events did that cause?",
+                "answer": "Two.",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What was the first one?",
+                "answer": "World War II",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "And the second?",
+                "answer": "The Holocaust.",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "How many states were established after World War II?",
+                "answer": "Two",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What were they?",
+                "answer": "West Germany and East Germany.",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Which one was democratic?",
+                "answer": "West Germany",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "What year did communism end?",
+                "answer": "1989",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "When was the country brought back together?",
+                "answer": "3 October 1990.",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "Since what time period have Germanic tribes been in parts of Germany?",
+                "answer": "Since classical antiquity.",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Was there a recorded region before 100 AD?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "What was it called?",
+                "answer": "Germania",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "Where did the tribes branch out to in the migration period?",
+                "answer": "Southward.",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "What is the official name of Germany?",
+                "answer": "Federal Republic of Germany,",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "What is Germany's capital?",
+                "answer": "Berlin",
+                "annotations": null
+            }
+        }
+    },
+    "3befod78w6tb7ora6q4jzq284yi4md": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What did the man throw?",
+                "answer": "His shoes."
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What was his name?",
+                "answer": "Muntadhar al-Zaidi",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Was he arrested?",
+                "answer": "Yes.",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Who did he throw his shoes at?",
+                "answer": "George W. Bush",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Is he still president?",
+                "answer": "No.",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Has the al-Zaidi been released?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Where did he arrive?",
+                "answer": "Damascus",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Does he have any siblings?",
+                "answer": "Yes.",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "How many?",
+                "answer": "Unknown.",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Did he need medical attention?",
+                "answer": "Yes.",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Where did he get it?",
+                "answer": "Greece.",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "How did he get there?",
+                "answer": "In a private plane.",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Why did he need it?",
+                "answer": "He was beaten.",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "With what?",
+                "answer": "With cables and pipes.",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "How long was his sentence?",
+                "answer": "One year.",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Did he serve the whole year?",
+                "answer": "No.",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "Did he regret his choice?",
+                "answer": "No.",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "How many shoes did he throw?",
+                "answer": "Two.",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "Why was he released early?",
+                "answer": "For good behavior.",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "Does he consider himself a hero?",
+                "answer": "No.",
+                "annotations": null
+            }
+        }
+    },
+    "3bv8hq2zzw1okamzsb7tnxrm7kfa6p": {
+        "number_of_turns": 12,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who was born in Mexico but not raised there?",
+                "answer": "Lupita Nyong'o"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What movie was her breakout role in?",
+                "answer": "\"12 Years A Slave.",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Where was she raised?",
+                "answer": "Kenya",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "What did her dad do?",
+                "answer": "He is a politician.",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What else did he do?",
+                "answer": "He was a professor",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Of what?",
+                "answer": "Political science",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "When did she return to Mexico?",
+                "answer": "At 16",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Why?",
+                "answer": "To learn Spanish",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "What city did she grow up in?",
+                "answer": "Nairobi",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What was she nominated for?",
+                "answer": "An Oscar",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "For what?",
+                "answer": "Best Actress in a Supporting Role.",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "What was her character's name?",
+                "answer": "Patsey",
+                "annotations": null
+            }
+        }
+    },
+    "3c2nj6jbkah7msxned0vjquaqh12nz": {
+        "number_of_turns": 19,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who uses snakes to save lives?",
+                "answer": "Howie Choset"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "How old is he?",
+                "answer": "37",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Does he teach?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Where?",
+                "answer": "Carnegie Mellon",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What does he make?",
+                "answer": "robots",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Why?",
+                "answer": "To help victims",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "What is Robotics Trends?/",
+                "answer": "a company",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What does it do?",
+                "answer": "publishes an online industry magazine",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Where is it based?",
+                "answer": "Northboro",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Which state?",
+                "answer": "Massachusetts",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Does it have a president?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Who is it?",
+                "answer": "Dan Kara",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "What are the machines controlled by?",
+                "answer": "a joystick",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Do they move smoothly?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What are servos?",
+                "answer": "small electric motors",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Who else uses them?",
+                "answer": "hobbyists",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "What are the robots built from?",
+                "answer": "lightweight materials",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "How big are they?",
+                "answer": "No",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "Do they know which way is up?",
+                "answer": "Yes",
+                "annotations": null
+            }
+        }
+    },
+    "3c2nj6jbkah7msxned0vjquaqmkn2d": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What type of leader is Mohammad Najafi?",
+                "answer": "an industry leader"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What does he supply?",
+                "answer": "auto parts",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What is one kind of part he supplies?",
+                "answer": "springs",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "How many of those each year?",
+                "answer": "three million",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What is another part he supplies?",
+                "answer": "break-pads",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "How many of those?",
+                "answer": "one million",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Who does he supply to?",
+                "answer": "Iranian auto makers",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "How long ago did he start this?",
+                "answer": "A little over 26 years ago",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Is he successful?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What has that earned him?",
+                "answer": "seats",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "To where?",
+                "answer": "Chamber of Commerce",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Where else?",
+                "answer": "the board of directors of the Iranian Auto Parts Manufacturers Association",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "What had that done for him?",
+                "answer": "made him a leading voice",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "In what?",
+                "answer": "Iran's efforts to re-energize its struggling economy",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What has he been paying attention to lately?",
+                "answer": "recent negotiations",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "With whom?",
+                "answer": "world powers",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "On what?",
+                "answer": "Iran's nuclear program",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "Has he shared his thoughts with anyone about that?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "With whom?",
+                "answer": "Reza Sayah",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "What news outlet is he with?",
+                "answer": "CNN",
+                "annotations": null
+            }
+        }
+    },
+    "3ctoc39k37qip3385rpymau1s9p7jf": {
+        "number_of_turns": 15,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "what is the highest location in Lawrence?",
+                "answer": "Mount Oread"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "when was kansas made the 34th state?",
+                "answer": "1861",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "is KU a private university?",
+                "answer": "No",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "when was it founded?",
+                "answer": "1865",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "how many members are in the Association of American Universities?",
+                "answer": "62",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "does that inlcude KU?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "how many places do they have branch campuses?",
+                "answer": "five",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "where is the main campus?",
+                "answer": "Lawrence",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "who granted their charter?",
+                "answer": "Kansas State Legislature",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "when?",
+                "answer": "in 1864",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "where is the Edwards Campus?",
+                "answer": "in Overland Park",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "what sites are in Parsons?",
+                "answer": "research sites",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "did Kansas have its own civil war?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "what year did that happen?",
+                "answer": "during the 1850s",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "what is it referred to as?",
+                "answer": "Bleeding Kansas",
+                "annotations": null
+            }
+        }
+    },
+    "3di28l7yxaew312e2axyokqwkq31en": {
+        "number_of_turns": 14,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who was groaning?",
+                "answer": "Bathurst"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Why was he upset?",
+                "answer": "He wanted to be killed",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Who did he think was still alive?",
+                "answer": "Isobel",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Where was she?",
+                "answer": "In the boat",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "How many women were on it?",
+                "answer": "Three",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Were they together?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "What had they done when they were threatened?",
+                "answer": "Screamed",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Who posed a danger to those people?",
+                "answer": "The natives",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "What were they about to do?",
+                "answer": "Murder those who were with them",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "With what?",
+                "answer": "Muskets",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Were they pointed at her?",
+                "answer": "No",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Why did he think they weren't?",
+                "answer": "She would not have screamed",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "In light of what happened, how was he feeling?",
+                "answer": "confident",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "What time of day was it?",
+                "answer": "About an hour before the comes up",
+                "annotations": null
+            }
+        }
+    },
+    "3e47sobeyqws69eyeqc9qv7fghdcib": {
+        "number_of_turns": 12,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "who did not want to let down fans ?",
+                "answer": "Isner"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "was it his 2nd match since Wimbledon ?",
+                "answer": "no",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "what is the correct answer ?",
+                "answer": "first tournamentck",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "who has a house hold name ?",
+                "answer": "Isner",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "what sport is this about ?",
+                "answer": "competitive tennis",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "who was firing 33 aces ?",
+                "answer": "Isner",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "how long did it take ?",
+                "answer": "two-and-a-half hours",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "how many people were there ?",
+                "answer": "5,000",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "he had a lot of what there ?",
+                "answer": "friends and family",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "iiiiiiiiiiis that why he did not want to go down ?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "the Tennis games were held where ?",
+                "answer": "Atlanta",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "whos from Luxembourg ?",
+                "answer": "Gilles Muller",
+                "annotations": null
+            }
+        }
+    },
+    "3ejjqnku9r5wggsxq5kjfe5mfyrrhe": {
+        "number_of_turns": 16,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who was the princess?",
+                "answer": "Janet"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Was she unattractive?",
+                "answer": "no",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What did she want to do?",
+                "answer": "wed a prince named Harold",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Did Harold have siblings?",
+                "answer": "three sisters",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What are their names?",
+                "answer": "Tammy, Jenny, and Clarice",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Did they like the princess?",
+                "answer": "Tammy and Jenny liked Janet, but Clarice didn't",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Was there any violence?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "what was the act?",
+                "answer": "Clarice threw a shoe at Janet",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "What was the consequence for that?",
+                "answer": "the shoe hit Harold instead",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "was there a payback for that incident?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What was it?",
+                "answer": "She cut off her hair one night",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Did the couple ever tie the knot?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Where did the couple reside afterward?",
+                "answer": "the castle",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Whose hair was cut off?",
+                "answer": "Clarice",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "And who did it?",
+                "answer": "Janet",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Why was she upset about her hair being cut?",
+                "answer": "she wanted her hair to be long",
+                "annotations": null
+            }
+        }
+    },
+    "3eret4btvm9he6xj29nu1llk20nk91": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Which port was home to the Titanic?",
+                "answer": "Liverpool"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Was the Queen Mary registered there as well?",
+                "answer": "Yes.",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What other famous ships have called it home?",
+                "answer": "Lusitania and Olympic",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "What estuary lies to its west?",
+                "answer": "Mersey Estuary",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Before 1889, what county was it a part of?",
+                "answer": "Lancashire",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "What ancient hundred does it lie in?",
+                "answer": "West Derby",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Did it become a borough and a city at the same time?",
+                "answer": "No.",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Which occurred first?",
+                "answer": "It became a borough first.",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "When was that?",
+                "answer": "1207",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "When did it gain city status?",
+                "answer": "1880",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What happened that sped up the growth of the city?",
+                "answer": "Its growth as a major port .",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "What was going on that caused that?",
+                "answer": "The Atlantic slave trade.",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Did any raw materials go through the port?",
+                "answer": "Yes.",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Name one of the materials.",
+                "answer": "Coal.",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What would be another example?",
+                "answer": "Cotton",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "If I were Irish in the 1800s and going to America, what port would I likely leave from?",
+                "answer": "Liverpool",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "What part of England is it in?",
+                "answer": "North West",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "Does the city itself have over a million inhabitants?",
+                "answer": "No.",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "What about the metropolitan area?",
+                "answer": "Yes.",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "How many metropolitan areas in the UK are larger?",
+                "answer": "Four.",
+                "annotations": null
+            }
+        }
+    },
+    "3gdtjdapvubcqpecituwg2id7wk8mj": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who led the Bolsheviks?",
+                "answer": "Vladimir Lenin,"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What did they overthrow?",
+                "answer": "Russian Provisional Government",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Which had replaced the rule of whom?",
+                "answer": "Tsar Nicholas II",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "When did the overthrow occur?",
+                "answer": "1917,",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Who succeeded Lenin?",
+                "answer": "Joseph Stalin",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "When?",
+                "answer": "the mid-1920s.",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "When was the Great Purge?",
+                "answer": "the mid-1930s",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "True or False: Stalin tolerated political criticism.",
+                "answer": "false",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "What did he cause in 1933?",
+                "answer": "a major famine",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Where?",
+                "answer": "Soviet Ukraine,",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "For how many deaths there was he basically responsible?",
+                "answer": "f over 7 million people.",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Did the Soviet Union have nuclear weapons?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "How many other states had them?",
+                "answer": "four others",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "What does USSR stand for?",
+                "answer": "Union of Soviet Socialist Republics",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What was the Russian version of this acronym?",
+                "answer": "\u0421\u0421\u0421\u0420",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "True or False: The USSR was a two-party state.",
+                "answer": "false",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "What party did they have?",
+                "answer": "governed by the Communist Party",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "What was the capital of the USSR?",
+                "answer": "Moscow",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "Name another major city of the USSR.",
+                "answer": "Minsk",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "And another?",
+                "answer": "Leningrad",
+                "annotations": null
+            }
+        }
+    },
+    "3i2pta7r3tun65e5jbygngb9c04kq0": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What does being in the top 10% of your high school class get you?",
+                "answer": "automatic admission"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "To where?",
+                "answer": "at the university",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Which one?",
+                "answer": "University of Texas",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Where do whites rank on the SAT?",
+                "answer": "89th percentile",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Asians?",
+                "answer": "93rd percentile",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Hispanics",
+                "answer": "80th percentile",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Blacks?",
+                "answer": "52nd percentile",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What system is to blame for this difference?",
+                "answer": "K-12 school system.",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Who is taking their case to The Supreme Court?",
+                "answer": "Abigail Fisher",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Who is she suing?",
+                "answer": "University of Texas",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What does she feel made her a victim?",
+                "answer": "race-conscious admission policies",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "What race is she?",
+                "answer": "white",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "How does the university feel about their policy?",
+                "answer": "is educationally enriching",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "How many justices will participate in this case?",
+                "answer": "eight",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "Who's they ninth judge?",
+                "answer": "Elena Kagan",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "What happened to her?",
+                "answer": "bowed out",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "Was she previously involved in this case?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "During what?",
+                "answer": "during Obama administration",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "What was her job?",
+                "answer": "solicitor general",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "Without her how many will doubt the policy?",
+                "answer": "five",
+                "annotations": null
+            }
+        }
+    },
+    "3io1lgzlk9xa1mtkvdnfr6lrhv2682": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What's the french version's address?",
+                "answer": "(slate.fr)"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "when was it started?",
+                "answer": "February 2009",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "how many people started it",
+                "answer": "four",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "what was their jobs?",
+                "answer": "journalists,",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "anything else?",
+                "answer": "Jacques Attali was an economist",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "how many main topics does the US version cover?",
+                "answer": "three",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "name 1",
+                "answer": "politics",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "and?",
+                "answer": "culture",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "what's it's point of view?",
+                "answer": "a liberal perspective",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "when was it started?",
+                "answer": "in 1996",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "is it a hard copy paper?",
+                "answer": "no",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "who launched it?",
+                "answer": "Michael Kinsley",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "what was his previous job?",
+                "answer": "editor of New Republic",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "who was it's first owner?",
+                "answer": "Microsoft as part of MSN.",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "when was it bought?",
+                "answer": "On December 21, 2004",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "who bought it?",
+                "answer": "by The Washington Post Company",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "what did that change it's name to?",
+                "answer": "the Graham Holdings Compan",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "how many years had it been managed by The Slate Group?",
+                "answer": "Since June 4, 2008 so 10",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "where is it based?",
+                "answer": "in New York City",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "any other offices?",
+                "answer": "yes",
+                "annotations": null
+            }
+        }
+    },
+    "3jjvg1ybebxxkgrdt6xkq2xss4y5b1": {
+        "number_of_turns": 12,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "DId the boy have a pet?",
+                "answer": "yes"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What kind?",
+                "answer": "a dog",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What was it called?",
+                "answer": "Ruffles",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "What did the mother make him do?",
+                "answer": "lick Douglas",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Why?",
+                "answer": "To get Douglas up",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Did he do the same thing to wake him up another time?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Where?",
+                "answer": "the face",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "And where were they?",
+                "answer": "The game",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "What kind of game?",
+                "answer": "soccer",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Who took them there?",
+                "answer": "His Mom",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "And who won it?",
+                "answer": "the Dolphins",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Which player helped them do that?",
+                "answer": "Douglas",
+                "annotations": null
+            }
+        }
+    },
+    "3kxir214i4gl0knhw8lzkhoaz9342l": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "what what age did her husband die ?",
+                "answer": "75"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "what did the children think ?",
+                "answer": "suggested that she move",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "to where ?",
+                "answer": "Senior living community",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "what is her name ?",
+                "answer": "Thelma",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "how many things best decribes her ?",
+                "answer": "Four",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "name 2",
+                "answer": "life-loving and easy-going",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "and never felt what ?",
+                "answer": "sad",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "what happened at 80 ?",
+                "answer": "surprise birthday party",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "who did this for her ?",
+                "answer": "her new friends",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "why ?",
+                "answer": "showed their appreciation",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "the night was filled with how many things ?",
+                "answer": "Two",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "name one ?",
+                "answer": "entertainment",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "another ?",
+                "answer": "laughter",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "how many times did she get married ?",
+                "answer": "Four",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "who really asked her that question ?",
+                "answer": "gentleman",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "at the end of the party what happened ?",
+                "answer": "rose from her seat",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "what did she say ?",
+                "answer": "Pardon",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "did they get married ?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "thelma entered what room ?",
+                "answer": "dining room",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "for what ?",
+                "answer": "dinner",
+                "annotations": null
+            }
+        }
+    },
+    "3m0nz3jdp1yt2eutzkdnck4vjynz5m": {
+        "number_of_turns": 15,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "who is Susan Boyle ?",
+                "answer": "TV talent show star"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "who will she sing for ?",
+                "answer": "Pope Benedict XVI",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "who said this ?",
+                "answer": "the Catholic Church",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "where ?",
+                "answer": "in Scotland",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "is he due to visit china ?",
+                "answer": "no",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "where will he visit ?",
+                "answer": "England and Scotland",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "when ?",
+                "answer": "September 16-19",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "how many times will she perform ?",
+                "answer": "three",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "at what park ?",
+                "answer": "Bellahouston Park",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "in chicago ?",
+                "answer": "no",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "where ?",
+                "answer": "Glasgow",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "when did Pope John Paul II visit ?",
+                "answer": "1982",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "where is the pope flying to ?",
+                "answer": "London",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "what will boyle sing ?",
+                "answer": "farewell song",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "the 16th of September will stand out in my memory in what way ?",
+                "answer": "as something I've always wanted to do",
+                "annotations": null
+            }
+        }
+    },
+    "3of2m9aatgowkxfw67hte9ndh4tkz0": {
+        "number_of_turns": 11,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "How old is he?",
+                "answer": "12-year"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Is he good at anything?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What is he good at?",
+                "answer": "sports",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Does he like it?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What else does he want to know how to do?",
+                "answer": "skating",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "is he allowed?",
+                "answer": "no",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "why not?",
+                "answer": "to do his homework",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Who meets him for his excursion?",
+                "answer": "his father",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Does he want him to?",
+                "answer": "do his homework",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What do they do on their way?",
+                "answer": "sees some boys skating",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "do they get something to consume?",
+                "answer": "yes",
+                "annotations": null
+            }
+        }
+    },
+    "3qjoxow4xjrtzqo3vwgw8cezi27mer": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What is Anna's rank?",
+                "answer": "83rd"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Who she beat?",
+                "answer": "Ashleigh Barty",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What was the score?",
+                "answer": "6-2 7-6 (7-4)",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Who she will be playing next?",
+                "answer": "Wozniacki",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What is her rank?",
+                "answer": "No. 1",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Who she played first?",
+                "answer": "Anastasia Rodionova",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "When?",
+                "answer": "Monday",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What was the score?",
+                "answer": "6-2 6-1",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "What tournament is this?",
+                "answer": "The Australian Open",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Who were finalists the previous year?",
+                "answer": "Kim Clijsters and Li Na",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Who is joining them in the second round?",
+                "answer": "Caroline Wozniacki",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Who was former top ranked player?",
+                "answer": "Clijsters",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Did she have a good start?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Who did she play?",
+                "answer": "Maria Joao Koehler",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What was the score?",
+                "answer": "7-5 6-1",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Who is France's top ranked player?",
+                "answer": "unknown",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "Who is the 11th seed?",
+                "answer": "The Belgian",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "Will she continue playing?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "Who had to leave the tournament?",
+                "answer": "unknown",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "Who talked to WTA?",
+                "answer": "Caroline Wozniacki",
+                "annotations": null
+            }
+        }
+    },
+    "3quo65dnquoyop61ycae4yp7zexuoo": {
+        "number_of_turns": 11,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "do genes evolve?",
+                "answer": "Yes"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "what are polygenes?",
+                "answer": "many different genes",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "are all genetic traits visible?",
+                "answer": "No",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "can genes mutate?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "what are different variants of genes called?",
+                "answer": "alleles",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "how many specific genetic traits are named?",
+                "answer": "Five",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "what is a locus also called?",
+                "answer": "Region",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "is eye color visible?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "is blood type visible?",
+                "answer": "No",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "are genes related to DNA?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "what is a gene?",
+                "answer": "DNA that encodes a functional RNA or protein product",
+                "annotations": null
+            }
+        }
+    },
+    "3qxnc7eipivf1gqfygdci16bnvn90b": {
+        "number_of_turns": 13,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "How many children were there?",
+                "answer": "Four."
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What was John's favorite color?",
+                "answer": "Blue.",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "And Jack's?",
+                "answer": "Red.",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Jenny's?",
+                "answer": "Purple .",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "And Alice's?",
+                "answer": "Yellow.",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Where'd they walk?",
+                "answer": "Along the road",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Who had trouble finding their favorite color?",
+                "answer": "John.",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Where'd he look?",
+                "answer": "Along the road and by the stream.",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Where they all siblings?",
+                "answer": "Yes.",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Who'd they give them to?",
+                "answer": "Their mother.",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Where'd John find his flowers?",
+                "answer": "The fence near their home.",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Was their Mom angry?",
+                "answer": "No.",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Where'd she place them?",
+                "answer": "On her kitchen table.",
+                "annotations": null
+            }
+        }
+    },
+    "3suwzrl0mydran3b8g9fjghds2de6u": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "How many NOCs were there in 2016?",
+                "answer": "206"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What does NOC stand for?",
+                "answer": "National Olympic Committee",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "So is there only one NOC per nation?",
+                "answer": "unknown",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Can you name two NOCs?",
+                "answer": "United Nations observer state Palestine and the Cook Islands",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What is one thing an NOC can do?",
+                "answer": "organizing their people's participation in the Olympic Games",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Anything else?",
+                "answer": "They nominate cities within their respective areas as candidates for future Olympic Games",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Is there an entity that controls NOCs?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What is it called?",
+                "answer": "International Olympic Committee",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "How many dependent territories have NOCs?",
+                "answer": "nine",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Was there an amendment to the Olympic Charter?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "When?",
+                "answer": "1996",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Was it good retroactively?",
+                "answer": "no",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Did it have to do with recognition as an independent state?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Could those 9 dependent territories keep participating?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What kind of team does the Faroe Islands send?",
+                "answer": "Paralympic",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "What kind of team does Macau send?",
+                "answer": "Paralympic",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "How many member states does the Uniter Nations have?",
+                "answer": "193",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "Can you name a United Nations observer state?",
+                "answer": "Palestine",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "Do the Cook Islands have something to do with New Zealand?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "What's another name for Taiwan?",
+                "answer": "Chinese Taipei",
+                "annotations": null
+            }
+        }
+    },
+    "3tdxmtx3cbu3qs5x4zz64vf5jpz6ix": {
+        "number_of_turns": 14,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who woke up?",
+                "answer": "Little Tommy"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What was happening?",
+                "answer": "the sun shining and the birds singing",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Who sat outside?",
+                "answer": "a bird",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "What was it's name?",
+                "answer": "Martha",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Did he give her anything?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "What?",
+                "answer": "some bread",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Who did he see next?",
+                "answer": "Sammy",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What was he?",
+                "answer": "a big hairy dog",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Where did they go?",
+                "answer": "fishing",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Where?",
+                "answer": "the fishing hole",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Did he bring anything?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "What?",
+                "answer": "fishing pole, some worms, and a little lunch",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Did they find anything?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "What?",
+                "answer": "a huge green toad.",
+                "annotations": null
+            }
+        }
+    },
+    "3txd01zld4hukwwjfsv5q0j2ixa4ul": {
+        "number_of_turns": 13,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who was excommunicated?",
+                "answer": "Savonarola"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Was he a heretic?",
+                "answer": "no",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Was he superstitious?",
+                "answer": "no",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Why was he excommunicated then?",
+                "answer": "unknown",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Who was inspired by this man?",
+                "answer": "Romola",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Where was the Excommunication published?",
+                "answer": "in the Duomo",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "When?",
+                "answer": "June",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "How long was it published?",
+                "answer": "for some weeks",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "What was Romola looking for?",
+                "answer": "a sign from Baldassarre",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What else was she looking for?",
+                "answer": "sympathy with Savonarola",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What did the summer days bring?",
+                "answer": "Plague",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Who was she alienated from?",
+                "answer": "the Frate",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Did Romola fight the plague?",
+                "answer": "no",
+                "annotations": null
+            }
+        }
+    },
+    "3v26sbztbder9sei68k31obqk4qzz2": {
+        "number_of_turns": 11,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Where did Erin live?",
+                "answer": "England"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Who was her friend?",
+                "answer": "Kevin",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What country did she travel to?",
+                "answer": "United States",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Why?",
+                "answer": "to see the sights",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What cities?",
+                "answer": "New York City",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "How did they feel to see each other?",
+                "answer": "she ran up to him and jumped into his arms, giving him a great big hug",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "What did they end up eating in the morning?",
+                "answer": "pancakes",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Where did they visit in NYC?",
+                "answer": "Empire State building and  the Statue of Liberty and Central Park",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "How did she feel towards the end?",
+                "answer": "sad",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Did she feel better?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What did they come up with?",
+                "answer": "came up with a plan for the months ahead",
+                "annotations": null
+            }
+        }
+    },
+    "3vd82fohkqo22vp1clpeas31spqcoi": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What does NATO stand for",
+                "answer": "The North Atlantic Treaty Organization"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What else can it be called",
+                "answer": "North Atlantic Alliance",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What is it",
+                "answer": "a military alliance",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "between who",
+                "answer": "North American and European states",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "When was it signed",
+                "answer": "4\u00a0April 1949.",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "who are the permanent members of NATO",
+                "answer": "the United States, France and the United Kingdom",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "what power do they have",
+                "answer": "veto",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "do they have nuclear weapons",
+                "answer": "yes",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Where are the headquarters of NATO",
+                "answer": "Haren, Brussels, Belgium",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "where is the ACOs",
+                "answer": "near Mons, Belgium.",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "how many independent countries are in NATO",
+                "answer": "29",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "How many additional for peace program",
+                "answer": "21",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "how many for dialogue",
+                "answer": "15",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "So how many altogether",
+                "answer": "65",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "how much do they spend on military out of all the money",
+                "answer": "over 70%",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "what war led to a rivalry",
+                "answer": "the Cold War",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "with what nations",
+                "answer": "nations of the Warsaw Pac",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "in what year",
+                "answer": "1955",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "Did some of those nations ever join NATO",
+                "answer": "yes",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "In what years",
+                "answer": "1999 and 2004.",
+                "annotations": null
+            }
+        }
+    },
+    "3vhhr074h3hoktr88c1b2p7tv3cl7m": {
+        "number_of_turns": 15,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "who sailed?",
+                "answer": "A man"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What was he in/",
+                "answer": "a small boat.",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "What was the sun doing?",
+                "answer": "rising",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "What did he like  to do?",
+                "answer": "fishing",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Where did he stop the boat?",
+                "answer": "A long way away from the shore",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "What did he put on the hook?",
+                "answer": "some worms",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Did he get a bite?",
+                "answer": "no",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Did he fish for a long time?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "How did the sun move?",
+                "answer": "slowly",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What did he live in?",
+                "answer": "log cabin",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Did he sit by a fire?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "How long did he fih for?",
+                "answer": "all day",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Did he stop fishing easily?",
+                "answer": "no",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Was he hungry?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What did he say about the next day?",
+                "answer": "would be a better day",
+                "annotations": null
+            }
+        }
+    },
+    "3vp0c6efsgwpmbvopexywomm139m6u": {
+        "number_of_turns": 15,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "Who gaped at Hendry?",
+                "answer": "Peter"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "How many daughters were there?",
+                "answer": "five daughters",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Whose man was dead at home?",
+                "answer": "Bell Christison's",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Who were in church?",
+                "answer": "the Auld Lichts",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What were they waiting for?",
+                "answer": "for their minister",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Was everyone there to ask for rain?",
+                "answer": "no",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Who was a simple woman?",
+                "answer": "Meggy Rattray",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What were all the women doing?",
+                "answer": "wondering",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "And what were most of the men?",
+                "answer": "farmers",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What did Hendry Munn do?",
+                "answer": "signed to Peter Tosh",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Who dove for his hat?",
+                "answer": "Peter",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Then where did he go?",
+                "answer": "the vestry",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Was the church full when they were waiting?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Where was Charles Yuill?",
+                "answer": "in his pew",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "Did Bell Christison care how things went?",
+                "answer": "no",
+                "annotations": null
+            }
+        }
+    },
+    "3ydtzai2wxgebz5ld4llfye57zv14z": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What can be recorded and played?",
+                "answer": "Multimedia"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What else can it be",
+                "answer": "interacted with",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Anything else?",
+                "answer": "accessed by information content processing devices",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Who coined the term?",
+                "answer": "Bob Goldstein",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "When?",
+                "answer": "July 1966",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Who is that?",
+                "answer": "a singer and artist",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Where was his show?",
+                "answer": "Southampton, Long Island",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What was the show called?",
+                "answer": "\"LightWorks at L'Oursin\"",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "What is Multimedia?",
+                "answer": "content that uses a combination of different content forms",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What kinds of forms?",
+                "answer": "text, audio, images, animations, video and interactive content.",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What does it contrast with?",
+                "answer": "media that use only rudimentary computer displays",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "What is used to store multimedia?",
+                "answer": "Multimedia devices",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "What is synonymous with interactive multimedia?",
+                "answer": "\"rich media\"",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "Who was Goldstein aware of",
+                "answer": "Dick Higgins",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What did he call his approach?",
+                "answer": "\"intermedia\".",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Was he American?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "Who borrowed the term",
+                "answer": "Richard Albarino",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "What magazine did he write for?",
+                "answer": "\"Variety\"",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "When did he write an article about Bob",
+                "answer": "August 10, 1966,",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "Who was one of Bob's producers?",
+                "answer": "Iris Sawyer",
+                "annotations": null
+            }
+        }
+    },
+    "3z3zlgnnsiuha76yy56h6uu712v3qx": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What grew as a commercial port during the Industrial Revolution?",
+                "answer": "Plymouth"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What is it located on the south coast of?",
+                "answer": "Devon",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "In what country?",
+                "answer": "England",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "What does Plymouth's early history extend to?",
+                "answer": "the Bronze Age",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Where was a first settlement?",
+                "answer": "at Mount Batten",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "What happened in 1620?",
+                "answer": "the Pilgrim Fathers departed Plymouth for the New World and established Plymouth Colony",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Was it the first English settlement?",
+                "answer": "no",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Which number was it?",
+                "answer": "the second",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Who held it during the English Civil War?",
+                "answer": "the Parliamentarians",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "When was it besieged?",
+                "answer": "between 1642 and 1646",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What did the city's naval importance lead to?",
+                "answer": "its targeting and partial destruction during World War II",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "What happened to the city centre after the war?",
+                "answer": "it was completely rebuilt",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "What kind of a trading post was the early Plymouth?",
+                "answer": "it was a trading post for the Roman Empire",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "What village did it get surpassed by?",
+                "answer": "Sutton",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "What is Sutton called today?",
+                "answer": "Plymouth",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "Is Plymouth in England, 38 miles south-west of Exeter?",
+                "answer": "no",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "Which river mouths is it in between?",
+                "answer": "Plym and Tamar",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "Which boundary do the form?",
+                "answer": "Cornwall",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "How many miles is it west-south-west of London?",
+                "answer": "190",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "What kind of exports came from Plymouth?",
+                "answer": "local minerals",
+                "annotations": null
+            }
+        }
+    },
+    "3zpbjo59kp12f69s84pzapoi14bhdo": {
+        "number_of_turns": 14,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What was posted online?",
+                "answer": "an audio message purportedly recorded by Osama bin Laden"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "When did he record the message?",
+                "answer": "shortly before he was killed",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Who posted it?",
+                "answer": "Radical Islamic websites",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "When?",
+                "answer": "Wednesday",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Is the recording in English?",
+                "answer": "no",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Did anyone try translating it?",
+                "answer": "CNN did",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "How does the recording start?",
+                "answer": "with a prayer",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "How long is it?",
+                "answer": "more than 12 minutes",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Is there a marker on the recording indicating the date?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What date was it found to be?",
+                "answer": "between April 4 and May 3",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What else does the message speak of?",
+                "answer": "remarks about anti-government protests and uprisings",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Was bin Laden the only speaker?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "What group released the recording?",
+                "answer": "As-Sahab",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "What is that?",
+                "answer": "al Qaeda's media arm",
+                "annotations": null
+            }
+        }
+    },
+    "3zr9aiqjub9e4ak3hlhl1tvv1xy04j": {
+        "number_of_turns": 13,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What is so special about the pine-tree?",
+                "answer": "It contained a possible bird's nest."
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "What was the bird's nest?",
+                "answer": "Just a little tuft of twigs growing out together.",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Who found the nest?",
+                "answer": "Phonny",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Was anyone with Phonny?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "Who?",
+                "answer": "Malleville",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Are they related?",
+                "answer": "unknown",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "Did they get the nest?",
+                "answer": "No",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Did one of them try?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Who tried?",
+                "answer": "Phonny",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Did he climb the pine-tree?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "How far did he get?",
+                "answer": "To the limb with twigs.",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Did he fall out of the tree?",
+                "answer": "No",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Did Malleville help?",
+                "answer": "No",
+                "annotations": null
+            }
+        }
+    },
+    "3zv9h2yqqd7mu42kae5nyjctpgp3w4": {
+        "number_of_turns": 17,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What did they land on",
+                "answer": "the logs"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Who wanted to walk around",
+                "answer": "Marco",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Who wanted to eat",
+                "answer": "Forester",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Eat what?",
+                "answer": "breakfast",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What kind of ship was it",
+                "answer": "A raft",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "Where was the tavern",
+                "answer": "about a quarter of a mile away",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "From what?",
+                "answer": "the mill",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "Was it good?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Did they go there",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "Who wanted to go there first",
+                "answer": "Forester",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "Who told them about the tavern",
+                "answer": "a fellow passenger",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Did Forester eat a big breakfast",
+                "answer": "No",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Did Marco eat?",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "How did he talk?",
+                "answer": "fast",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "Was Forester feeling ill",
+                "answer": "Yes",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "What did he want to do because of that",
+                "answer": "lie down",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "on what?",
+                "answer": "a sofa",
+                "annotations": null
+            }
+        }
+    },
+    "3zwfc4w1uu7c2k1rvfwjctt90e7rf0": {
+        "number_of_turns": 20,
+        "annotator_id": null,
+        "dialog": {
+            "0": {
+                "turn_num": 0,
+                "original_question": "What can a heart attack symptom feel like?",
+                "answer": "heartburn"
+            },
+            "1": {
+                "turn_num": 1,
+                "original_question": "Which symptom?",
+                "answer": "chest pain",
+                "annotations": null
+            },
+            "2": {
+                "turn_num": 2,
+                "original_question": "Can this pain travel?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "3": {
+                "turn_num": 3,
+                "original_question": "Does it go to the lower part of the body?",
+                "answer": "no",
+                "annotations": null
+            },
+            "4": {
+                "turn_num": 4,
+                "original_question": "What about the jaw?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "5": {
+                "turn_num": 5,
+                "original_question": "The shoulder and arm?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "6": {
+                "turn_num": 6,
+                "original_question": "What is the real name of a heart attack?",
+                "answer": "Myocardial infarction (MI) or acute myocardial infarction (AMI)",
+                "annotations": null
+            },
+            "7": {
+                "turn_num": 7,
+                "original_question": "What disease usually causes this?",
+                "answer": "coronary artery disease",
+                "annotations": null
+            },
+            "8": {
+                "turn_num": 8,
+                "original_question": "Does this involve the blocking of something?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "9": {
+                "turn_num": 9,
+                "original_question": "What?",
+                "answer": "a coronary artery",
+                "annotations": null
+            },
+            "10": {
+                "turn_num": 10,
+                "original_question": "What happens to plaque?",
+                "answer": "it ruptures",
+                "annotations": null
+            },
+            "11": {
+                "turn_num": 11,
+                "original_question": "Which kind of plaque?",
+                "answer": "atherosclerotic plaque",
+                "annotations": null
+            },
+            "12": {
+                "turn_num": 12,
+                "original_question": "Can smoking increase this possibility?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "13": {
+                "turn_num": 13,
+                "original_question": "What can be caused by drug use?",
+                "answer": "MI's are less commonly caused by them",
+                "annotations": null
+            },
+            "14": {
+                "turn_num": 14,
+                "original_question": "Are there tests around for diagnosis?",
+                "answer": "yes",
+                "annotations": null
+            },
+            "15": {
+                "turn_num": 15,
+                "original_question": "How many?",
+                "answer": "a number of them",
+                "annotations": null
+            },
+            "16": {
+                "turn_num": 16,
+                "original_question": "What kind of test is creatine kinase MB",
+                "answer": "a blood test",
+                "annotations": null
+            },
+            "17": {
+                "turn_num": 17,
+                "original_question": "Are women or men more likely to have atypical signs?",
+                "answer": "women",
+                "annotations": null
+            },
+            "18": {
+                "turn_num": 18,
+                "original_question": "How many people have atypical signs?",
+                "answer": "about 30% of people",
+                "annotations": null
+            },
+            "19": {
+                "turn_num": 19,
+                "original_question": "Can being sick to your stomach be one?",
+                "answer": "yes",
+                "annotations": null
+            }
+        }
+    }
+}
